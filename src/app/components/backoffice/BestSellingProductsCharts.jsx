@@ -29,7 +29,7 @@ const data = {
 function BestSellingProducts() {
   return (
     <div className='bg-slate-700 rounded-lg p-8'>
-        <h2 className='text-xl font-bold mb-5'>BestSellingChart</h2>
+        <h2 className='text-xl font-bold mb-5 p-4'>BestSellingChart</h2>
         <div className='p-6'>
         <Pie data={data}/>
         </div>

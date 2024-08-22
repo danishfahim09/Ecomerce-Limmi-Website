@@ -3,6 +3,7 @@ import Heading from '../../components/backoffice/Heading'
 import LargeCard from '../../components/backoffice/LargeCards'
 import SmallCards from '../../components/backoffice/SmallCards'
 import DashbordChats from '../../components/backoffice/DashbordChats'
+import CoustomDataTable from '../../components/backoffice/CoustomDataTable'
 
 function page() {
   return (
@@ -15,6 +16,7 @@ function page() {
       {/* Charts */}
       <DashbordChats/>
       {/* Resent order-Table */}
+      <CoustomDataTable/>
     </div>
   )
 }

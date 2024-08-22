@@ -56,7 +56,7 @@ function WeklySalesChart() {
                 datasets: [
                     {
                         label: 'Sales',
-                        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+                        data: labels.map(() =>faker.number.int({ min: -1000, max: 1000 })),
                         borderColor: 'rgb(255, 99, 132)',
                         backgroundColor: 'rgba(0, 137, 132, 0.5)',
                     }
@@ -71,7 +71,7 @@ function WeklySalesChart() {
                 datasets: [
                     {
                         label: 'Orders',
-                        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+                        data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })),
                         borderColor: 'rgb(0, 132, 132)',
                         backgroundColor: 'rgba(255, 99, 132, 0.5)',
                     }
@@ -83,7 +83,7 @@ function WeklySalesChart() {
 
     return (
         <div className="bg-slate-700 rounded-lg p-8">
-            <h2 className="text-xl font-bold">WeklySalesChart</h2>
+            <h2 className="text-xl font-bold p-4">WeklySalesChart</h2>
             {/**/}
             <div className="p-4">
                 <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
