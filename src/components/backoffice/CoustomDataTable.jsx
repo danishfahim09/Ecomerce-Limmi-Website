@@ -1,10 +1,18 @@
 "use client"
 import React from 'react'
 import { useState } from 'react';
-import data from '../../../../data.json'
+import data from '../../../data.json'
+import { color } from 'chart.js/helpers';
+
+
 
 
 function CoustomDataTable() {
+    const [ColorMode, setColorMode] = useState(true)
+    const [BackGroundColor, setBackGroundColor] = useState('bg-gray-50')
+    const [Color, setColor] = useState('text-gray-700')
+
+
     const arry = [1, 2, 3, 4, 5]
     const Page_Size = 10;
     const [Current_Page, setCurrent_Page] = useState(1);
@@ -15,10 +23,25 @@ function CoustomDataTable() {
     const ItemstartIndex = Start_Index + 1
     const ItemEndIndex = Math.min(Start_Index + Page_Size, data.length)
 
+    const changeHandller = () => {
+        setColorMode(!ColorMode)
+        if (ColorMode) {
+            setBackGroundColor('')
+            setColor('')
+        } else {
+            setBackGroundColor('bg-black')
+            setColor('text-white')
+        }
+    };
+
+
     return (
-        <div className=''>
-            <h2 className='text-xl font-bold mb-5 p-8'>
+        <div className=''onClick={changeHandller}>
+            <h2 className='text-xl font-bold mb-5 p-8' >
                 Data Table
+            </h2>
+            <h2 className=''>
+                Danish
             </h2>
 
             {/*Table*/}

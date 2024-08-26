@@ -10,16 +10,22 @@
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
+    "@radix-ui/react-dropdown-menu": "^2.1.1",
     "chart.js": "^4.4.3",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "faker": "^6.6.6",
     "json": "^11.0.0",
     "lucide-react": "^0.424.0",
-    "next": "14.2.5",
+    "next": "^14.2.6",
+    "next-themes": "^0.3.0",
     "npm": "^10.8.2",
     "react": "^18",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
-    "sass": "^1.77.8"
+    "sass": "^1.77.8",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",

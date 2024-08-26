@@ -59,10 +59,11 @@
   }
 }
 
-
-
-body {
-  max-height: 100vh;
+@layer base {
+  * {
+    @apply yborder-border;
+  }
+  body {
+    @apply ybg-background ytext-foreground;
+  }
 }
-
-
