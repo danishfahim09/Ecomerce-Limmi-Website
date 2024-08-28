@@ -44,19 +44,20 @@ function WeklySalesChart() {
 
     const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
-   
+
 
 
     const tabs = [
         {
+            id: 1,
             tittle: "Sales",
             type: "sales",
-            data:{
+            data: {
                 labels,
                 datasets: [
                     {
                         label: 'Sales',
-                        data: labels.map(() =>faker.number.int({ min: -1000, max: 1000 })),
+                        data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })),
                         borderColor: 'rgb(255, 99, 132)',
                         backgroundColor: 'rgba(0, 137, 132, 0.5)',
                     }
@@ -64,9 +65,10 @@ function WeklySalesChart() {
             }
         },
         {
+            id: 2,
             tittle: "Order",
             type: "order",
-            data:{
+            data: {
                 labels,
                 datasets: [
                     {
@@ -108,9 +110,11 @@ function WeklySalesChart() {
                 </div>
                 {tabs.map((tab, i) => {
                     if (ChartTodoDisplay === tab.type) {
-                        return (<>
-                            <Line options={options} data={tab.data} />
-                        </>)
+                        return (
+                                <div key={i}>
+                                    <Line options={options} data={tab.data} />
+                                </div>                          
+                        )
                     }
                     return null
                 })}

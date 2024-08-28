@@ -8,10 +8,6 @@ import { color } from 'chart.js/helpers';
 
 
 function CoustomDataTable() {
-    const [ColorMode, setColorMode] = useState(true)
-    const [BackGroundColor, setBackGroundColor] = useState('bg-gray-50')
-    const [Color, setColor] = useState('text-gray-700')
-
 
     const arry = [1, 2, 3, 4, 5]
     const Page_Size = 10;
@@ -23,20 +19,8 @@ function CoustomDataTable() {
     const ItemstartIndex = Start_Index + 1
     const ItemEndIndex = Math.min(Start_Index + Page_Size, data.length)
 
-    const changeHandller = () => {
-        setColorMode(!ColorMode)
-        if (ColorMode) {
-            setBackGroundColor('')
-            setColor('')
-        } else {
-            setBackGroundColor('bg-black')
-            setColor('text-white')
-        }
-    };
-
-
     return (
-        <div className=''onClick={changeHandller}>
+        <div className='' >
             <h2 className='text-xl font-bold mb-5 p-8' >
                 Data Table
             </h2>
@@ -53,7 +37,7 @@ function CoustomDataTable() {
                             <th scope="col" className="p-4">
                                 <div className="flex items-center">
                                     <input id="checkbox-all-search" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                                    <label for="checkbox-all-search" className="sr-only">checkbox</label>
+                                    <label htmlFor="checkbox-all-search" className="sr-only">checkbox</label>
                                 </div>
                             </th>
                             <th scope="col" className="px-6 py-3">
@@ -79,12 +63,13 @@ function CoustomDataTable() {
                     <tbody>
                         {
                             Current_Displayed_Data.map((item, i) => {
-                                return (<>
-                                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" key={i}>
+                                return (
+                                
+                                    <tr key={i} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" >
                                         <td className="w-4 p-4">
                                             <div className="flex items-center">
                                                 <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                                                <label for="checkbox-table-search-1" className="sr-only">checkbox</label>
+                                                <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
                                             </div>
                                         </td>
                                         <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -106,7 +91,6 @@ function CoustomDataTable() {
                                             <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                         </td>
                                     </tr>
-                                </>
                                 )
                             })
                         }
@@ -133,21 +117,21 @@ function CoustomDataTable() {
                                 Previous
                             </button>
                         </li>
-                        {Array.from({ length: totalPages }, (_, index) => {
+                        {Array.from({ length: totalPages }, (_,index) => {
                             return (
-                                <li key={index}>
-                                    <button
-                                        className={Current_Page == index + 1 ?
-                                            "flex items-center justify-center  px-4 h-10 leading-tight text-gray-900 bg-blue-200 border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-blue-100 dark:hover:text-white"
-                                            :
-                                            "flex items-center justify-center  px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-200 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                                        }
-                                        onClick={() => { setCurrent_Page(index + 1) }}
-                                        disabled={Current_Page == index + 1}
-                                    >
-                                        {index + 1}
-                                    </button>
-                                </li>
+                                    <li key={index}>
+                                        <button
+                                            className={Current_Page == index + 1 ?
+                                                "flex items-center justify-center  px-4 h-10 leading-tight text-gray-900 bg-blue-200 border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-blue-100 dark:hover:text-white"
+                                                :
+                                                "flex items-center justify-center  px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-200 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                            }
+                                            onClick={() => { setCurrent_Page(index + 1) }}
+                                            disabled={Current_Page == index + 1}
+                                        >
+                                            {index + 1}
+                                        </button>
+                                    </li>
                             )
                         })}
                         <li>
