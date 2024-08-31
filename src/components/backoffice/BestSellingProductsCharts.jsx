@@ -6,6 +6,7 @@ import { Pie } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 const data = {
   labels: ['Cabbage', 'Watermelon', 'Broccoli', 'Maize',],
+  responsive:true,
   datasets: [
     {
       label: '# of Votes',
@@ -28,9 +29,9 @@ const data = {
 };
 function BestSellingProducts() {
   return (
-    <div className='bg-slate-700 rounded-lg p-8'>
-        <h2 className='text-xl font-bold mb-5 p-4'>BestSellingChart</h2>
-        <div className='p-6'>
+    <div className='dark:bg-slate-700 dark:text-white text-gray-500 bg-white dark:border-none rounded-lg p-8 shadow-lg dark:shadow-none shadow-gray-300'>
+        <h2 className='text-xl font-bold mb-5 p-3'>BestSellingChart</h2>
+        <div className='px-6'>
         <Pie data={data}/>
         </div>
         {/**/}

@@ -84,7 +84,7 @@ function WeklySalesChart() {
     const [ChartTodoDisplay, setChartTodoDisplay] = useState(tabs[0].type)
 
     return (
-        <div className="bg-slate-700 rounded-lg p-8">
+        <div className="dark:bg-slate-700 dark:text-white text-gray-500 dark:border-none bg-white  rounded-lg p-8 shadow-lg dark:shadow-none shadow-gray-300">
             <h2 className="text-xl font-bold p-4">WeklySalesChart</h2>
             {/**/}
             <div className="p-4">

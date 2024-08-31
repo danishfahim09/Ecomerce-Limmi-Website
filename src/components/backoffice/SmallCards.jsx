@@ -10,35 +10,39 @@ function SmallCards() {
     {
       tittle: "Total-Order",
       number: 500,
-      iconBg:"bg-orange-700",
+      iconBg: "dark:bg-orange-700",
+      darkMode: "bg-orange-300",
       icon: ShoppingCart,
     },
     {
-        tittle: "Orders-Pending",
+      tittle: "Orders-Pending",
       number: 300,
-      iconBg:"bg-blue-600",
+      iconBg: "dark:bg-blue-600",
+      darkMode: "bg-blue-300",
       icon: Loader2,
     },
     {
-        tittle: "Orders-Processing",
+      tittle: "Orders-Processing",
       number: 200,
-      iconBg:"bg-pink-600",
+      iconBg: "dark:bg-pink-600",
+      darkMode: "bg-pink-300",
       icon: RefreshCcw,
     },
     {
-        tittle: "Orders Delivers",
+      tittle: "Orders Delivers",
       number: 100,
-      iconBg:"bg-purple-600",
+      iconBg: "dark:bg-purple-600",
+      darkMode: "bg-purple-300",
       icon: CheckCheck,
     },
   ];
-  
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5">
-      
-      {orders.map((item,i)=>{
-        return(
-          <SmallCard data={item}  key={i}/>
+
+      {orders.map((item, i) => {
+        return (
+          <SmallCard data={item} key={i} />
         )
       })}
     </div>

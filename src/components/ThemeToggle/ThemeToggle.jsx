@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, use } from 'react';
 import { Sun } from 'lucide-react';
+import { Moon } from 'lucide-react';
 
 const ThemeToggle = () => {
 	const [darkTheme, setDarkTheme] = useState(true);
@@ -26,7 +27,11 @@ const ThemeToggle = () => {
 
 	return (
 		<div>
-			<Sun onClick={() => setDarkTheme(!darkTheme)}/>
+			{darkTheme ?
+				(<Sun className='text-orange-300' onClick={() => setDarkTheme(!darkTheme)} />)
+				:
+				<Moon onClick={() => setDarkTheme(!darkTheme)} />
+			}
 		</div>
 	);
 };

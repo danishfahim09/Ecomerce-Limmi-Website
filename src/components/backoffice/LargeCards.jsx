@@ -6,22 +6,26 @@ function LargeCards() {
     {
       period: "Today-Order",
       sales: 110000,
-      color: "bg-orange-700",
+      color: "bg-orange-400",
+      darkMode: "dark:bg-orange-700",
     },
     {
       period: "Yesterday-Order",
       sales: 130000,
-      color: "bg-blue-600",
+      color: "bg-blue-400",
+      darkMode: "dark:bg-blue-700",
     },
     {
       period: "This Month",
       sales: 300000,
-      color: "bg-pink-600",
+      color: "bg-pink-400",
+      darkMode: "dark:bg-pink-700",
     },
     {
       period: "All Time-Orders",
       sales: 50000,
-      color: "bg-purple-600",
+      color: "bg-purple-400",
+      darkMode: "dark:bg-purple-700",
     },
   ];
   return (
