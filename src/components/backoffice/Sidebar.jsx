@@ -2,14 +2,22 @@
 
 import Link from 'next/link'
 import React, { use, useState } from 'react'
-import { LayoutDashboard, Flower, Users, Store, Settings, Truck, User, LogOut, Contact2 } from 'lucide-react'
+import { LayoutDashboard, Flower, Users, Store, Settings, Truck, User, LogOut, Contact2, Minus, ChevronRight, LayoutList, ChevronDownCircle, ChevronDown } from 'lucide-react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 
-function Sidebar() {
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+
+
+
+function Sidebar({showSideBar}) {
+  const [openMenue, setopenMenue] = useState(false)
   const usepath = usePathname()
-  console.log(usepath)
   const SideBarLinks = [
     {
       id: 1,
@@ -53,28 +61,57 @@ function Sidebar() {
       icon: Store,
       link: '/dashboard/onlinestore'
     },
+
   ]
 
-  const [SideBoarder, setSideBoarder] = useState(SideBarLinks[0].id)
+  const CatalogLinks = [
+    {
+      id: 1,
+      tittle: 'Products',
+      icon: LayoutList,
+      link: '/dashboard/products'
+    },
+    {
+      id: 2,
+      tittle: 'Catagories',
+      icon: Store,
+      link: '/dashboard/catagories'
+    },
+    {
+      id: 3,
+      tittle: 'Couponse',
+      icon: Contact2,
+      link: '/dashboard/couponse'
+    },
+    {
+      id: 4,
+      tittle: 'Banners',
+      icon: Truck,
+      link: '/dashboard/banners'
+    },
+    {
+      id: 5,
+      tittle: 'Attributes',
+      icon: User,
+      link: '/dashboard/attributes'
+    },
 
-  const ShowSideBorder = () => {
-
-  }
-
+  ]
 
   return (
-    <div id="sidebar-multi-level-sidebar" className="fixed dark:text-slate-800 dark:bg-slate-700 bg-white text-gray-700 space-y-6 h-screen w-64  top-0 left-0 border-2 dark:border-gray-700 border-gray-100" >
+    <div  className={showSideBar ? 'block sm:hidden w-3/6 p-4 fixed dark:text-slate-800 dark:bg-slate-700 bg-white text-gray-700 space-y-6 h-screen sm:w-64  top-0 left-0 border-2 dark:border-gray-700 border-gray-100"':"hidden sm:block  fixed dark:text-slate-800 dark:bg-slate-700 bg-white text-gray-700 space-y-6 h-screen sm:w-64  top-0 left-0 border-2 dark:border-gray-700 border-gray-100"} >
       <Image
-        className='ml-4 mt-4 text-center p-2 '
+        className='ml-4 text-center mt-5 p-2 '
         src='/applogo.png'
         width={150}
         height={150}
         alt="App Main Logo"
       />
-      <div className="h-full   overflow-y-auto mt-2 ">
+      <div className="relative h-full overflow-y-auto">
         <ul className="space-y-10 font-medium mt-12">
 
-          <li className={usepath == '/dashboard'?
+          {/*Side Bare Items*/}
+          <li className={usepath == '/dashboard' ?
             'border-l-4 dark:border-lime-400 border-emerald-700 text-emerald-600 dark:text-lime-500'
             :
             'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'}>
@@ -84,17 +121,40 @@ function Sidebar() {
             </Link>
           </li>
 
-          <li className={ usepath == '/dashboard/catalogy' ?
-            'border-l-4 dark:border-lime-400 border-emerald-700 text-emerald-600 dark:text-lime-500'
-            :
-            'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'}>
-            <Link href='/dashboard/catalogy' className="flex items-center p-2 pl-5  rounded-lg group">
-              <LayoutDashboard />
-              <span className="ms-5">Catalogy</span>
-            </Link>
-          </li>
+          {/*Side Bare CataLog And Dropdown Items*/}
+          <Collapsible>
+            <CollapsibleTrigger>
+              {/*CataLog*/}
+              <div className="flex items-center p-2 pl-5 rounded-lg  dark:text-white"
+                onClick={() => { setopenMenue(!openMenue) }}
+                >
+                <LayoutDashboard />
+                <span className="ms-5">Catalogy</span>
+                {openMenue ?  (<ChevronDown className='ml-4' />) :  (<ChevronRight className='ml-4' />)}
+              </div>
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <div className='rounded-lg dark:bg-black dark:text-gray-600  mx-3 mt-2'>
+                {
+                  CatalogLinks.map((item, i) => {
+                    return (
+                      <Link key={i}
+                        href={item.link} className={usepath == item.link ?
+                          'border-l-4 dark:border-orange-400 border-emerald-700 text-emerald-600 dark:text-orange-400 flex gap-2 p-1 '
+                          :
+                          'text-gray-900 dark:text-gray-300 dark:hover:text-gray-400  flex gap-2 p-1 '}
+                      >
+                        <Minus className='' />
+                        <span>{item.tittle}</span>
+                      </Link>
+                    )
+                  })
+                }
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
 
-
+          {/*Side Bare*/}
           {
             SideBarLinks.map((item, i) => {
               const Icon = item.icon
@@ -108,11 +168,10 @@ function Sidebar() {
                     'border-l-4 dark:border-lime-400 border-emerald-700 text-emerald-600 dark:text-lime-500'
                     :
                     'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'}
-                  onClick={() => ShowSideBorder(item.id)}
                 >
                   <Link
                     href={item.link}
-                    className="flex items-center p-2 pl-5  rounded-lg    group"
+                    className="flex items-center p-1 pl-5 rounded-lg text-lg"
                   >
                     <Icon />
                     <span className="ms-5">{item.tittle}</span>
@@ -120,14 +179,14 @@ function Sidebar() {
                 </li>)
             })
           }
+
         </ul>
-        <button className="w-52 h-12 flex items-center gap-5  bg-green-700 hover:bg-green-800 text-white font-semibold rounded-xl my-6 mx-4">
+        <button className="absolute bottom-32  w-48 h-12 flex items-center gap-5  bg-green-700 hover:bg-green-800 text-white font-semibold rounded-xl my-6 mx-4">
           <LogOut className='ml-9 w-6 h-6' />
           Log Out
         </button>
       </div>
     </div>
-
   )
 }
 
