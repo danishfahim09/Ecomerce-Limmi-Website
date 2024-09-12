@@ -21,15 +21,14 @@ function CoustomDataTable() {
 
     return (
         <div className='dark:text-white text-black dark:bg-slate-800 bg-white mt-10 ' >
-            <h2 className='text-xl font-bold mb-5 p-8' >
+            <h2 className='text-xl font-bold mb-5 p-8 md:p-2 lg:p-4 xl:p-8' >
                 Data Table
             </h2>
 
             {/*Table*/}
-
-            <div className="relative overflow-x-auto shadow-md sm:rounded-lg  ">
-                <table className="w-full text-sm text-left rtl:text-right text-gray-500 border dark:border-gray-700  dark:text-gray-300 p-1">
-                    <thead className="text-xs text-gray-900 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-600 font-extralight">
+            <div className=" overflow-x-auto shadow-md sm:rounded-lg  ">
+                <table className="w-full overflow-x-scroll text-sm text-left rtl:text-right text-gray-500 border dark:border-gray-700  dark:text-gray-300 p-1">
+                    <thead className="text-xs text-gray-900 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-300 font-extralight">
                         <tr>
                             <th scope="col" className="p-4">
                                 <div className="flex items-center">
@@ -93,8 +92,11 @@ function CoustomDataTable() {
                         }
                     </tbody>
                 </table>
-                <div className='w-full flex flex-row justify-between pr-10 pb-1 bg-slate-100 dark:bg-slate-900 pl-10 pt-6'>
-                    <div className='flex gap-2 pt-2'>
+                
+
+            </div>
+            <div className='w-full lg:flex flex-row justify-between lg:pr-10 pb-1 bg-white dark:bg-slate-900 xl:pl-10 pt-6'>
+                    <div className='flex gap-2 pt-2 '>
                         <p className=' text-gray-600 dark:text-white'>Showing</p>
                         <span className='text-red-300'>
                             {ItemstartIndex}-{ItemEndIndex}
@@ -104,10 +106,10 @@ function CoustomDataTable() {
 
                     </div>
 
-                    <ul className="flex items-center  h-10 text-base">
+                    <ul className="flex  items-center  h-10 text-base ">
                         <li>
                             <button
-                                className="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                className="flex items-center justify-center  px-2  sm:px-1 md:px-2 xl:px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                                 onClick={() => setCurrent_Page(Current_Page - 1)}
                                 disabled={Current_Page === 1}
                             >
@@ -119,9 +121,9 @@ function CoustomDataTable() {
                                     <li key={index}>
                                         <button
                                             className={Current_Page == index + 1 ?
-                                                "flex items-center justify-center  px-4 h-10 leading-tight dark:text-white text-gray-900 bg-blue-200 border border-gray-300  hover:text-gray-700 dark:bg-gray-600 dark:border-gray-700 dark:text-gray-400 "
+                                                "flex items-center justify-center sm:px-2 px-1 md:px-2  lg:px-4   h-10 leading-tight  text-gray-900 bg-blue-200 border border-gray-300  hover:text-gray-700 dark:bg-gray-600 dark:border-gray-700 dark:text-gray-400 "
                                                 :
-                                                "flex items-center justify-center  px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-200 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                                "flex items-center justify-center px-1  sm:px-2 md:px-2 lg:px-2  h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-200 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                                             }
                                             onClick={() => { setCurrent_Page(index + 1) }}
                                             disabled={Current_Page == index + 1}
@@ -133,17 +135,14 @@ function CoustomDataTable() {
                         })}
                         <li>
                             <button
-                                className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                className="flex items-center justify-center px-1 lg:px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                                 onClick={() => setCurrent_Page(Current_Page + 1)}
                                 disabled={totalPages === Current_Page}>
                                 Next
                             </button>
                         </li>
                     </ul>
-
-                </div>
-
-            </div>
+                </div> 
 
         </div>
     )

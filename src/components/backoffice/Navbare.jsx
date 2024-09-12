@@ -34,7 +34,7 @@ function Navbare({showSideBar,setshowSideBar}) {
         </button>
 
         {/* 3 Icons */}
-        <div className='flex space-x-4 mr-4'>
+        <div className='flex space-x-4 sm:mr-4'>
           <button>
             <ThemeToggle />
           </button>

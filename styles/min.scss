@@ -58,7 +58,18 @@
     --chart-5: 340 75% 55%;
   }
 }
+::-webkit-scrollbar {
+  width: 8px;
+}
 
+::-webkit-scrollbar-track {
+  background: rgb(210, 210, 210)
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px
+}
 
 
 body {

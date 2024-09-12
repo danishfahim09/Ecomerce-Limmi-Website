@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import React, { use, useState } from 'react'
-import { LayoutDashboard, Flower, Users, Store, Settings, Truck, User, LogOut, Contact2, Minus, ChevronRight, LayoutList, ChevronDownCircle, ChevronDown } from 'lucide-react'
+import { LayoutDashboard, Flower, Users, Store, Settings, Truck, User, LogOut, Contact2, Minus, ChevronRight, LayoutList, ChevronDownCircle, ChevronDown, Building2, Wallet2Icon, WalletCards } from 'lucide-react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
@@ -51,15 +51,27 @@ function Sidebar({showSideBar}) {
     },
     {
       id: 6,
-      tittle: 'Setting',
-      icon: Settings,
-      link: '/dashboard/settings'
+      tittle: 'Limmi-Comunity',
+      icon: Building2,
+      link: '/dashboard/comunity'
     },
     {
       id: 7,
+      tittle: 'Wallet',
+      icon: WalletCards,
+      link: '/dashboard/wallet'
+    },
+    {
+      id: 8,
+      tittle: 'Setting',
+      icon: Settings,
+      link: '/dashboard/setting'
+    },
+    {
+      id: 9,
       tittle: 'Online Store',
       icon: Store,
-      link: '/dashboard/onlinestore'
+      link: '/dashboard/onlineStore'
     },
 
   ]
@@ -99,23 +111,26 @@ function Sidebar({showSideBar}) {
   ]
 
   return (
-    <div  className={showSideBar ? 'block sm:hidden w-3/6 p-4 fixed dark:text-slate-800 dark:bg-slate-700 bg-white text-gray-700 space-y-6 h-screen sm:w-64  top-0 left-0 border-2 dark:border-gray-700 border-gray-100"':"hidden sm:block  fixed dark:text-slate-800 dark:bg-slate-700 bg-white text-gray-700 space-y-6 h-screen sm:w-64  top-0 left-0 border-2 dark:border-gray-700 border-gray-100"} >
+    <div  className={showSideBar ? 
+    'overflow-y-scroll block sm:hidden  p-4 fixed w-64 dark:text-slate-800 dark:bg-slate-700 bg-white text-gray-700 space-y-6 h-screen sm:w-64  top-0 left-0 border-2 dark:border-gray-700 border-gray-100"'
+    :
+    "hidden sm:block  fixed dark:text-slate-800 dark:bg-slate-700 bg-white text-gray-700 space-y-2 h-screen sm:w-64  top-0 left-0 border-2 dark:border-gray-700 border-gray-100 overflow-y-scroll"} >
       <Image
-        className='ml-4 text-center mt-5 p-2 '
+        className={showSideBar ? 'ml-4 text-center mt-20 p-2 ':'ml-4 text-center mt-5 p-2 '}
         src='/applogo.png'
         width={150}
         height={150}
         alt="App Main Logo"
       />
-      <div className="relative h-full overflow-y-auto">
-        <ul className="space-y-10 font-medium mt-12">
+      <div className="relative  ">
+        <ul className={showSideBar ?"space-y-8 font-medium mt-1":"space-y-10 font-medium mt-12"}>
 
           {/*Side Bare Items*/}
           <li className={usepath == '/dashboard' ?
             'border-l-4 dark:border-lime-400 border-emerald-700 text-emerald-600 dark:text-lime-500'
             :
             'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'}>
-            <Link href='/dashboard' className="flex items-center p-2 pl-5 rounded-lg group">
+            <Link href='/dashboard' className="flex items-center p-1 pl-5 rounded-lg group">
               <Flower />
               <span className="ms-5">Dashboard</span>
             </Link>
@@ -125,7 +140,7 @@ function Sidebar({showSideBar}) {
           <Collapsible>
             <CollapsibleTrigger>
               {/*CataLog*/}
-              <div className="flex items-center p-2 pl-5 rounded-lg  dark:text-white"
+              <div className="flex items-center p-1 pl-5 rounded-lg  dark:text-gray-300"
                 onClick={() => { setopenMenue(!openMenue) }}
                 >
                 <LayoutDashboard />
@@ -134,7 +149,7 @@ function Sidebar({showSideBar}) {
               </div>
             </CollapsibleTrigger>
             <CollapsibleContent>
-              <div className='rounded-lg dark:bg-black dark:text-gray-600  mx-3 mt-2'>
+              <div className='rounded-lg dark:bg-black dark:text-gray-600  mx-3 mt-4'>
                 {
                   CatalogLinks.map((item, i) => {
                     return (
@@ -167,7 +182,7 @@ function Sidebar({showSideBar}) {
                   className={item.link == usepath ?
                     'border-l-4 dark:border-lime-400 border-emerald-700 text-emerald-600 dark:text-lime-500'
                     :
-                    'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'}
+                    'text-gray-900 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'}
                 >
                   <Link
                     href={item.link}
@@ -181,7 +196,11 @@ function Sidebar({showSideBar}) {
           }
 
         </ul>
-        <button className="absolute bottom-32  w-48 h-12 flex items-center gap-5  bg-green-700 hover:bg-green-800 text-white font-semibold rounded-xl my-6 mx-4">
+        <button className={openMenue ?
+          "fixed   bottom-1  w-48 h-12 flex items-center gap-5  bg-green-700 hover:bg-green-800 text-white font-semibold rounded-xl my-6 " 
+          :
+          " bottom-3   w-48 h-12 flex items-center gap-5  bg-green-700 hover:bg-green-800 text-white font-semibold rounded-xl my-6 "}
+          >
           <LogOut className='ml-9 w-6 h-6' />
           Log Out
         </button>
