@@ -16,7 +16,7 @@ function Layout({ children }) {
                 <main className={showSideBar ? 
                 ' mt-16 p-10 bg-white dark:bg-slate-900 text-slate-50 '
                 :
-                'sm:ml-60 mt-16 p-10 bg-white dark:bg-slate-900 text-slate-50 '}>{children}</main>
+                'sm:ml-60 mt-16 py-10 sm:p-10 bg-white dark:bg-slate-900 text-slate-50 '}>{children}</main>
             </div>
         </div>
     )

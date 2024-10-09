@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import {Download, PlusIcon, Search, Trash2 } from 'lucide-react'
+import { Download, PlusIcon, Search, Trash2 } from 'lucide-react'
 
 
 function PageHeader({ heading, href, linkTittle }) {
@@ -24,24 +24,38 @@ function PageHeader({ heading, href, linkTittle }) {
 
             {/*Table*/}
             {/* Import //Search  //Delete */}
-            <div className='flex justify-between bg-slate-700 px-20 py-6 mt-5 rounded-xl w-full h-auto'>
-                <button className="flex gap-2 w-40 h-14 relative px-8 border-2 border-blue-600 dark:text-white  py-3 text-lg dark:bg-slate-900 transition-all ease-in duration-75 bg-white dark:hover:bg-blue-600 rounded-md group-hover:bg-opacity-0">
-                    <Download/>
+            <div className='flex gap-2 sm:gap-2 lg:gap-2 xl:gap-16 justify-between bg-slate-700
+             sm:px-5  lg:px-20 py-6 mt-5 rounded-xl w-full h-auto'>
+                <button className="  w-24 justify-center gap-1 text-sm items-center   flex md:gap-1 lg:gap-2 md:px-3 md:py-2
+                 lg:px-5 lg:py-3 md:text-xs lg:text-sm  xl:text-base
+                border-2 border-blue-600 dark:text-white 
+                   dark:bg-slate-900 transition-all ease-in duration-75
+                  bg-white dark:hover:bg-blue-600 rounded-md group-hover:bg-opacity-0
+                  ">
+                    <Download className="w-4 h-4  md:w-4 md:h-3 md:mt-0.5  lg:w-6 lg:h-4 lg:mt-0.5  xl:w-6 xl:h-5 xl:mt-0.5 " />
                     <span className=''>
                         Import
                     </span>
                 </button>
-                <form className="max-w-4xl ">
+                <form className="sm:w-full">
                     <div class="relative">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                            <Search className='mr-3 text-gray-300' />
+                            <Search className='w-5 h-5 sm:w-4 sm:h-4 lg:w-6 lg:h-8  mr-3 text-gray-300' />
                         </div>
-                        <input type="text" id="search" class="bg-gray-50 border pl-14 border-blue-800 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-neutral-600 dark:border-gray-600 block w-full ps-10 pr-96 py-3  dark:bg-gray-700  dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-800 focus:dark:border-lime-600" placeholder="Search" />
+                        <input type="text" id="search" class="z-5 w-52 pl-10 sm:w- md:w-80 md:text-sm lg:w-full sm:ps-8 sm:py-2 lg:ps-14  lg:py-3 
+                        lg:text-lg bg-gray-50 border focus:dark:border-lime-600 dark:focus:ring-lime-800
+                        border-blue-800 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-neutral-600
+                        dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+                            placeholder="Search" />
                     </div>
                 </form>
-                <button type="button" className="w-44 h-14 text-lg rounded-lg border-2 flex gap-3 px-3 py-3  dark:bg-red-700 bg-gray-600 dark:border-orange-300 hover:dark:bg-red-900">
-                    <Trash2 className='w-6 h-7 ' />
-                   Bulck Delete
+                <button type="button" className="w-36 gap-1 md:w-48 lg:w-52 flex sm:gap-1 lg:gap-2 md:text-xs
+                 justify-center px-1 lg:text-sm  xl:text-base 
+                rounded-lg border-2 dark:bg-red-700 items-center
+                  bg-gray-600 dark:border-orange-300 hover:dark:bg-red-900
+                 ">
+                    <Trash2 className='w-4 h-4 md:w-4 md:h-3 md:mt-0.5 lg:w-6 lg:h-4 lg:mt-0.5  xl:w-6 xl:h-5 xl:mt-0.5' />
+                    Bulck Delete
                 </button>
             </div>
         </div>

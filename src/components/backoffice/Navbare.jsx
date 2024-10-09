@@ -30,7 +30,7 @@ function Navbare({showSideBar,setshowSideBar}) {
       <div className={showSideBar ? 'w-full h-9   flex items-center justify-between  text-green-600 ': 'lg:w-9/12 sm:w-8/12 w-11/12 h-9 2xl:w-10/12 flex items-center justify-between  text-green-600  '}>
         {/* Icon */}
         <button onClick={()=>{setshowSideBar(!showSideBar)}}>
-          <AlignJustify className='text-green dark:text-white w-12 h-7 ml-4' />
+          <AlignJustify className= {showSideBar ?('text-green dark:text-white w-12 h-7  sm:ml-4 ml-64 '):('text-green dark:text-white w-12 h-7 ml-4') }/>
         </button>
 
         {/* 3 Icons */}

@@ -1,13 +1,13 @@
-import {nextui} from '@nextui-org/theme';
-import type { Config } from "tailwindcss";
+import { nextui } from "@nextui-org/theme";
+import { withUt } from "uploadthing/tw";
 
-const config: Config = {
-  darkMode: 'class',
+export default withUt({
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/components/(dropdown|menu|divider|popover|button|ripple|spinner).js"
+    "./node_modules/@nextui-org/theme/dist/components/(dropdown|menu|divider|popover|button|ripple|spinner).js",
   ],
   theme: {
     extend: {
@@ -19,9 +19,8 @@ const config: Config = {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    nextui()
-    // ...
+    require("@tailwindcss/forms"),
+    nextui(),
+    // Additional plugins...
   ],
-};
-export default config;
+});
