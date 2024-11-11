@@ -1,8 +1,17 @@
 import React from 'react'
+import PageHeading from '@/components/backoffice/PageHeader'
 
 function page() {
   return (
-    <div>page</div>
+    <div>
+      {/*Heading*/}
+      <PageHeading
+        heading="Products"
+        href="/dashboard/products/new"
+        linkTittle="Add Product"
+      />
+      {/*Table*/}
+    </div>
   )
 }
 

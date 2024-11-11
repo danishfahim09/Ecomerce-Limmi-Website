@@ -1,8 +1,18 @@
+"use client"
 import React from 'react'
+import FormHeader from '@/components/backoffice/FormHeader'
 
 function page() {
   return (
-    <div>markets</div>
+    <div>
+      <FormHeader 
+      heading="Catagory"
+      href="/dashboard/catagories/new"
+      linkTittle="Add Catagory"
+      />
+      markets
+      
+    </div>
   )
 }
 

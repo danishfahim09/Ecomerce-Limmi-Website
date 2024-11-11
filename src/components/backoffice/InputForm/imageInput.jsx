@@ -14,9 +14,11 @@ export default function ImageInput({
 }) {
     return (
         <div className={className}>
-            <main className="flex flex-col min-h-10 w-full  justify-between">
-                <div className="flex justify-between mt-6">
-                    <label htmlFor="lable" className="p-4">{lable}</label>
+            <main className="mb-4 flex flex-col min-h-10 w-full  justify-between">
+                <div className="flex justify-between my-3">
+                    <label htmlFor="lable" className=" dark:text-gray-300 text-slate-900 font-medium">
+                        {lable}
+                    </label>
                     {imageUrl && (
                         <button
                             type="button"
