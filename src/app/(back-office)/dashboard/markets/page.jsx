@@ -1,17 +1,16 @@
 "use client"
 import React from 'react'
-import FormHeader from '@/components/backoffice/FormHeader'
+import PageHeading from '@/components/backoffice/PageHeader'
 
 function page() {
   return (
     <div>
-      <FormHeader 
+      <PageHeading
       heading="Catagory"
-      href="/dashboard/catagories/new"
-      linkTittle="Add Catagory"
+      href="/dashboard/markets/new"
+      linkTittle="Add Market"
       />
       markets
-      
     </div>
   )
 }

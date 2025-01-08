@@ -38,11 +38,11 @@ function PageHeader({ heading, href, linkTittle }) {
                     </span>
                 </button>
                 <form className="sm:w-full">
-                    <div class="relative">
-                        <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                    <div className="relative">
+                        <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                             <Search className='w-5 h-5 sm:w-4 sm:h-4 lg:w-6 lg:h-8  mr-3 text-gray-300' />
                         </div>
-                        <input type="text" id="search" class="z-5 w-52 pl-10 sm:w- md:w-80 md:text-sm lg:w-full sm:ps-8 sm:py-2 lg:ps-14  lg:py-3 
+                        <input type="text" id="search" className="z-5 w-52 pl-10 sm:w- md:w-80 md:text-sm lg:w-full sm:ps-8 sm:py-2 lg:ps-14  lg:py-3 
                         lg:text-lg bg-gray-50 border focus:dark:border-lime-600 dark:focus:ring-lime-800
                         border-blue-800 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-neutral-600
                         dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"

@@ -12,23 +12,28 @@ export const ourFileRouter = {
       return { userId: user.id };
     })
     .onUploadComplete(async ({ metadata, file }) => {
-      console.log("file url", file.url,metadata);
+      console.log("file url", file.url, metadata);
       return { uploadedBy: "danish" };
     }),
 
-   ProductImageUploader: f({ image: { maxFileSize: "1MB" } })
-   .onUploadComplete(async ({ metadata, file }) => {
-    console.log("file url", file.url,metadata);
-    return { uploadedBy: "danish" };
-  }),
-  TrainingImageUploader: f({ image: { maxFileSize: "1MB" } })
-   .onUploadComplete(async ({ metadata, file }) => {
-    console.log("file url", file.url,metadata);
-    return { uploadedBy: "danish" };
-  }),
+  ProductImageUploader: f({ image: { maxFileSize: "1MB" } }).onUploadComplete(
+    async ({ metadata, file }) => {
+      console.log("file url", file.url, metadata);
+      return { uploadedBy: "danish Product Uploader" };
+    }
+  ),
+  trainingImageUploader: f({ image: { maxFileSize: "1MB" } }).onUploadComplete(
+    async ({ metadata, file }) => {
+      console.log("file url", file.url, metadata);
+      return { uploadedBy: "danish trainning Uploader" };
+    }
+  ),
+  marketImageUploader: f({ image: { maxFileSize: "1MB" } }).onUploadComplete(
+    async ({ metadata, file }) => {
+      console.log("file url", file.url, metadata);
+      return { uploadedBy: "danish trainning Uploader" };
+    }
+  ),
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;
-
-
-

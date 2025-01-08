@@ -1,0 +1,102 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+// title, couponCode, expiryDate
+model Coupon {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  title      String
+  couponCode String
+  expiryDate DateTime
+  isActive   Boolean
+  //datetime    DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Banner {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  link      String
+  imageUrl  String
+  isActive  Boolean
+  //datetime    DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// RELATIONSHIP
+// 1 to 1 reationship => user => profile relationship
+// 1 to  many relationship => category => product relationship
+// many to many relationship => Market => Category
+
+model Category {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String    @unique
+  imageUrl    String?
+  description String?
+  isActive    Boolean
+  products    Product[]
+
+  marketIds String[] @db.ObjectId
+  markets   Market[] @relation(fields: [marketIds], references: [id])
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+}
+
+model Market {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String  @unique
+  logoUrl     String?
+  description String?
+  isActive    Boolean
+
+  categoryIds String[]   @db.ObjectId
+  categories  Category[] @relation(fields: [categoryIds], references: [id])
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+}
+
+model Product {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  slug         String   @unique
+  imageUrl     String?
+  description  String?
+  isActive     Boolean?
+  Sku          String?
+  barcode      String?
+  productprice Float
+  saleprice    Float
+  tags         String[]
+
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String   @db.ObjectId
+
+  farmer   Farmer @relation(fields: [farmerId], references: [id])
+  farmerId String @db.ObjectId
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+}
+
+model Farmer {
+  id    String    @id @default(auto()) @map("_id") @db.ObjectId
+  title String    @unique
+  y     Product[]
+}

@@ -12,13 +12,13 @@ import SelectInput from '@/components/backoffice/InputForm/selectInput'
 import ToggleInput from '@/components/backoffice/InputForm/ToogleInput'
 import "react-quill/dist/quill.snow.css";
 import QuillEditor from '@/components/backoffice/InputForm/QuillEditor'
+import Generatecouponcode from '@/lib/Generatecouponcode'
 
 
 function NewTraining() {
-  const [imageUrl, setimageUrl] = useState('');
   const [Loading, setLoading] = useState(false);
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
-  const [content, setContent] = useState('');
+  const [isactive, setisactive] = useState(true)
 
   {/* Quil Start */ }
   const modules = {
@@ -31,7 +31,7 @@ function NewTraining() {
       ["clean"],
     ],
   };
-  
+
   {/* Quil End */ }
 
   const categories = [
@@ -51,26 +51,32 @@ function NewTraining() {
 
   {
     /*
-    id => aouto ()
-    tittle
-    expertID
-    Category
-    description 
-    content 
-    content rich=>text
-    expity date
+    Staff Full Name
+    Password
+    Staffs_Email_Eddress
+    Staffs_Phone_Num
+    Phusical_Edress
+    Notes
+    Staff_member_status
+    username: danishfahim0908
+    password: Dd0908070605
     */
   }
 
   async function onSubmite(data) {
-    const slug = generateSlug(data.title);
-    data.slug = slug
-    data.content = content
-    setimageUrl('')
-    setContent('')
-    data.imageUrl = imageUrl
+    const code = Generatecouponcode('LSM',data.name)
+    if (isactive) {
+      data.isactive = 'active '
+    } else {
+      data.isactive = 'isactive'
+    }
+    data.code = code
     console.log(data)
-    makePostRequest(setLoading, "api/training", data, 'Traning', reset)
+    makePostRequest(setLoading, "api/staff", data, 'Traning', reset)
+  }
+  const ToggleChanging = () => {
+    setisactive(!isactive)
+   
   }
 
   return (
@@ -83,14 +89,70 @@ function NewTraining() {
       >
         <div className="grid sm:grid-row-2 sm:gap-6">
           <TextInput
-            lable='Category Tittle'
+            type='text'
+            name='name'
+            lable='Staff Full Name'
+            register={register}
+            errors={errors}
+          />
+          <TextInput
+            type='password'
+            name='password'
+            lable='Password'
+            register={register}
+            errors={errors}
+            className='w-full'
+          />
+          <TextInput
+            name='nin'
+            lable='Nin (ID_Num)'
+            register={register}
+            errors={errors}
+            className='w-full'
+          />
+          <TextInput
+            type='date'
+            name='dob'
+            lable='Date Of Birth'
+            register={register}
+            errors={errors}
+            className='w-full'
+          />
+          <TextInput
+            type='text'
+            name='email'
+            lable='Staff Email Eddress'
+            register={register}
+            errors={errors}
+            className='w-full'
+          />
+          <TextInput
+            type='text'
+            name='phone'
+            lable='Staff Phone Number'
+            register={register}
+            errors={errors}
+            className='w-full'
+          />
+          <TextInput
+            type='text'
+            name='physical_eddress'
+            lable='Phisical eddress'
+            register={register}
+            errors={errors}
+            className='w-full'
+          />
+          <TextInput
+            type='text'
+            name='notes'
+            lable='Note'
             register={register}
             errors={errors}
             className='w-full'
           />
           <SelectInput
             lable='Select Category'
-            name='Category'
+            name='category'
             register={register}
             errors={errors}
             options={categories}
@@ -103,27 +165,30 @@ function NewTraining() {
             errors={errors}
           />
         </div>
-
+        {/* 
         <ImageInput
           imageUrl={imageUrl}
           setimageUrl={setimageUrl}
           endPoint='trainingImageUploader'
           lable="Training ThumbNail"
-        />
+        /> */}
         {/* Quil End */}
-        <QuillEditor
+        {/*<QuillEditor
           lable='Blog Content'
           content={content}
           onChange={setContent}
           modules={modules}
-        />
+        />*/}
         {/* Quil End */}
 
         <ToggleInput
           lable='Publish Your Training'
           type='checkbox'
-          name='IsActive'
+          name='isactive'
+          ToggleChanging={ToggleChanging}
+          isactive={isactive}
         />
+
         <SubmitButton
           isLoding={Loading}
           ButtonTittle='Create Taining'

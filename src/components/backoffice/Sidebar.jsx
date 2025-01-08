@@ -97,17 +97,10 @@ function Sidebar({showSideBar}) {
     },
     {
       id: 4,
-      tittle: 'Banners',
+      tittle: 'Online Store',
       icon: Truck,
       link: '/dashboard/banners'
     },
-    {
-      id: 5,
-      tittle: 'Attributes',
-      icon: User,
-      link: '/dashboard/attributes'
-    },
-
   ]
 
   return (
@@ -152,6 +145,7 @@ function Sidebar({showSideBar}) {
               <div className='rounded-lg dark:bg-black dark:text-gray-600  mx-3 mt-4'>
                 {
                   CatalogLinks.map((item, i) => {
+                    const Icon = item.icon
                     return (
                       <Link key={i}
                         href={item.link} className={usepath == item.link ?
@@ -159,7 +153,7 @@ function Sidebar({showSideBar}) {
                           :
                           'text-gray-900 dark:text-gray-300 dark:hover:text-gray-400  flex gap-2 p-1 '}
                       >
-                        <Minus className='' />
+                        <Icon className='' />
                         <span>{item.tittle}</span>
                       </Link>
                     )

@@ -4,25 +4,25 @@ import FormHeading from '@/components/backoffice/FormHeader'
 import TextInput from '@/components/backoffice/InputForm/TextInput'
 import { useForm } from 'react-hook-form'
 import SubmitButton from '@/components/backoffice/InputForm/SubmitButton'
-import Generatecouponcode from '@/lib/Generatecouponcode'
 import { makePostRequest } from '@/lib/apiRequest'
-import generateIsoFormattedDate from '@/lib/GenerateISOStringFormatedDate'
 import { useRouter } from 'next/navigation';
+import ImageInput from '@/components/backoffice/InputForm/imageInput'
 import ToogleInput from '@/components/backoffice/InputForm/ToogleInput'
 
 function NewCoupone() {
   const [Loading, setLoading] = useState(false)
   const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({
-      defaultValues: {
-        isActive: true,
-      },
-    });
+    defaultValues: {
+      isActive: true,
+    },
+  });
+  const [imageUrl, setimageUrl] = useState('');
 
-    const isActive = watch("isActive");
   const router = useRouter();
   function redirect() {
     router.push('/dashboard/couponse')
   }
+  const isActive = watch("isActive");
   async function onSubmite(data) {
     {
       /*
@@ -33,12 +33,9 @@ function NewCoupone() {
       image
       */
     }
-    const GenerateCouponCode = Generatecouponcode(data.title, data.expiryDate)
-    data.couponCode = GenerateCouponCode
-    const isoFormatedDate = generateIsoFormattedDate(data.expiryDate)
-    data.expiryDate = isoFormatedDate
+    data.imageUrl = imageUrl
     console.log(data)
-    makePostRequest(setLoading, 'api/couponse', data, 'Coupon', reset, redirect);
+    makePostRequest(setLoading, 'api/banner', data, 'Banner', reset, redirect);
   }
 
   return (
@@ -53,18 +50,23 @@ function NewCoupone() {
       >
         <div className="grid sm:grid-row-2 sm:gap-6">
           <TextInput
-            lable='Coupone Tittle'
+            lable='Banner Tittle'
             name='title'
             register={register}
             errors={errors}
           />
           <TextInput
-            lable='Coupone Expiry Date '
-            name='expiryDate'
-            type='date'
+            lable='Banner Link'
+            name='link'
             register={register}
             errors={errors}
             className='w-full'
+          />
+          <ImageInput
+            imageUrl={imageUrl}
+            setimageUrl={setimageUrl}
+            endPoint='bannerImageUploader'
+            lable="Banner"
           />
           <ToogleInput
             label="Publish your Product"
@@ -76,8 +78,8 @@ function NewCoupone() {
         </div>
         <SubmitButton
           isLoding={Loading}
-          ButtonTittle='Create Coupone'
-          loddingButtonTiittle='Creating Coupone Please Wait'
+          ButtonTittle='Create Banner'
+          loddingButtonTiittle='Creating Banner Please Wait'
           endPoint="bannerImageUploader"
         />
       </form>

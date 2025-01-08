@@ -2,7 +2,7 @@ import React from 'react'
 
 function TextInput({
   lable,
-  name='title',
+  name,
   register,
   errors,
   isrequerd = true,
