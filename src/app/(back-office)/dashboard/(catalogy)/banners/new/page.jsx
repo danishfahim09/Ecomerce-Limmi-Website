@@ -20,16 +20,15 @@ function NewCoupone() {
 
   const router = useRouter();
   function redirect() {
-    router.push('/dashboard/couponse')
+    router.push('/dashboard/banners')
   }
   const isActive = watch("isActive");
   async function onSubmite(data) {
     {
       /*
       id => aouto ()
-      Coupone Name
-      code => aouto()
-      validity data 
+      tittle Name
+      link data 
       image
       */
     }
@@ -54,14 +53,19 @@ function NewCoupone() {
             name='title'
             register={register}
             errors={errors}
+            
           />
           <TextInput
             lable='Banner Link'
             name='link'
+            type='url'
             register={register}
             errors={errors}
-            className='w-full'
+            
           />
+
+          {/*configurre this endpoint in core.js */}
+
           <ImageInput
             imageUrl={imageUrl}
             setimageUrl={setimageUrl}
@@ -69,7 +73,7 @@ function NewCoupone() {
             lable="Banner"
           />
           <ToogleInput
-            label="Publish your Product"
+            label="Publish your Banner"
             name="isActive"
             trueTitle="Active"
             falseTitle="Draft"

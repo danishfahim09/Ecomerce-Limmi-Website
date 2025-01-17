@@ -5,13 +5,10 @@ import TextInput from '@/components/backoffice/InputForm/TextInput'
 import { useForm } from 'react-hook-form'
 import SubmitButton from '@/components/backoffice/InputForm/SubmitButton'
 import TextAreaInput from '@/components/backoffice/InputForm/TextAreaInput'
-import { generateSlug } from '@/lib/generateSlug'
-import ImageInput from '@/components/backoffice/InputForm/imageInput'
 import { makePostRequest } from '@/lib/apiRequest'
 import SelectInput from '@/components/backoffice/InputForm/selectInput'
 import ToggleInput from '@/components/backoffice/InputForm/ToogleInput'
 import "react-quill/dist/quill.snow.css";
-import QuillEditor from '@/components/backoffice/InputForm/QuillEditor'
 import Generatecouponcode from '@/lib/Generatecouponcode'
 
 
@@ -94,6 +91,7 @@ function NewTraining() {
             lable='Staff Full Name'
             register={register}
             errors={errors}
+            
           />
           <TextInput
             type='password'
@@ -102,6 +100,7 @@ function NewTraining() {
             register={register}
             errors={errors}
             className='w-full'
+            
           />
           <TextInput
             name='nin'
@@ -109,6 +108,7 @@ function NewTraining() {
             register={register}
             errors={errors}
             className='w-full'
+          
           />
           <TextInput
             type='date'
@@ -117,6 +117,7 @@ function NewTraining() {
             register={register}
             errors={errors}
             className='w-full'
+            
           />
           <TextInput
             type='text'
@@ -125,6 +126,7 @@ function NewTraining() {
             register={register}
             errors={errors}
             className='w-full'
+            
           />
           <TextInput
             type='text'
@@ -133,6 +135,7 @@ function NewTraining() {
             register={register}
             errors={errors}
             className='w-full'
+            
           />
           <TextInput
             type='text'
@@ -141,6 +144,7 @@ function NewTraining() {
             register={register}
             errors={errors}
             className='w-full'
+            
           />
           <TextInput
             type='text'
@@ -149,6 +153,7 @@ function NewTraining() {
             register={register}
             errors={errors}
             className='w-full'
+           
           />
           <SelectInput
             lable='Select Category'
@@ -165,21 +170,6 @@ function NewTraining() {
             errors={errors}
           />
         </div>
-        {/* 
-        <ImageInput
-          imageUrl={imageUrl}
-          setimageUrl={setimageUrl}
-          endPoint='trainingImageUploader'
-          lable="Training ThumbNail"
-        /> */}
-        {/* Quil End */}
-        {/*<QuillEditor
-          lable='Blog Content'
-          content={content}
-          onChange={setContent}
-          modules={modules}
-        />*/}
-        {/* Quil End */}
 
         <ToggleInput
           lable='Publish Your Training'
@@ -187,6 +177,7 @@ function NewTraining() {
           name='isactive'
           ToggleChanging={ToggleChanging}
           isactive={isactive}
+          register={register}
         />
 
         <SubmitButton

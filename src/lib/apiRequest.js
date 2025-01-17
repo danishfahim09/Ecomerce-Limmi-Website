@@ -7,7 +7,7 @@ export async function makePostRequest(
   data,
   resourceName,
   reset,
-   
+   redirect
 ) {
   try {
     setLoading(true);
@@ -23,6 +23,7 @@ export async function makePostRequest(
     if (response.ok) {
       setLoading(false);
       toast.success(`New ${resourceName} Created Successfully`);
+      redirect()
       reset();
     } else {
       setLoading(false);

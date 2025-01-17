@@ -3,7 +3,7 @@ import React from 'react'
 import { Plus, Search, X } from 'lucide-react'
 import { useState } from 'react'
 
-function ArrayitemInput({items,setitems}) {
+function ArrayitemInput({items,setitems,tittle}) {
   const [showTagForm, setshowTagForm] = useState(false)
   const [tagErrorMsg, settagErrorMsg] = useState('')
   
@@ -30,7 +30,7 @@ function ArrayitemInput({items,setitems}) {
       setitem('')
       settagErrorMsg('')
     } else {
-      settagErrorMsg('Tag Must Be Graeater Than 5')
+      settagErrorMsg('Tag Must Be Greater Than 5')
     }
   }
 
@@ -88,7 +88,7 @@ function ArrayitemInput({items,setitems}) {
                 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-slate-800 dark:text-gray-300
               dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
               <Plus className='w-5 h-5' />
-              <span>Add Tag</span>
+              <span>{tittle}</span>
             </button>
           )
         }

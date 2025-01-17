@@ -15,20 +15,25 @@ export const ourFileRouter = {
       console.log("file url", file.url, metadata);
       return { uploadedBy: "danish" };
     }),
-
-  ProductImageUploader: f({ image: { maxFileSize: "1MB" } }).onUploadComplete(
-    async ({ metadata, file }) => {
-      console.log("file url", file.url, metadata);
-      return { uploadedBy: "danish Product Uploader" };
-    }
-  ),
   trainingImageUploader: f({ image: { maxFileSize: "1MB" } }).onUploadComplete(
     async ({ metadata, file }) => {
       console.log("file url", file.url, metadata);
       return { uploadedBy: "danish trainning Uploader" };
     }
   ),
+  ProductImageUploader: f({ image: { maxFileSize: "1MB" } }).onUploadComplete(
+    async ({ metadata, file }) => {
+      console.log("file url", file.url, metadata);
+      return { uploadedBy: "danish Product Uploader" };
+    }
+  ),
   marketImageUploader: f({ image: { maxFileSize: "1MB" } }).onUploadComplete(
+    async ({ metadata, file }) => {
+      console.log("file url", file.url, metadata);
+      return { uploadedBy: "danish trainning Uploader" };
+    }
+  ),
+  farmerProfileUploader: f({ image: { maxFileSize: "1MB" } }).onUploadComplete(
     async ({ metadata, file }) => {
       console.log("file url", file.url, metadata);
       return { uploadedBy: "danish trainning Uploader" };

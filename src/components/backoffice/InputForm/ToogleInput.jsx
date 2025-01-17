@@ -18,6 +18,7 @@ export default function ToggleInput({
       <div className="w-full sm:w-1/2">
         <label className="relative inline-flex items-center cursor-pointer">
           <input
+          
             {...register(`${name}`)}
             type="checkbox"
             className="sr-only peer"

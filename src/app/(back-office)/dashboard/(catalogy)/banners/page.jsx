@@ -9,7 +9,7 @@ function page() {
       <PageHeading
         heading="Banner"
         href="/dashboard/banners/new"
-        linkTittle="Add Catagory"
+        linkTittle="Add Banner"
       />
       {/*Table*/}
     </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 
 function TextInput({
+  defaultvalue="",
   lable,
   name,
   register,
@@ -8,6 +9,7 @@ function TextInput({
   isrequerd = true,
   type = 'text',
   className = 'sm:col-span-2',
+  id
 }) {
 
 
@@ -24,8 +26,8 @@ function TextInput({
         {...register(`${name}`, { required: isrequerd })}
         type={type}
         name={name}
-        id='title'
-        defaultValue={''}
+        id={id}
+        defaultValue={defaultvalue}
         autoComplete={name}
         className='bg-gray-50 border-1 border-gray-300 text-gray-900 text-sm rounded-lg 
          focus:ring-gray-400 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700
@@ -34,7 +36,7 @@ function TextInput({
         placeholder={`Type the ${lable.toLowerCase()}`}
       />
       {errors[`${name}`] &&
-        (<span className='text-sm text-red-800'>{lable} is required</span>)
+        (<span className='text-sm text-red-800 mt-3'>{lable} is required</span>)
       }
     </div>
   )

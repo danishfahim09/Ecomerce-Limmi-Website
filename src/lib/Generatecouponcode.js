@@ -1,12 +1,6 @@
 import React from 'react'
 
 function Generatecouponcode(tittle, expiryDate) {
-    const isValidDate = /^\d{4}-\d{2}-\d{2}$/.test(expiryDate); // Checks for YYYY-MM-DD format
-
-    // Handle invalid expiryDate
-    if (!isValidDate) {
-        expiryDate = '1970-01-01'; // Default to a placeholder date
-    }
 
     // Format the title
     const formatedTittle = tittle.toUpperCase().replace(/\s+/g, '');

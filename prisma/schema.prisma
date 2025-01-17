@@ -42,13 +42,14 @@ model Banner {
 // many to many relationship => Market => Category
 
 model Category {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
   title       String
-  slug        String    @unique
+  slug        String     @unique
   imageUrl    String?
   description String?
   isActive    Boolean
   products    Product[]
+  training    Training[]
 
   marketIds String[] @db.ObjectId
   markets   Market[] @relation(fields: [marketIds], references: [id])
@@ -73,30 +74,111 @@ model Market {
 }
 
 model Product {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  title        String
-  slug         String   @unique
-  imageUrl     String?
-  description  String?
-  isActive     Boolean?
-  Sku          String?
-  barcode      String?
-  productprice Float
-  saleprice    Float
-  tags         String[]
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  barCode        String?
+  title          String
+  slug           String   @unique
+  imageUrl       String?
+  description    String?
+  isActive       Boolean?
+  sku            String?
+  productPrice   Float
+  tags           String[]
+  salePrice      Float
+  qty            Int
+  isWholeSale    Boolean
+  productCode    String
+  unit           String
+  wholeSalePrice Float
+  wholeSaleQty   Int
+  productStock   Int
 
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId String   @db.ObjectId
 
-  farmer   Farmer @relation(fields: [farmerId], references: [id])
-  farmerId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @db.ObjectId
 
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
 }
 
-model Farmer {
-  id    String    @id @default(auto()) @map("_id") @db.ObjectId
-  title String    @unique
-  y     Product[]
+//
+
+model Training {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String  @unique
+  imageUrl    String
+  description String?
+  content     String
+  isActive    Boolean
+
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String   @db.ObjectId
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
+
+enum UserRole {
+  ADMIN
+  USER
+  FARMER
+  MODERATOR
+}
+
+enum Gender {
+  MEN
+  FEMALE
+}
+
+model User {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String?   @unique
+  password      String
+  emailVerified DateTime?
+
+  products Product[]
+
+  role UserRole @default(USER)
+
+  farmerProfile FarmerProfile?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FarmerProfile {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  contactPerson      String?
+  contactPersonPhone String?
+  profileImageUrl    String?
+  email              String
+  name               String
+  notes              String?
+  phone              String
+  physicalAddress    String?
+  terms              String?
+  isActive           Boolean
+  product            String[]
+  landSize           Float
+  mainCrop           String
+  code               String
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @unique @db.ObjectId
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+}
+
+// User =>Admin,Farmer,coustemr,Agent  
+
+//model  Profile{
+//id Int @id @default(autoincrement())
+//user User @relation(fields:[userId],references: [id])
+//userId Int @unique
+//}

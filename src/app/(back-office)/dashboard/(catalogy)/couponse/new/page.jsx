@@ -8,7 +8,7 @@ import Generatecouponcode from '@/lib/Generatecouponcode'
 import { makePostRequest } from '@/lib/apiRequest'
 import generateIsoFormattedDate from '@/lib/GenerateISOStringFormatedDate'
 import { useRouter } from 'next/navigation';
-import ToogleInput from '@/components/backoffice/InputForm/ToogleInput'
+import TooggleInput from '@/components/backoffice/InputForm/ToogleInput'
 
 function NewCoupone() {
   const [Loading, setLoading] = useState(false)
@@ -66,8 +66,8 @@ function NewCoupone() {
             errors={errors}
             className='w-full'
           />
-          <ToogleInput
-            label="Publish your Product"
+          <TooggleInput
+            label="Publish your Coupone"
             name="isActive"
             trueTitle="Active"
             falseTitle="Draft"

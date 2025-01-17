@@ -5,6 +5,7 @@ import React, { use, useState } from 'react'
 import { LayoutDashboard, Flower, Users, Store, Settings, Truck, User, LogOut, Contact2, Minus, ChevronRight, LayoutList, ChevronDownCircle, ChevronDown, Building2, Wallet2Icon, WalletCards } from 'lucide-react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { Sliders } from 'lucide-react'
 
 
 import {
@@ -97,7 +98,7 @@ function Sidebar({showSideBar}) {
     },
     {
       id: 4,
-      tittle: 'Online Store',
+      tittle: 'Store Banner',
       icon: Truck,
       link: '/dashboard/banners'
     },

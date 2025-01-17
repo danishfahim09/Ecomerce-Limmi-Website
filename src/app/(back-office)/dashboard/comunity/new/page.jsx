@@ -1,146 +1,17 @@
-"use client"
-import React, { useState } from 'react'
-import FormHeading from '@/components/backoffice/FormHeader'
-import TextInput from '@/components/backoffice/InputForm/TextInput'
-import { useForm } from 'react-hook-form'
-import SubmitButton from '@/components/backoffice/InputForm/SubmitButton'
-import TextAreaInput from '@/components/backoffice/InputForm/TextAreaInput'
-import { generateSlug } from '@/lib/generateSlug'
-import ImageInput from '@/components/backoffice/InputForm/imageInput'
-import { makePostRequest } from '@/lib/apiRequest'
-import SelectInput from '@/components/backoffice/InputForm/selectInput'
-import ToggleInput from '@/components/backoffice/InputForm/ToogleInput'
-import "react-quill/dist/quill.snow.css";
-import QuillEditor from '@/components/backoffice/InputForm/QuillEditor'
+import React from 'react'
+import NewTranningForm from '@/components/backoffice/NewTrainningForm'
+import { getData } from '@/lib/getData'
 
+async function NewTrainnig() {
+  const catagoriesData = await getData("categories")
+  const categories = catagoriesData.map((f) => {
+    return {
+      id: f.id,
+      title: f.title
+    }
+  })
+  return <NewTranningForm catagories={categories}/>
 
-function NewTraining() {
-  const [imageUrl, setimageUrl] = useState('');
-  const [Loading, setLoading] = useState(false);
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
-  const [content, setContent] = useState('');
-
-  {/* Quil Start */ }
-  const modules = {
-    toolbar: [
-      [{ header: [1, 2, false] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
-      [{ list: "ordered" }, { list: "bullet" }],
-      ["link", "color", "image"],
-      [{ "code-block": true }],
-      ["clean"],
-    ],
-  };
-  
-  {/* Quil End */ }
-
-  const categories = [
-    {
-      id: 1,
-      title: 'Category 1'
-    },
-    {
-      id: 2,
-      title: 'Category 2'
-    },
-    {
-      id: 3,
-      title: 'Category 3'
-    },
-  ]
-
-  {
-    /*
-    id => aouto ()
-    tittle
-    expertID
-    Category
-    description 
-    content 
-    content rich=>text
-    expity date
-    */
-  }
-
-  async function onSubmite(data) {
-    const slug = generateSlug(data.title);
-    data.slug = slug
-    data.content = content
-    setimageUrl('')
-    setContent('')
-    data.imageUrl = imageUrl
-    console.log(data)
-    makePostRequest(setLoading, "api/training", data, 'Traning', reset)
-  }
-
-  return (
-    <div>
-      <FormHeading tittle="New Training" />
-      <form
-        className="w-full max-w-4xl mt-16 mx-auto h-auto dark:bg-slate-800 bg-gray-100 dark:border-gray-700 p-4
-         sm:p-6 md:p-8 rounded-lg dark:text-gray-400 text-gray-700 my-5 shadow-lg dark:shadow-sm dark:shadow-gray-500 shadow-gray-300"
-        onSubmit={handleSubmit(onSubmite)}
-      >
-        <div className="grid sm:grid-row-2 sm:gap-6">
-          <TextInput
-            lable='Category Tittle'
-            register={register}
-            errors={errors}
-            className='w-full'
-          />
-          <SelectInput
-            lable='Select Category'
-            name='Category'
-            register={register}
-            errors={errors}
-            options={categories}
-            className='w-full'
-          />
-          <TextAreaInput
-            lable='Training Description'
-            name='description'
-            register={register}
-            errors={errors}
-          />
-        </div>
-
-        <ImageInput
-          imageUrl={imageUrl}
-          setimageUrl={setimageUrl}
-          endPoint='trainingImageUploader'
-          lable="Training ThumbNail"
-        />
-        {/* Quil End */}
-        <QuillEditor
-          lable='Blog Content'
-          content={content}
-          onChange={setContent}
-          modules={modules}
-        />
-        {/* Quil End */}
-
-        <ToggleInput
-          lable='Publish Your Training'
-          type='checkbox'
-          name='IsActive'
-        />
-        <SubmitButton
-          isLoding={Loading}
-          ButtonTittle='Create Taining'
-          loddingButtonTiittle='Creating Category Please Wait'
-          endPoint="TrainingImageUploader"
-        />
-
-      </form>
-      {/*
-      -id
-      -tittle
-      -slug
-      -description
-      -image
-      */}
-    </div>
-  )
 }
 
-export default NewTraining
+export default NewTrainnig

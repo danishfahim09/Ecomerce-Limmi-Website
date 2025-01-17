@@ -7,7 +7,7 @@ function page() {
     <div>
       {/*Heading*/}
       <PageHeading
-        heading="Limmi Community Trainigs"
+        heading="Staff"
         href="/dashboard/staff/new"
         linkTittle="Add Tranings"
       />
