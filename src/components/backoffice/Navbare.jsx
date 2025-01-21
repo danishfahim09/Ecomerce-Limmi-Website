@@ -22,18 +22,20 @@ import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownMenuco }
 
 
 
-function Navbare({showSideBar,setshowSideBar}) {
+function Navbare({ showSideBar, setshowSideBar }) {
 
 
   return (
-    <div className={showSideBar ?' h-20  py-6 fixed top-0 w-full dark:bg-slate-800 bg-gray-100 ':' h-20  py-6 fixed top-0 w-full  sm:left-64 dark:bg-slate-800 bg-gray-100 '}>
-      <div className={showSideBar ? 'w-full h-9   flex items-center justify-between  text-green-600 ': 'lg:w-9/12 sm:w-8/12 w-11/12 h-9 2xl:w-10/12 flex items-center justify-between  text-green-600  '}>
+    <div className={showSideBar ? ' h-20  py-6 fixed top-0 w-full dark:bg-slate-800 bg-gray-100 ' : ' h-20  py-6 fixed top-0 w-full  sm:left-64 dark:bg-slate-800 bg-gray-100 '}>
+      <div className={showSideBar ? 'w-full h-9   flex items-center justify-between  text-green-600 ' : 'lg:w-9/12 sm:w-8/12 w-11/12 h-9 2xl:w-10/12 flex items-center justify-between  text-green-600  '}>
         {/* Icon */}
-        <button onClick={()=>{setshowSideBar(!showSideBar)}}>
-          <AlignJustify className= {showSideBar ?('text-green dark:text-white w-12 h-7  sm:ml-4 ml-64 '):('text-green dark:text-white w-12 h-7 ml-4') }/>
+        <button onClick={() => { setshowSideBar(!showSideBar) }}>
+          <AlignJustify className={showSideBar ? ('text-green dark:text-white w-12 h-7  sm:ml-4 ml-64 ') : ('text-green dark:text-white w-12 h-7 ml-4')} />
         </button>
 
         {/* 3 Icons */}
+
+        {/*Change Background Colour dark an white mode Page*/}
         <div className='flex space-x-4 sm:mr-4'>
           <button>
             <ThemeToggle />

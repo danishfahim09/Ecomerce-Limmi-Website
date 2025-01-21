@@ -9,13 +9,13 @@ function PageHeader({ heading, href, linkTittle }) {
             <div className='flex justify-between px-8'>
 
                 {/*Heading*/}
-                <h2 className='text-2xl mt-2'>
+                <h2 className='text-2xl mt-2 dark:text-white text-gray-600'>
                     {heading}
                 </h2>
                 <Link href={href}>
                     <button
                         type="button"
-                        className=" flex gap-2 border-2  hover:bg-green-800  focus:ring-4 focus:outline-none focus:ring-green-900 font-medium rounded-lg text-l px-5 py-2.5 text-center me-2 mb-2 border-orange-600 dark:border-green-400 dark:text-white text-orange-700  dark:bg-green-700 dark:hover:bg-green-800 ">
+                        className=" flex gap-2 border-2  hover:bg-gray-300  focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-lg text-l px-5 py-2.5 text-center me-2 mb-2 border-gray-400 dark:border-gray-600 dark:text-white text-gray-600  dark:bg-slate-800 dark:hover:bg-slate-700 ">
                         <PlusIcon />
                         {linkTittle}
                     </button>
@@ -32,7 +32,9 @@ function PageHeader({ heading, href, linkTittle }) {
                    dark:bg-slate-900 transition-all ease-in duration-75
                   bg-white dark:hover:bg-blue-600 rounded-md group-hover:bg-opacity-0
                   ">
-                    <Download className="w-4 h-4  md:w-4 md:h-3 md:mt-0.5  lg:w-6 lg:h-4 lg:mt-0.5  xl:w-6 xl:h-5 xl:mt-0.5 " />
+                    <Download className="
+                     border-1  hover:bg-gray-300  focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium  border-gray-400 dark:border-gray-600 dark:text-white text-gray-600  dark:bg-slate-800 dark:hover:bg-slate-700 
+                    w-4 h-4  md:w-4 md:h-3 md:mt-0.5  lg:w-6 lg:h-4 lg:mt-0.5  xl:w-6 xl:h-5 xl:mt-0.5 " />
                     <span className=''>
                         Import
                     </span>

@@ -4,6 +4,7 @@ import { withUt } from "uploadthing/tw";
 export default withUt({
   darkMode: "class",
   content: [
+    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -19,6 +20,7 @@ export default withUt({
     },
   },
   plugins: [
+    require('flowbite/plugin'),
     require("@tailwindcss/forms"),
     nextui(),
     // Additional plugins...

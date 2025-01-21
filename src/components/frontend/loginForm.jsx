@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import SubmitButton from "../InputForm/SubmitButton";
 import TextInput from "../InputForm/TextInput";
 
-export default function RegisterForm({ role = "USER" }) {
+export default function Login() {
     const router = useRouter(); // redirect on the client side
     const {
         register,
@@ -71,24 +71,8 @@ export default function RegisterForm({ role = "USER" }) {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className=" ">
-            <TextInput
-                lable=""
-                name="role"
-                register={register}
-                errors={errors}
-                type="hidden"
-                defaultvalue={role}
-                className="sm:col-span-2 mt-3"
-            />
-            <TextInput
-                lable="Your Full Name"
-                name="name"
-                register={register}
-                errors={errors}
-                type="text"
-
-                className="sm:col-span-2 mt-3"
-            />
+            
+            
             <TextInput
                 lable="Email Eddress"
                 name="email"
@@ -108,8 +92,8 @@ export default function RegisterForm({ role = "USER" }) {
             />
             <SubmitButton
                 isLoding={loading}
-                ButtonTittle='Register'
-                loddingButtonTiittle="Creating Please Wait"
+                ButtonTittle='Login'
+                loddingButtonTiittle="Signing In Please Wait..."
             />
             <div className="flex items-center ">
                 <div className="w-full bg-slate-500 h-[1px]"></div>
@@ -117,12 +101,12 @@ export default function RegisterForm({ role = "USER" }) {
                 <div className="w-full bg-slate-500 h-[1px]"></div>
             </div>
             <p className="py-4 text-sm font-light text-gray-500 dark:text-gray-400">
-                Already have an account?{" "}
+                Do Not have an account?{" "}
                 <Link
-                    href="/login"
+                    href="/register"
                     className="font-medium text-purple-600 hover:underline dark:text-purple-500"
                 >
-                    Login
+                    Register
                 </Link>
             </p>
         </form>

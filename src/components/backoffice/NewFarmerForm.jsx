@@ -1,14 +1,14 @@
 "use client"
 import React, { useState } from 'react'
-import TextInput from '@/components/backoffice/InputForm/TextInput'
+import TextInput from '@/components/InputForm/TextInput'
 import { useForm } from 'react-hook-form'
-import SubmitButton from '@/components/backoffice/InputForm/SubmitButton'
-import TextAreaInput from '@/components/backoffice/InputForm/TextAreaInput'
-import ImageInput from '@/components/backoffice/InputForm/imageInput'
+import SubmitButton from '@/components/InputForm/SubmitButton'
+import TextAreaInput from '@/components/InputForm/TextAreaInput'
+import ImageInput from '@/components/InputForm/imageInput'
 import { makePostRequest } from '@/lib/apiRequest'
-import ToogleInput from '@/components/backoffice/InputForm/ToogleInput'
+import ToogleInput from '@/components/InputForm/ToogleInput'
 import { generateUserCode } from '@/lib/generateUserCode'
-import ArrayitemInput from '@/components/backoffice/InputForm/ArrayitemInput'
+import ArrayitemInput from '@/components/InputForm/ArrayitemInput'
 import { useRouter } from 'next/navigation'
 
 

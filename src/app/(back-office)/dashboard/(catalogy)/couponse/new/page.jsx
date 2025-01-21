@@ -1,14 +1,14 @@
 'use client';
 import React, { useState } from 'react'
 import FormHeading from '@/components/backoffice/FormHeader'
-import TextInput from '@/components/backoffice/InputForm/TextInput'
+import TextInput from '@/components/InputForm/TextInput'
 import { useForm } from 'react-hook-form'
-import SubmitButton from '@/components/backoffice/InputForm/SubmitButton'
+import SubmitButton from '@/components/InputForm/SubmitButton'
 import Generatecouponcode from '@/lib/Generatecouponcode'
 import { makePostRequest } from '@/lib/apiRequest'
 import generateIsoFormattedDate from '@/lib/GenerateISOStringFormatedDate'
 import { useRouter } from 'next/navigation';
-import TooggleInput from '@/components/backoffice/InputForm/ToogleInput'
+import TooggleInput from '@/components/InputForm/ToogleInput'
 
 function NewCoupone() {
   const [Loading, setLoading] = useState(false)

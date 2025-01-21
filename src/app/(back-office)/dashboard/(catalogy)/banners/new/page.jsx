@@ -1,13 +1,13 @@
 'use client';
 import React, { useState } from 'react'
 import FormHeading from '@/components/backoffice/FormHeader'
-import TextInput from '@/components/backoffice/InputForm/TextInput'
+import TextInput from '@/components/InputForm/TextInput'
 import { useForm } from 'react-hook-form'
-import SubmitButton from '@/components/backoffice/InputForm/SubmitButton'
+import SubmitButton from '@/components/InputForm/SubmitButton'
 import { makePostRequest } from '@/lib/apiRequest'
 import { useRouter } from 'next/navigation';
-import ImageInput from '@/components/backoffice/InputForm/imageInput'
-import ToogleInput from '@/components/backoffice/InputForm/ToogleInput'
+import ImageInput from '@/components/InputForm/imageInput'
+import ToogleInput from '@/components/InputForm/ToogleInput'
 
 function NewCoupone() {
   const [Loading, setLoading] = useState(false)
@@ -16,6 +16,7 @@ function NewCoupone() {
       isActive: true,
     },
   });
+  
   const [imageUrl, setimageUrl] = useState('');
 
   const router = useRouter();

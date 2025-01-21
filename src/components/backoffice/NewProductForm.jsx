@@ -1,17 +1,17 @@
 "use client"
 import React, { useState } from 'react'
 import FormHeading from '@/components/backoffice/FormHeader'
-import TextInput from '@/components/backoffice/InputForm/TextInput'
+import TextInput from '@/components/InputForm/TextInput'
 import { useForm } from 'react-hook-form'
-import SubmitButton from '@/components/backoffice/InputForm/SubmitButton'
-import TextAreaInput from '@/components/backoffice/InputForm/TextAreaInput'
+import SubmitButton from '@/components/InputForm/SubmitButton'
+import TextAreaInput from '@/components/InputForm/TextAreaInput'
 import { generateSlug } from '@/lib/generateSlug'
-import ImageInput from '@/components/backoffice/InputForm/imageInput'
+import ImageInput from '@/components/InputForm/imageInput'
 import { makePostRequest, makePutRequest } from '@/lib/apiRequest'
-import SelectInput from '@/components/backoffice/InputForm/selectInput'
+import SelectInput from '@/components/InputForm/selectInput'
 import { useRouter } from 'next/navigation';
-import ArrayitemInput from '@/components/backoffice/InputForm/ArrayitemInput'
-import ToggleInput from '@/components/backoffice/InputForm/ToogleInput'
+import ArrayitemInput from '@/components/InputForm/ArrayitemInput'
+import ToggleInput from '@/components/InputForm/ToogleInput'
 import { generateUserCode } from '@/lib/generateUserCode'
 
 function NewProductForm({catagories,farmers}) {
