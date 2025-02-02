@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -63,17 +65,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(210, 210, 210)
+  background: rgb(210, 210, 210);
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: gray;
-  border-radius: 10px
+  border-radius: 10px;
 }
-
 
 body {
   max-height: 100vh;
 }
-
-

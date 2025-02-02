@@ -5,7 +5,8 @@ function Layout({ children }) {
   return (
     <div className=''>
       <Navbare />
-      {children}
+      <div className='w-full mx-auto py-6'>{children}</div>
+      
       </div>
   )
 }
