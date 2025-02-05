@@ -1,21 +1,21 @@
 "use client"
 import React, { useState } from 'react'
 import FormHeading from '@/components/backoffice/FormHeader'
-import TextInput from '@/components/backoffice/InputForm/TextInput'
+import TextInput from '@/components/InputForm/TextInput'
 import { useForm } from 'react-hook-form'
-import SubmitButton from '@/components/backoffice/InputForm/SubmitButton'
-import TextAreaInput from '@/components/backoffice/InputForm/TextAreaInput'
+import SubmitButton from '@/components/InputForm/SubmitButton'
+import TextAreaInput from '@/components/InputForm/TextAreaInput'
 import { generateSlug } from '@/lib/generateSlug'
-import ImageInput from '@/components/backoffice/InputForm/imageInput'
+import ImageInput from '@/components/InputForm/imageInput'
 import { makePostRequest } from '@/lib/apiRequest'
-import SelectInput from '@/components/backoffice/InputForm/selectInput'
-import ToogleInput from '@/components/backoffice/InputForm/ToogleInput'
+import SelectInput from '@/components/InputForm/selectInput'
+import ToogleInput from '@/components/InputForm/ToogleInput'
 import { useRouter } from 'next/navigation'
 //import { useRouter } from 'next/router'
 
 
 function NewMarketForm({catagories}) {
-  const [imageUrl, setimageUrl] = useState('');
+  const [logoUrl, setlogoUrl] = useState('');
   const [Loading, setLoading] = useState(false);
  
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
@@ -35,13 +35,13 @@ function NewMarketForm({catagories}) {
   }
   const router = useRouter()
   function redirect() {
-    router.push('/dashboard/products')
+    router.push('/dashboard/markets')
   }
 
   async function onSubmite(data) {
     const slug = generateSlug(data.title);
     data.slug = slug
-    data.imageUrl = imageUrl
+    data.logoUrl = logoUrl
     console.log(data)
     makePostRequest(setLoading, "api/markets", data, 'Market', reset,redirect)
   }
@@ -72,8 +72,8 @@ function NewMarketForm({catagories}) {
           multiple={true}
           />
           <ImageInput
-            imageUrl={imageUrl}
-            setimageUrl={setimageUrl}
+            logoUrl={logoUrl}
+            setlogoUrl={setlogoUrl}
             endPoint='marketImageUploader'
             lable="Market Logo"
           />

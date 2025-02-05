@@ -25,7 +25,7 @@ function NewCatagory() {
 
   const router = useRouter();
   function redirect() {
-    router.push('/dashboard/banners')
+    router.push('/dashboard/catagories')
   }
   {
     /*

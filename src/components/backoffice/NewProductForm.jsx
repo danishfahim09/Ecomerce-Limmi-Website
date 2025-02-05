@@ -77,7 +77,7 @@ const isWholeSale = watch("isWholeSale")
     data.imageUrl = imageUrl
     console.log(data)
     makePostRequest(setLoading, "api/products", data, 'Product', reset,redirect )
-    setimageUrl("")
+    //setimageUrl("")
   }
 
   return (

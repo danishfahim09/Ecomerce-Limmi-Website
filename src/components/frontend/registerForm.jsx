@@ -36,7 +36,6 @@ export default function RegisterForm({ role = "USER" }) {
             console.log(response)
 
             if (response.ok) {
-                //router.push()
                 console.log('response data is coming here', responseData)
                 setLoading(false);
 

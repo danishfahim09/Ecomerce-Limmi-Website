@@ -32,12 +32,14 @@ export default function ImageInput({
                 </div>
 
                 {imageUrl ?
-                    (<Image
-                        src={imageUrl}
-                        width={1000}
-                        height={667}
-                        className="w-full h-64 object-contain border-0 my-2"
-                        alt="Item Image" />)
+                    (
+                        <Image
+                            src={imageUrl}
+                            width={1000}
+                            height={667}
+                            className="w-full h-64 object-contain border-0 my-2"
+                            alt="Item Image" />
+                    )
                     :
                     (
                         <UploadDropzone

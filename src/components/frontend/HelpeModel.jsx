@@ -16,23 +16,23 @@ export default function HelperModel() {
         <span>Help</span>
       </button>
 
-      <Modal show={openModal} size="md" className="mt-[20%]" onClose={() => setOpenModal(false)}>
-        <Modal.Header>Need Help Talk Our D=Help Desk</Modal.Header>
-        <div className="grid items-center  grid-cols-2 gap-4 gap-y-12 py-8">
+      <Modal show={openModal} size="md" className="mt-[20%] " onClose={() => setOpenModal(false)}>
+        <Modal.Header>Need Help Contact With Us </Modal.Header>
+        <div className="grid items-center  grid-cols-2 gap-4 gap-y-12 py-8 ">
           <Link href="/"  className='flex gap-1 items-center justify-center space-x-1 text-green-950 dark:text-white'>
-            <Headphones className="w-7 h-7 p-[4px]  bg-lime-200 rounded-xl text-green-600"/>
+            <Headphones className="w-7 h-7 p-[4px]  bg-lime-300 rounded-xl text-black"/>
             <span>Call: 349 93934 3</span>
           </Link>
           <Link href="/" className='flex gap-1  items-center justify-center space-x-1 text-green-950 dark:text-white'>
-            <Truck className="w-7 h-7 p-[4px]  bg-lime-200 rounded-xl text-green-600"/>
+            <Truck className="w-7 h-7 p-[4px]  bg-lime-300 rounded-xl text-black"/>
             <span>Track Your Order</span>
           </Link>
           <Link href="/"  className='flex gap-1 items-center justify-center space-x-1 text-green-950 dark:text-white'>
-            <CornerDownLeft className="w-7 h-7 p-[4px] bg-lime-200 rounded-xl text-green-600"/>
+            <CornerDownLeft className="w-7 h-7 p-[4px] bg-lime-300 rounded-xl text-black"/>
             <span>Return & Refunds</span>
           </Link>
-          <Link href="/"  className='flex gap-1 items-center justify-center space-x-1 text-green-950 dark:text-white'>
-           <MessageSquare className="w-7 h-7 p-[4px]  bg-lime-200 rounded-xl text-green-600"/>
+          <Link href="/"  className='flex gap-1 items-center justify-center space-x-1 text-black dark:text-white'>
+           <MessageSquare className="w-7 h-7 p-[4px]  bg-lime-300 rounded-xl text-black"/>
             <span>Chat With  Us</span>
           </Link>
 

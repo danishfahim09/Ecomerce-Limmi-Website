@@ -15,7 +15,7 @@ export const ourFileRouter = {
       console.log("file url", file.url, metadata);
       return { uploadedBy: "danish" };
     }),
-  trainingImageUploader: f({ image: { maxFileSize: "1MB" } }).onUploadComplete(
+    trainingImageUploader: f({ image: { maxFileSize: "4MB" } }).onUploadComplete(
     async ({ metadata, file }) => {
       console.log("file url", file.url, metadata);
       return { uploadedBy: "danish trainning Uploader" };

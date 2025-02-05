@@ -1,22 +1,22 @@
 "use client"
 import React, { useState } from 'react'
 import FormHeading from '@/components/backoffice/FormHeader'
-import TextInput from '@/components/backoffice/InputForm/TextInput'
+import TextInput from '@/components/InputForm/TextInput'
 import { useForm } from 'react-hook-form'
-import SubmitButton from '@/components/backoffice/InputForm/SubmitButton'
-import TextAreaInput from '@/components/backoffice/InputForm/TextAreaInput'
+import SubmitButton from '@/components/InputForm/SubmitButton'
+import TextAreaInput from '@/components/InputForm/TextAreaInput'
 import { generateSlug } from '@/lib/generateSlug'
-import ImageInput from '@/components/backoffice/InputForm/imageInput'
+import ImageInput from '@/components/InputForm/imageInput'
 import { makePostRequest } from '@/lib/apiRequest'
-import SelectInput from '@/components/backoffice/InputForm/selectInput'
-import ToggleInput from '@/components/backoffice/InputForm/ToogleInput'
+import SelectInput from '@/components/InputForm/selectInput'
+import ToggleInput from '@/components/InputForm/ToogleInput'
 import "react-quill/dist/quill.snow.css";
-import QuillEditor from '@/components/backoffice/InputForm/QuillEditor'
+import QuillEditor from '@/components/InputForm/QuillEditor'
 import { useRouter } from 'next/navigation'
 
 
 
-function NewTrainingForm({catagories}) {
+function NewTrainingForm({ catagories }) {
   const [imageUrl, setimageUrl] = useState('');
   const [Loading, setLoading] = useState(false);
   const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({
@@ -52,8 +52,9 @@ function NewTrainingForm({catagories}) {
     //setimageUrl('')
     //setContent('')
     data.imageUrl = imageUrl
+    console.log(imageUrl)
     console.log(data)
-    makePostRequest(setLoading, "api/training", data, 'Traning', reset,redirect)
+    makePostRequest(setLoading, "api/training", data, 'Traning', reset, redirect)
   }
 
   return (
@@ -67,7 +68,7 @@ function NewTrainingForm({catagories}) {
         <div className="grid sm:grid-row-2 sm:gap-6">
           <TextInput
             lable='Trianing Tittle'
-          name='title'
+            name='title'
             register={register}
             errors={errors}
             className='w-full'
@@ -110,7 +111,7 @@ function NewTrainingForm({catagories}) {
           falseTitle="Draft"
           register={register}
         />
-        
+
         <SubmitButton
           isLoding={Loading}
           ButtonTittle='Create Taining'

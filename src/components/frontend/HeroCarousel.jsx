@@ -4,47 +4,44 @@ import { Carousel } from 'nuka-carousel'
 import Image from 'next/image'
 import Link from 'next/link'
 
-function HeroCarousel() {
-
-    const DefaultControlsConfig = {
-        //containerClassName: 'border-4 border-red-500',
-        nextButtonClassName: ' rounded-full',
-        nextButtonText: 'Next Btn',
-        pagingDotsClassName: 'me-2 w-10 h-10',
-        //pagingDotsContainerClassName: 'flex gap-9',
-        prevButtonClassName: 'text-white bg-blue-500 px-4 py-2 rounded-md',
-        prevButtonText: 'Prev Btn',
+function HeroCarousel({ banners }) {
+    const config = {
+        nextButtonClassName: 'rounded-full bg-gray-800 text-white px-4 py-2',
+        nextButtonText: 'Next',
+        pagingDotsClassName: 'me-2 w-6 h-6', // ⬆️ Size bara kiya
+        pagingDotsContainerClassName: 'bg-green-500',
+        prevButtonClassName: 'w-[16px] h-[16px] bg-red-500 !important',
+        prevButtonText: 'Prev',
+        pagingDotsStyle: {
+            fill: "red",
+            width: "16px", // ⬆️ Size bara kiya
+            height: "16px" // ⬆️ Size bara kiya
+        }
     }
 
-
     return (
-        <Carousel showDots wrapAround showArrows wrapMode="wrap" DefaultControlsConfig={DefaultControlsConfig} className="">
-            <Link href="/" className=''>
-                <Image src='/pexels-01.jpg'
-                    width={1520}
-                    height={1710}
-                    alt='image'
-                    className='object-cover h-[450px]'
-                />
-            </Link>
-            <Image src='/pexels-01.jpg'
-                width={1520}
-                height={1710}
-                alt='image'
-                className='object-cover h-[450px]'
-            />
-            <Image src='/pexels-01.jpg'
-                width={1520}
-                height={1210}
-                alt='image'
-                className='object-cover '
-            />
-            <Image src='/pexels-03.jpg'
-                width={1520}
-                height={1210}
-                alt='image'
-                className='object-cover '
-            />
+        <Carousel
+            showDots
+            slideCount={2}
+            autoplay
+            wrapAround
+            defaultControlsConfig={config}  // ✅ Sahi naam yeh hai
+            className="rounded-md flex  overflow-hidden">
+
+            {banners.map((banner,i) => {
+                return (
+                    
+                    <Image key={i} src={banner.imageUrl}
+                        width={800}
+                        height={384}
+                        alt='image'
+                        className=' w-[710px] h-[410px]'
+                    />
+                )
+            })}
+
+
+
 
         </Carousel>
 
