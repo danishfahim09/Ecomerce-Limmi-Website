@@ -1,13 +1,13 @@
+'use client'
 import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from 'next/image';
 import Link from 'next/link';
-import { getData } from '@/lib/getData';
 
-async function CummunittyTrainnigCarasoule() {
-  const trainnings = await getData('training')
-console.log(trainnings)
+function CummunittyTrainnigCarasoule({ training }) {
+
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -46,25 +46,24 @@ console.log(trainnings)
         itemClass="px-4"
       >
         {
-          trainnings.map((trainning, i) => {
+          training.map((training, i) => {
             return (
               <div key={i} className=' border-1 rounded-lg mr-3 dark:hover:bg-slate-600 dark:hover:opacity-70'>
                 <Link href="#" className=''>
                   <Image
-                    src={trainning.imageUrl}
-                    alt=""
+                    src={training.imageUrl}
+                    alt={training.description}
                     width={330}
                     height={220}
-                    className='w-full rounded-t-lg'
+                    className='w-full rounded-t-lg h-48'
                   />
-                  <div className='mt-2 mb-6 text-slate-300 text-center dark:text-slate-400    dark:hover:bg-slate-600 '>
-                    <h1 className='p-2 text-slate-300'>Harvest Money with Fish Farming</h1>
+                  <div className='mt-2 mb-6 text-slate-300  dark:text-slate-400    dark:hover:bg-slate-600 '>
+                    <h1 className='p-2 text-slate-300 text-center'>{training.title}</h1>
                     <p className='px-4 py-2'>
-                      This is the description of the blog. The block is good.
-                      This is the description of the blog. The block is good you can add this block in your project
+                      {training.description}
                     </p>
                     <div className='flex gap-3 text-center py-1 justify-center'>
-                      <Link href='#' className=' bg-lime-900 text-slate-50 rounded-md px-4 py-2 hover:bg-lime-800 duration-300 transition-all'>Read more</Link>
+                      <Link href='#' className='  text-slate-50 rounded-md px-4 py-2 hover:bg-lime-800 dark:hover:bg-lime-600 dark:bg-lime-700 bg-lime-900 duration-300 transition-all'>Read more</Link>
                       <Link href='#' className='text-blue-400 flex items-center justify-center '>talk to counsaltant...</Link>
                     </div>
                   </div>

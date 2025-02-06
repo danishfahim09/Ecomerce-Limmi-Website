@@ -9,7 +9,7 @@ import { getData } from '@/lib/getData'
 
 export default async function Hero() {
   const banners = await getData('banner')
- 
+
   return (
     <div className='grid grid-cols-12 gap-8 mb-6 '>
 

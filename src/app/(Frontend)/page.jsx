@@ -3,25 +3,26 @@ import MarketList from '@/components/frontend/MarketList'
 import Hero from '@/components/frontend/Hero'
 import CategoryList from '@/components/frontend/CategoryList'
 import CummunittyTrainnig from '@/components/frontend/CummunittyTrainnig'
+import { getData } from "@/lib/getData";
 
-export default function Home() {
-
+export default async function Home() {
+  const categories = await getData('categories')
+  
   return (
     <div className=" min-h-screen sm:px-3  ">
       <Hero />
       <MarketList />
-      <div className="my-9">
-        <CategoryList />
-      </div>
-      <div className="my-9">
-        <CategoryList />
-      </div>
-      <div className="my-9">
-        <CategoryList />
-      </div>
-      <div className="my-9">
-        <CategoryList />
-      </div>
+
+
+      {categories.map((category,i) => {
+        return (
+          <div key={i} className="my-9">
+            <CategoryList category={category}/>
+          </div>
+        );
+      })}
+
+
       <div className="my-9">
         <CummunittyTrainnig />
       </div>

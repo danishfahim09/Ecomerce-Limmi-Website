@@ -6,7 +6,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 function MarketCarousole({ markets }) {
-console.log( markets)
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },

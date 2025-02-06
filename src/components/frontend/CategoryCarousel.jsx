@@ -4,8 +4,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from 'next/image';
 import Link from 'next/link';
+import { BaggageClaim } from 'lucide-react';
 
-function CategoryCarousel() {
+function CategoryCarousel({ products }) {
 
     const responsive = {
         desktop: {
@@ -48,22 +49,37 @@ function CategoryCarousel() {
                 itemClass="px-4"
             >
                 {
-                    slides.map((index, i) => {
+                    products.map((product, i) => {
                         return (
-                            <Link key={i} href="#" className='rounded-lg mr-3 bg-red-400 '>
-                                <Image
-                                    src="/th (1).jpeg"
-                                    alt=""
-                                    width={330}
-                                    height={220}
-                                    className='w-full rounded-2xl'
-                                />
-                                <h2 className='mt-2 text-slate-300 text-center dark:text-slate-200'>Vegetables</h2>
-                            </Link>
+                            <div key={i} href="#" className='border-1 border-gray-200 dark:border-gray-700 rounded-lg mr-3 bg-white dark:bg-slate-800 overflow-hidden'>
+                                <Link href="#">
+                                    <Image
+                                        src={product.imageUrl}
+                                        alt=""
+                                        width={556}
+                                        height={556}
+                                        className='w-full rounded-t-lg h-48'
+                                    />
+                                </Link>
+                                <div className="px-2 ">
+                                    <Link href="#">
+                                        <h2 className='  my-2 text-gray-700 text-center dark:text-gray-300 mb-2 font-semibold'>
+                                            {product.title}
+                                        </h2>
+                                    </Link>
+                                    <div className="flex items-center justify-between my-2">
+                                        <p className='text-gray-700 dark:text-gray-300'>UGX {product.salePrice}</p>
+                                        <button className='flex items-center space-x-2 text-white bg-lime-700 px-3 py-2 rounded-md'>
+                                            <BaggageClaim />
+                                             <p>Add</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         )
                     })
                 }
-               
+
 
             </Carousel>
         </div>
