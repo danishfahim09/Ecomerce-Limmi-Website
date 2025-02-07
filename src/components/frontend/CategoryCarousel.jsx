@@ -52,7 +52,7 @@ function CategoryCarousel({ products }) {
                     products.map((product, i) => {
                         return (
                             <div key={i} href="#" className='border-1 border-gray-200 dark:border-gray-700 rounded-lg mr-3 bg-white dark:bg-slate-800 overflow-hidden'>
-                                <Link href="#">
+                                <Link href={`/product/${product.slug}`}>
                                     <Image
                                         src={product.imageUrl}
                                         alt=""
@@ -62,7 +62,7 @@ function CategoryCarousel({ products }) {
                                     />
                                 </Link>
                                 <div className="px-2 ">
-                                    <Link href="#">
+                                    <Link href={`/product/${product.slug}`}>
                                         <h2 className='  my-2 text-gray-700 text-center dark:text-gray-300 mb-2 font-semibold'>
                                             {product.title}
                                         </h2>

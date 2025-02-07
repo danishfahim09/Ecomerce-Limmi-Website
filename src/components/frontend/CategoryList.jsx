@@ -14,6 +14,7 @@ function CategoryList({category}) {
                 </Link>
             </div>
             <div className="bg-white p-4 dark:bg-slate-700">
+                <h2>Simmilar Products</h2>
                 <CategoryCarousel products={category.products}/>
             </div>
 

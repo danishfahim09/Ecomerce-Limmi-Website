@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getData } from '@/lib/getData'
 
-export default async function SidebareCarorusel() {
+export default async function SidebareCategory() {
     const catagories = await getData('categories')
     return (
         <div className="sm:col-span-3 sm:block hidden overflow-auto h-[450px]  bg-white rounded-lg  border-1 border-gray-100 dark:bg-gray-700 dark:border-gray-700 shadow-lg dark:shadow-sm shadow-gray-300 dark:shadow-gray-500">

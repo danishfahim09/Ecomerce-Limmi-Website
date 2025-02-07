@@ -3,7 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 import HeroCarousel from '@/components/frontend/HeroCarousel'
 import { CircleDollarSign, CircleHelp, FolderSyncIcon } from 'lucide-react'
-import SidebareCarorusel from '@/components/frontend/SidebareCarorusel'
+import SidebareCategory from '@/components/frontend/SidebareCategory'
 import { getData } from '@/lib/getData'
 
 
@@ -14,7 +14,7 @@ export default async function Hero() {
     <div className='grid grid-cols-12 gap-8 mb-6 '>
 
       {/* User Add All Catagory Section */}
-      <SidebareCarorusel />
+      <SidebareCategory />
 
       {/*  Carasoule */}
       <div className="sm:col-span-7 col-span-12 bg-[rgb(37,45,61,1)]  rounded-md overflow-hidden relative">
