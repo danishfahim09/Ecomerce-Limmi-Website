@@ -7,22 +7,23 @@ import { getData } from "@/lib/getData";
 
 export default async function Home() {
   const categories = await getData('categories')
-  
+
   return (
     <div className=" min-h-screen sm:px-3  ">
+      {/* Caresole Section */}
       <Hero />
+
+      {/* Market SList Caresoule */}
       <MarketList />
-
-
-      {categories.map((category,i) => {
+      {categories.map((category, i) => {
         return (
           <div key={i} className="my-9">
-            <CategoryList category={category}/>
+            <CategoryList category={category} />
           </div>
         );
       })}
 
-
+      {/* Comunnity Trainnig Caresoule */}
       <div className="my-9">
         <CummunittyTrainnig />
       </div>

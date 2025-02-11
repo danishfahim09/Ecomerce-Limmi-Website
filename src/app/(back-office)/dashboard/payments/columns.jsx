@@ -1,7 +1,6 @@
 "use client"
 import Image from "next/image"
-import { ColumnDef } from "@tanstack/react-table"
-import { MoreHorizontal ,ArrowUpDown} from "lucide-react"
+import { ArrowUpDown} from "lucide-react"
 import { EllipsisVertical } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 
@@ -74,14 +73,14 @@ export const columns = [
   {
     accessorKey: "description",
     header: "Description",
-    // cell: ({ row }) => {
-    //   const description = row.getValue("description")
-    //   return (
-    //     <div className="shrink-0">
-    //       {description}
-    //     </div>
-    //   )
-    // }
+    cell: ({ row }) => {
+      const description = row.getValue("description")
+      return (
+        <div className="shrink-0">
+          {description}
+        </div>
+      )
+    }
   },
   {
     accessorKey: "isActive",

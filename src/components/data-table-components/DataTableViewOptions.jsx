@@ -41,7 +41,7 @@ export function DataTableViewOptions({ table, }) {
                         return (
                             <DropdownMenuCheckboxItem
                                 key={column.id}
-                                className="capitalize flex gap-3 px-2 py-1"
+                                className="capitalize flex gap-2   py-1"
                                 checked={column.getIsVisible()}
                                 onCheckedChange={(value) => column.toggleVisibility(!!value)}
                             >
