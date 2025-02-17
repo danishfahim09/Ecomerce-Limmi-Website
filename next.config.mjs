@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+   
   images: {
     domains: ['utfs.io'],
     remotePatterns: [
@@ -10,7 +11,14 @@ const nextConfig = {
 
       },
     ],
-  }
+  },
+  // Webpack Configuration
+  webpack: (config) => {
+    config.cache = false; // Webpack cache disable
+    return config;
+  },
+  
 };
+
 
 export default nextConfig;

@@ -5,21 +5,18 @@ import db from "@/lib/db";
 
 export async function GET(request, { params: { id } }) {
     try {
-        const categories = await db.category.findUnique({
+        const farmer = await db.farmer.findUnique({
             where: {
                 id
             },
-            include: {
-                products: true
-            }
         })
-        return NextResponse.json(categories)
+        return NextResponse.json(farmer)
     } catch (error) {
         console.error("Database Error:", error.message, error.stack);
         return NextResponse.json(
             {
                 error: error.message,
-                message: "Failed to Fetch Category",
+                message: "Failed to Fetch farmer",
             },
             { status: 500 }
         );
@@ -28,33 +25,33 @@ export async function GET(request, { params: { id } }) {
 
 export async function DELETE(request, { params: { id } }) {
     try {
-        const existingCategory = await db.category.findUnique({
+        const existingfarmer = await db.farmer.findUnique({
             where: {
                 id,
             },
         })
-        if (!existingCategory) {
+        if (!existingfarmer) {
             return NextResponse.json({
                 data: null,
-                message: "Category Not found "
+                message: "Farmer Not found "
             },
                 {
                     status: 404
                 }
             )
         }
-        const deletedCategory = await db.category.delete({
+        const deletedfarmer = await db.farmer.delete({
             where: {
                 id,
             },
         });
-        return NextResponse.json(deletedCategory);
+        return NextResponse.json(deletedfarmer);
     } catch (error) {
         console.log(error);
         return NextResponse.json(
             {
                 error: error.message,
-                message: "Failed to Fetch Category",
+                message: "Failed to Fetch farmer",
             },
             { status: 500 }
         );

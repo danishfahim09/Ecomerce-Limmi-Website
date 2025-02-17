@@ -23,4 +23,4 @@ async function page() {
   )
 }
 
-export default Couponse
+export default page

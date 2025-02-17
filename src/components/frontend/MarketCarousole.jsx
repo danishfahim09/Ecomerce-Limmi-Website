@@ -53,7 +53,7 @@ function MarketCarousole({ markets }) {
                                     alt={market.title}
                                     width={330}
                                     height={220}
-                                    className='w-full rounded-lg'
+                                    className='w-[400px] h-[150px] rounded-lg'
                                 />
                                 <h2 className='mt-2 text-slate-300 text-center dark:text-slate-200'>
                                     {market.title}
@@ -62,8 +62,6 @@ function MarketCarousole({ markets }) {
                         )
                     })
                 }
-
-
             </Carousel>
         </div>
     )

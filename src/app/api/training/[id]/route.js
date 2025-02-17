@@ -5,13 +5,11 @@ import db from "@/lib/db";
 
 export async function GET(request, { params: { id } }) {
     try {
-        const categories = await db.category.findUnique({
+        const categories = await db.training.findUnique({
             where: {
                 id
             },
-            include: {
-                products: true
-            }
+            
         })
         return NextResponse.json(categories)
     } catch (error) {
@@ -28,7 +26,7 @@ export async function GET(request, { params: { id } }) {
 
 export async function DELETE(request, { params: { id } }) {
     try {
-        const existingCategory = await db.category.findUnique({
+        const existingCategory = await db.training.findUnique({
             where: {
                 id,
             },
@@ -36,14 +34,14 @@ export async function DELETE(request, { params: { id } }) {
         if (!existingCategory) {
             return NextResponse.json({
                 data: null,
-                message: "Category Not found "
+                message: "training Not found "
             },
                 {
                     status: 404
                 }
             )
         }
-        const deletedCategory = await db.category.delete({
+        const deletedCategory = await db.training.delete({
             where: {
                 id,
             },
@@ -54,7 +52,7 @@ export async function DELETE(request, { params: { id } }) {
         return NextResponse.json(
             {
                 error: error.message,
-                message: "Failed to Fetch Category",
+                message: "Failed to Fetch training",
             },
             { status: 500 }
         );

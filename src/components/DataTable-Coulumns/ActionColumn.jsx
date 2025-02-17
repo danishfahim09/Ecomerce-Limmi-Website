@@ -1,11 +1,12 @@
 import React from 'react'
 import { EllipsisVertical } from "lucide-react"
+import DeleteBtn from '@/components/actions/DeleteBtn'
 import {
-  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
-  DropdownMenuSeparator, DropdownMenuTrigger,
+    DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
+    DropdownMenuSeparator, DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-function ActionColumn({row , title}) {
+function ActionColumn({ row, title, endpoint }) {
     const isActive = row.isActive
 
     return (
@@ -20,8 +21,12 @@ function ActionColumn({row , title}) {
             <DropdownMenuContent align="end" className=" border rounded-lg border-gray-300 dark:border-gray-700   dark:bg-black px-1" >
                 <DropdownMenuLabel className="px-1 py-1">Actions</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="px-1 py-1">Edit {title}</DropdownMenuItem>
-                <DropdownMenuItem className="px-1 py-1">Delete {title}</DropdownMenuItem>
+                <DropdownMenuItem className="px-1 py-1">
+                    <DeleteBtn   title={title} endpoint={endpoint} />
+                </DropdownMenuItem>
+                <DropdownMenuItem className="px-1 py-1">
+                    Delete {title}
+                </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     )
