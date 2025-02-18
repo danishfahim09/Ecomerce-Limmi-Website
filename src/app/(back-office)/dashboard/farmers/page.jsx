@@ -6,7 +6,7 @@ import { columns } from './columns'
 
 async function page() {
   const farmers = await getData('farmers')
-  console.log(farmers)
+  //console.log(farmers)
   return (
     <div>
       <PageHeading

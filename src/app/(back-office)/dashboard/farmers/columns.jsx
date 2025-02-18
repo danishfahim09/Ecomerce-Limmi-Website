@@ -39,25 +39,12 @@ export const columns = [
     header: ({ column }) => (<SortableColumn column={column} title="Tittle" />)
   },
   {
-    accessorKey: "profileImageUrl",
-    header: "Farmer Image",
-    cell: ({ row }) => (<ImageColumn row={row} accessorKey="profileImageUrl" />)
-  },
-  {
     accessorKey: "email",
     header: "Email",
-    // cell: ({ row }) => {
-    //   const description = row.getValue("description")
-    //   return (
-    //     <div className="shrink-0">
-    //       {description}
-    //     </div>
-    //   )
-    // }
   },
   {
-    accessorKey: "isActive",
-    header: "Active",
+    accessorKey: "role",
+    header: "Role",
   },
   {
     accessorKey: "createdAt",
@@ -69,7 +56,7 @@ export const columns = [
     cell: ({ row }) => {
       const training = row.original
       return (
-        <ActionColumn row={row} title="Farmer" endpoint={`farmer/${training.id}`} />)
+        <ActionColumn row={row} title="Farmer" endpoint={`farmers/${training.id}`} />)
     }
   },
    

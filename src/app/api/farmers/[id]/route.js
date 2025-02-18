@@ -5,18 +5,21 @@ import db from "@/lib/db";
 
 export async function GET(request, { params: { id } }) {
     try {
-        const farmer = await db.farmer.findUnique({
+        const User = await db.user.findUnique({
             where: {
                 id
             },
+            include: {
+                farmerProfile: true
+            }
         })
-        return NextResponse.json(farmer)
+        return NextResponse.json(User)
     } catch (error) {
         console.error("Database Error:", error.message, error.stack);
         return NextResponse.json(
             {
                 error: error.message,
-                message: "Failed to Fetch farmer",
+                message: "Failed to Fetch User",
             },
             { status: 500 }
         );
@@ -25,33 +28,33 @@ export async function GET(request, { params: { id } }) {
 
 export async function DELETE(request, { params: { id } }) {
     try {
-        const existingfarmer = await db.farmer.findUnique({
+        const existingUser = await db.user.findUnique({
             where: {
                 id,
             },
         })
-        if (!existingfarmer) {
-            return NextResponse.json({
-                data: null,
-                message: "Farmer Not found "
-            },
-                {
-                    status: 404
-                }
-            )
-        }
-        const deletedfarmer = await db.farmer.delete({
+        // if (!existingUser) {
+        //     return NextResponse.json({
+        //         data: null,
+        //         message: "User Not found "
+        //     },
+        //         {
+        //             status: 404
+        //         }
+        //     )
+        // }
+        const deletedUser = await db.user.delete({
             where: {
                 id,
             },
         });
-        return NextResponse.json(deletedfarmer);
+        return NextResponse.json(deletedUser);
     } catch (error) {
         console.log(error);
         return NextResponse.json(
             {
                 error: error.message,
-                message: "Failed to Fetch farmer",
+                message: "Failed to Fetch User",
             },
             { status: 500 }
         );
