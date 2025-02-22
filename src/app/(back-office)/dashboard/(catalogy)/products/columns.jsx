@@ -38,24 +38,24 @@ export const columns = [
     accessorKey: "title",
     header: ({ column }) => (<SortableColumn column={column} title="Tittle" />)
   },
-  
+
   {
     accessorKey: "imageUrl",
     header: "Banner Image",
     cell: ({ row }) => (<ImageColumn row={row} accessorKey="imageUrl" />)
   },
-//   {
-//     accessorKey: "description",
-//     header: "Description",
-//     // cell: ({ row }) => {
-//     //   const description = row.getValue("description")
-//     //   return (
-//     //     <div className="shrink-0">
-//     //       {description}
-//     //     </div>
-//     //   )
-//     // }
-//   },
+  //   {
+  //     accessorKey: "description",
+  //     header: "Description",
+  //     // cell: ({ row }) => {
+  //     //   const description = row.getValue("description")
+  //     //   return (
+  //     //     <div className="shrink-0">
+  //     //       {description}
+  //     //     </div>
+  //     //   )
+  //     // }
+  //   },
   {
     accessorKey: "isActive",
     header: "Active",
@@ -67,6 +67,16 @@ export const columns = [
   },
   {
     id: "actions",
-    cell: ({ row }) => (<ActionColumn row={row} title="Product" />)
+    cell: ({ row }) => {
+      const product = row.original
+      return (
+        <ActionColumn
+          row={row}
+          title="Product"
+          endpoint={`products/${product.id}`}
+          editEndPoint={`products/update/${product.id}`}
+        />
+      )
+    }
   },
 ]

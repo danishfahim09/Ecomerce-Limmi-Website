@@ -39,6 +39,12 @@ export const ourFileRouter = {
       return { uploadedBy: "danish trainning Uploader" };
     }
   ),
+  categoryImageUploader: f({ image: { maxFileSize: "1MB" } }).onUploadComplete(
+    async ({ metadata, file }) => {
+      console.log("file url", file.url, metadata);
+      return { uploadedBy: "danish trainning Uploader" };
+    }
+  ),
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;

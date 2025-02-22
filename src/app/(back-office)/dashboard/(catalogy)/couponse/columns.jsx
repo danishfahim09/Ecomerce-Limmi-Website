@@ -43,7 +43,7 @@ export const columns = [
     //     header: "Banner Image",
     //     cell: ({ row }) => (<ImageColumn row={row} accessorKey="imageUrl" />)
     // },
-    
+
     {
         accessorKey: "couponCode",
         header: "couponCode",
@@ -65,6 +65,16 @@ export const columns = [
 
     {
         id: "actions",
-        cell: ({ row }) => (<ActionColumn row={row} title="Coupone" />)
+        cell: ({ row }) => {
+            const coupone = row.original
+            return (
+                <ActionColumn
+                    row={row}
+                    title="Coupones"
+                    endpoint={`couponse/${coupone.id}`}
+                    editEndPoint={`couponse/update/${coupone.id}`}
+                />
+            )
+        }
     },
 ]

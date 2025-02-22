@@ -6,7 +6,7 @@ import { getData } from '@/lib/getData'
 export default async function SidebareCategory() {
     const catagories = await getData('categories')
     return (
-        <div className="sm:col-span-3 sm:block hidden overflow-auto h-[450px]  bg-white rounded-lg  border-1 border-gray-100 dark:bg-gray-700 dark:border-gray-700 shadow-lg dark:shadow-sm shadow-gray-300 dark:shadow-gray-500">
+        <div className="sm:col-span-3 sm:block hidden overflow-auto   bg-white rounded-lg  border-1 border-gray-100 dark:bg-gray-700 dark:border-gray-700 shadow-lg dark:shadow-sm shadow-gray-300 dark:shadow-gray-500">
             <h2 className='bg-gray-100  py-3 px-6 text-slate-800 dark:text-slate-100 rounded-lg font-semibold border border-gray-200 dark:border-gray-600  dark:bg-gray-800'>
                 Shop By Category ({catagories.length})
             </h2>

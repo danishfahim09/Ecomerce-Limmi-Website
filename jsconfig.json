@@ -3,7 +3,17 @@
       "baseUrl": ".",
       "paths": {
         "@components/*": ["components/*"]
+        
       }
     }
   }
-  
+// {
+//   "compilerOptions": {
+//     "baseUrl": ".", // ✅ Root directory ہی base رہے گا
+//     "paths": {
+//       "@/*": ["src/*"], // ✅ اب `@/` ہمیشہ `src` کے اندر دیکھے گا
+//       "@components/*": ["src/components/*"], // ✅ components alias maintain رہے گا
+//       "@redux/*": ["src/redux/*"] // ✅ Redux کے لیے بھی alias maintain رہے گا
+//     }
+//   }
+// }

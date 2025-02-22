@@ -9,7 +9,7 @@ export async function GET(request, { params: { id } }) {
             where: {
                 id
             },
-            
+
         })
         return NextResponse.json(categories)
     } catch (error) {
@@ -56,5 +56,52 @@ export async function DELETE(request, { params: { id } }) {
             },
             { status: 500 }
         );
+    }
+}
+
+
+export async function PUT(request, { params: { id } }) {
+    try {
+        const { categoryId, content, description, imageUrl, isActive, slug, title } = await request.json();
+
+        const existingTraining = await db.training.findUnique({
+            where: {
+                id,
+            }
+        })
+        if (!existingTraining) {
+            return NextResponse.json({
+                data: null,
+                message: "Not Found"
+            },
+                {
+                    status: 404
+                }
+            )
+        }
+        const updatingTraining = await db.training.update({
+            where: {
+                id
+            },
+            data: {
+                categoryId,
+                content,
+                description,
+                imageUrl,
+                isActive,
+                slug,
+                title
+            }
+        })
+        console.log(updatingTraining)
+        return NextResponse.json(updatingTraining)
+    } catch (error) {
+        console.log(error)
+        return NextResponse.json(
+            {
+                error,
+                message: "Failed to Update Training"
+            }, { status: 500 }
+        )
     }
 }

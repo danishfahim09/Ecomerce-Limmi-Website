@@ -1,9 +1,33 @@
+import NewProductForm from '@/components/backoffice/NewProductForm'
+import { getData } from '@/lib/getData'
+import FormHeading from '@/components/backoffice/FormHeader'
+
 import React from 'react'
 
-function UpdatePoduct() {
-  return (
-    <div>update Product</div>
-  )
-}
+export default async function UpdateProduct({params:{id}}) {
+  const product  =await getData(`products/${id}`) 
+  //Catagories and Farmer 
+  const categoriesData = await getData("categories")
+  const usersData = await getData("users")
+  const farmerData = usersData.filter((data) => data.role === "FARMER")
+  const farmers = farmerData.map((farmer) => {
+    return {
+      id: farmer.id,
+      title: farmer.name
+    }
+  })
 
-export default UpdatePoduct
+  const catagories = categoriesData.map((category) => {
+    return {
+      id: category.id,
+      title: category.title
+    }
+  })
+
+  return (
+    <div>
+      <FormHeading tittle="New Product" />
+      <NewProductForm updateData={product} catagories={catagories} farmers={farmers} />
+    </div>
+  )
+};

@@ -54,9 +54,15 @@ export const columns = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const training = row.original
+      const farmer  = row.original
       return (
-        <ActionColumn row={row} title="Farmer" endpoint={`farmers/${training.id}`} />)
+        <ActionColumn
+          row={row}
+          title="Farmers"
+          endpoint={`farmers/${farmer.id}`}
+          editEndPoint={`farmers/update/${farmer.id}`}
+        />
+      )
     }
   },
    

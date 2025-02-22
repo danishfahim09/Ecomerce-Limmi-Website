@@ -23,25 +23,21 @@ function HeroCarousel({ banners }) {
         <Carousel
             showDots
             slideCount={2}
-            autoplay
+            //autoplay
             wrapAround
             defaultControlsConfig={config}  // ✅ Sahi naam yeh hai
             className="rounded-md flex  overflow-hidden">
 
-            {banners.map((banner,i) => {
+            {banners.map((banner, i) => {
                 return (
-                    
                     <Image key={i} src={banner.imageUrl}
-                        width={800}
-                        height={384}
                         alt='image'
-                        className=' w-[710px] h-[410px]'
+                        width={780}
+                        height={384}
+                        className="w-[810px] h-[357px] object-cover"
                     />
                 )
             })}
-
-
-
 
         </Carousel>
 

@@ -50,12 +50,15 @@ export const columns = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const category = row.original
+      const banner = row.original
+       
       return (
         <ActionColumn
           row={row}
           title="Banner"
-          endpoint={`banner/${category.id}`} />
+          endpoint={`banner/${banner.id}`}
+          editEndPoint={`banners/update/${banner.id}`}
+        />
       )
     }
   },

@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from 'react'
-import FormHeading from '@/components/backoffice/FormHeader'
 import TextInput from '@/components/InputForm/TextInput'
 import { useForm } from 'react-hook-form'
 import SubmitButton from '@/components/InputForm/SubmitButton'
@@ -8,9 +7,9 @@ import TextAreaInput from '@/components/InputForm/TextAreaInput'
 import { generateSlug } from '@/lib/generateSlug'
 import ImageInput from '@/components/InputForm/imageInput'
 import { makePostRequest } from '@/lib/apiRequest'
+import { makePutRequest } from '@/lib/apiRequest'
 import ToogleInput from '@/components/InputForm/ToogleInput'
 import { useRouter } from 'next/navigation'
-
 
 function NewCatagoryForm({ updateData = {} }) {
     const initialImageUrl = updateData?.imageUrl ?? ""
@@ -25,19 +24,17 @@ function NewCatagoryForm({ updateData = {} }) {
     });
     const router = useRouter();
     function redirect() {
-        router.push('/dashboard/catagories')
+        router.push("/dashboard/catagories");
     }
-
     async function onSubmite(data) {
         const slug = generateSlug(data.title);
         data.slug = slug
-        data.danish = 'danish'
         data.imageUrl = imageUrl
-        console.log(data)
+
         if (id) {
             //Make Put  Request Update
             data.id = id
-            makePostRequest(setLoading, `"api/categories/${id}"`, data, 'Category', reset, redirect)
+            makePutRequest(setLoading, `api/categories/${id}`, data, 'Banner', reset, redirect)
             console.log("Update Request", data)
         } else {
             //Make Post Request (Create)
@@ -53,7 +50,7 @@ function NewCatagoryForm({ updateData = {} }) {
         >
             <div className="grid sm:grid-row-2 sm:gap-6">
                 <TextInput
-                    lable='Category Tittle'
+                    lable='Cetagory title'
                     name='title'
                     register={register}
                     errors={errors}
@@ -81,9 +78,9 @@ function NewCatagoryForm({ updateData = {} }) {
             />
             <SubmitButton
                 isLoding={Loading}
-                ButtonTittle={id?'Update Catagory':'Create Catagory'}
-                loddingButtonTiittle={`${id?'Updating':'Creating'} Category Please Wait...`}
-                endPoint="bannerImageUploader"
+                ButtonTittle={id ? 'Update Catagory' : 'Create Catagory'}
+                loddingButtonTiittle={`${id ? 'Updating' : 'Creating'} Category Please Wait...`}
+                endPoint="categoryImageUploader"
             />
         </form>
     )

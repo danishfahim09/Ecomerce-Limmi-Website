@@ -70,7 +70,13 @@ export const columns = [
     cell: ({ row }) => {
       const training = row.original
       return (
-        <ActionColumn row={row} title="Product" endpoint={`training/${training.id}`} />)
+        <ActionColumn
+          row={row}
+          title="Training"
+          endpoint={`training/${training.id}`}
+          editEndPoint={`comunity/update/${training.id}`}
+        />
+      )
     }
   },
 ]

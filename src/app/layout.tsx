@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../../styles/min.scss"
 import Providers from "@/context/Provider"
+import { store} from '../../redux/Store'
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,10 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      
-
       <body className={`${inter.className} `}>
-        <Providers>
+        <Providers  >
           {children}
         </Providers>
       </body>

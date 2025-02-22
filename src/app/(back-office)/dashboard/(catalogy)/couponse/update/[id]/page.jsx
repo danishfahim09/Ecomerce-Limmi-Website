@@ -1,8 +1,14 @@
-import React from 'react'
+import FormHeading from '@/components/backoffice/FormHeader'
+import { getData } from '@/lib/getData'
+import CouponeForm from '@/components/backoffice/Form/CouponeForm'
 
-function UpdateCoupone() {
+async function UpdateCoupone({params:{id}}) {
+  const coupone  =await getData(`couponse/${id}`)
   return (
-    <div>updateCatagory</div>
+    <div>
+      <FormHeading tittle="Update Catagory" />
+      <CouponeForm updateData={coupone}/>
+    </div>
   )
 }
 

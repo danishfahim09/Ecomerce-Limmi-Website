@@ -23,7 +23,7 @@ export default async function Hero() {
 
       {/*  Helper */}
       <div className="col-span-2   rounded-lg      sm:block hidden">
-        <div className="sm:col-span-7  p-2 flex flex-col gap-6 bg-white rounded-lg  border-1 border-gray-100   dark:bg-gray-700 dark:border-gray-700 shadow-lg dark:shadow-sm shadow-gray-300 dark:shadow-gray-500">
+        <div className="sm:col-span-7  p-2 flex flex-col gap-3 bg-white rounded-lg  border-1 border-gray-100   dark:bg-gray-700 dark:border-gray-700 shadow-lg dark:shadow-sm shadow-gray-300 dark:shadow-gray-500">
           <Link href="#" className="flex items-center space-x-1 gap-2">
             <div className="w-12 h-11 rounded-full border-spacing-1 border-1 border-[rgb(243,168,55)] flex items-center justify-center">
               <CircleHelp className='shrink-0 w-6 h-6 text-orange-400 dark:text-yellow-200' />
@@ -49,13 +49,13 @@ export default async function Hero() {
               <p className='text-[0.6rem] dark:text-gray-200 text-black bold shrink-0'>Million Of Visitores</p></div>
           </Link>
         </div>
-        <div className="mt-[30px] rounded-lg">
+        <div className="mt-[10px] rounded-lg">
           <Image
             src='/LS_SmallBanner_218X184.gif'
             width={218}
             height={184}
             alt=''
-            className='w-[200px] h-[210px]' />
+            className='w-[178px] h-[195px]' />
 
         </div>
 

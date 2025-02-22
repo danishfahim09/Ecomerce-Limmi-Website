@@ -5,21 +5,18 @@ import db from "@/lib/db";
 
 export async function GET(request, { params: { id } }) {
     try {
-        const categories = await db.category.findUnique({
+        const coupon = await db.coupon.findUnique({
             where: {
                 id
             },
-            include: {
-                products: true
-            }
         })
-        return NextResponse.json(categories)
+        return NextResponse.json(coupon)
     } catch (error) {
         console.error("Database Error:", error.message, error.stack);
         return NextResponse.json(
             {
                 error: error.message,
-                message: "Failed to Fetch Category",
+                message: "Failed to Fetch Coupon",
             },
             { status: 500 }
         );
@@ -28,33 +25,33 @@ export async function GET(request, { params: { id } }) {
 
 export async function DELETE(request, { params: { id } }) {
     try {
-        const existingCategory = await db.category.findUnique({
+        const existingCoupon = await db.coupon.findUnique({
             where: {
                 id,
             },
         })
-        if (!existingCategory) {
+        if (!existingCoupon) {
             return NextResponse.json({
                 data: null,
-                message: "Category Not found "
+                message: "Coupon Not found "
             },
                 {
                     status: 404
                 }
             )
         }
-        const deletedCategory = await db.category.delete({
+        const deletedCoupon = await db.coupon.delete({
             where: {
                 id,
             },
         });
-        return NextResponse.json(deletedCategory);
+        return NextResponse.json(deletedCoupon);
     } catch (error) {
         console.log(error);
         return NextResponse.json(
             {
                 error: error.message,
-                message: "Failed to Fetch Category",
+                message: "Failed to Fetch Coupon",
             },
             { status: 500 }
         );
@@ -64,9 +61,9 @@ export async function DELETE(request, { params: { id } }) {
 
 export async function PUT(request, { params: { id } }) {
     try {
-        const { title, slug, imageUrl, description, isActive } = await request.json();
-    
-        const existingCategory = await db.category.findUnique({
+        const { title, couponCode, expiryDate, isActive } = await request.json();
+
+        const existingCategory = await db.coupon.findUnique({
             where: {
                 id,
             }
@@ -79,19 +76,18 @@ export async function PUT(request, { params: { id } }) {
                 {
                     status: 404
                 }
-            ) 
+            )
         }
-        const updatingCategory = await db.category.update({
-            where:{
+        const updatingCategory = await db.coupon.update({
+            where: {
                 id
             },
             data: {
                 title,
-                slug,
-                imageUrl,
-                description,
+                couponCode,
+                expiryDate,
                 isActive
-            }
+            },
         })
         console.log(updatingCategory)
         return NextResponse.json(updatingCategory)

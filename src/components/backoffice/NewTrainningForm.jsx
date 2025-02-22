@@ -7,7 +7,7 @@ import SubmitButton from '@/components/InputForm/SubmitButton'
 import TextAreaInput from '@/components/InputForm/TextAreaInput'
 import { generateSlug } from '@/lib/generateSlug'
 import ImageInput from '@/components/InputForm/imageInput'
-import { makePostRequest } from '@/lib/apiRequest'
+import { makePostRequest, makePutRequest } from '@/lib/apiRequest'
 import SelectInput from '@/components/InputForm/selectInput'
 import ToggleInput from '@/components/InputForm/ToogleInput'
 import "react-quill/dist/quill.snow.css";
@@ -16,15 +16,20 @@ import { useRouter } from 'next/navigation'
 
 
 
-function NewTrainingForm({ catagories }) {
-  const [imageUrl, setimageUrl] = useState('');
+function NewTrainingForm({ catagories,updateData={} }) {
+  const initialImageUrl = updateData?.imageUrl ?? ""
+  const initialConent = updateData?.content ?? ""
+  const id = updateData?.id ?? ""
+
+  const [imageUrl, setimageUrl] = useState(initialImageUrl);
   const [Loading, setLoading] = useState(false);
   const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({
     defaultValues: {
       isActive: true,
+      ...updateData
     },
   });
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState(initialConent);
 
   {/* Quil Start */ }
   const modules = {
@@ -52,9 +57,17 @@ function NewTrainingForm({ catagories }) {
     //setimageUrl('')
     //setContent('')
     data.imageUrl = imageUrl
-    console.log(imageUrl)
     console.log(data)
-    makePostRequest(setLoading, "api/training", data, 'Traning', reset, redirect)
+    if (id) {
+          //Make Put  Request Update
+          data.id = id
+          makePutRequest(setLoading, `api/training/${id}`, data, 'Traning', reset, redirect)
+          //console.log("Update Request", data)
+        } else {
+          //Make Post Request (Create)
+          makePostRequest(setLoading, "api/training", data, 'Traning', reset, redirect)
+        }
+    
   }
 
   return (
@@ -111,22 +124,13 @@ function NewTrainingForm({ catagories }) {
           falseTitle="Draft"
           register={register}
         />
-
         <SubmitButton
           isLoding={Loading}
-          ButtonTittle='Create Taining'
-          loddingButtonTiittle='Creating Category Please Wait'
+          ButtonTittle={id ? 'Update Product' : 'Create Training'}
+          loddingButtonTiittle={`${id ? 'Updating' : 'Creating'} Training Please Wait...`}
           endPoint="TrainingImageUploader"
         />
-
       </form>
-      {/*
-      -id
-      -tittle
-      -slug
-      -description
-      -image
-      */}
     </div>
   )
 }

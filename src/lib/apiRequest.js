@@ -61,6 +61,7 @@ export async function makePutRequest(
       console.log(response);
       setLoading(false);
       toast.success(`${resourceName} Updated Successfully`);
+      console.log("Redirecting to /dashboard/catagories...");
       redirect();
     } else {
       setLoading(false);

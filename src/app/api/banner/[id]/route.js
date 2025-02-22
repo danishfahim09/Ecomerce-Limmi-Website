@@ -57,3 +57,49 @@ export async function DELETE(request, { params: { id } }) {
         );
     }
 }
+
+
+export async function PUT(request, { params: { id } }) {
+    try {
+        const { title, link, imageUrl, isActive } = await request.json();
+
+
+        const existingBanner = await db.banner.findUnique({
+            where: {
+                id,
+            }
+        })
+        if (!existingBanner) {
+            return NextResponse.json({
+                data: null,
+                message: "Not Found"
+            },
+                {
+                    status: 404
+                }
+            )
+        }
+
+        const updatingBanner = await db.banner.update({
+            where: {
+                id
+            },
+            data: {
+                title,
+                link,
+                imageUrl,
+                isActive
+            }
+        })
+        console.log(updatingBanner)
+        return NextResponse.json(updatingBanner)
+    } catch (error) {
+        console.log(error)
+        return NextResponse.json(
+            {
+                error,
+                message: "Failed to Update Banner"
+            }, { status: 500 }
+        )
+    }
+}
