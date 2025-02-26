@@ -6,16 +6,21 @@ import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "@/app/api/uploadthing/core";
 import { Toaster } from "react-hot-toast";
+import { SessionProvider } from "next-auth/react";
 
 export default function Providers({ children }) {
   return (
-    <Provider store={store}>
-      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-        <Toaster position="top-center" reverseOrder={false} />
-        {children}
-      </ThemeProvider>
-    </Provider>
+
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+      <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+      <Toaster position="top-center" reverseOrder={false} />
+      <SessionProvider>
+        <Provider store={store}>
+          {children}
+        </Provider></SessionProvider>;
+    </ThemeProvider>
+
+
 
   );
 }
