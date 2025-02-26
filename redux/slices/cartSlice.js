@@ -3,8 +3,6 @@
 // Export the reeducer
 // Export the reducer and reducers
 
-
-
 const { createSlice } = require("@reduxjs/toolkit");
 
 //Get Initial State from localStorage If available 

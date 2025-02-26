@@ -17,11 +17,14 @@ export default async function Home() {
   return (
     <div className=" min-h-screen sm:px-3  ">
       {/* Caresole Section */}
+      <h2>this is   a hero section </h2>
       <Hero />
 
       {/* Market SList Caresoule */}
+      <h2>this is   a Markete  section </h2>
       <MarketList />
       
+      <h2>this is   a category product  section </h2>
       {categories.map((category, i) => {
         return (
           <div key={i} className="my-9">
@@ -31,6 +34,7 @@ export default async function Home() {
       })}
 
       {/* Comunnity Trainnig Caresoule */}
+      <h2>this is   a Community  section </h2>
       <div className="my-9">
         <CummunittyTrainnig />
       </div>

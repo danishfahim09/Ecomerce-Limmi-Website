@@ -15,11 +15,9 @@ function CartItem({ cartItems }) {
                     </div>
                 </>
             )}
-
             <div className="">
-
                 {cartItems.length > 0 ? cartItems.map((item, i) => {
-                    console.log(item.imageUrl, "this is my data imagge Url ")
+                    //console.log(item.imageUrl, "this is my data imagge Url ")
                     return <CartProduct key={i} cartItems={item} />
                 }) : (
                     <EmptyCard />
