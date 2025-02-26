@@ -15,6 +15,7 @@ const CartCount = () => {
                     {cartItem.length}
                 </div>
             </button>
+
         </Link>
     );
 };
