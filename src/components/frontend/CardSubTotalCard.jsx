@@ -2,9 +2,9 @@ import Link from 'next/link'
 import React from 'react'
 
 function CardSubTotalCard({ subTotal }) {
-    const shipping = 10
-    const tax = 0 
-    const totalPrice = subTotal + shipping + tax
+    const shipping = 10.0;
+    const tax = 0.0;
+    const totalPrice =  (Number(subTotal) + Number(shipping)  + Number(tax) ).toFixed(2)
     return (
         <div className="sm:col-span-4 col-span-full sm:block hidden overflow-auto  bg-white rounded-lg  border-1 border-gray-100 dark:bg-gray-700 dark:border-gray-700 shadow-lg dark:shadow-sm shadow-gray-300 dark:shadow-gray-500 p-5 text-slate-800 dark:text-slate-100 font-bold">
             <h2 className='text-2xl pb-3'>Cart Tool</h2>

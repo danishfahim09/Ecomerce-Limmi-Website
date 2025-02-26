@@ -4,7 +4,7 @@ import { getData } from '@/lib/getData'
 
 async function UpdateTrainig({ params: { id } }) {
     const training  =await getData(`training/${id}`)
-    console.log(training)
+    //console.log(training)
   const catagoriesData = await getData("categories")
   const categories = catagoriesData.map((f) => {
     return {

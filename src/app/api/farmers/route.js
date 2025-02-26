@@ -4,8 +4,33 @@ import db from "../../../lib/db";
 export async function POST(request) {
     try {
 
+        //Update the verification in the user
         const farmerData = await request.json();
-        //console.log("Data received by API:", {code, contactPerson, contactPersonPhone,email, name, notes, phone, physicalAddress, terms, isActive, profileImageUrl, product, landSize, mainCrop})
+        //check
+        const existingUser = await db.user.findUnique({
+            where: {
+                id: farmerData.userId,
+            }
+        })
+        if (!existingUser) {
+            //Update EmailVerified
+            return NextResponse.json(
+                {
+                    data: null,
+                    message: `No User Found`
+                },
+                { status: 404 }
+            );
+        }
+        // Update emailVerified
+        const updateUser = await db.user.update({
+            where: {
+                id: farmerData.userId,
+            },
+            data: {
+                emailVerified: true
+            }
+        })
         const newFarmerProfile = await db.farmerProfile.create({
             data: {
                 contactPerson: farmerData.contactPerson,
@@ -44,13 +69,13 @@ export async function GET() {
     try {
         const farmers = await db.user.findMany({
             orderBy: {
-                createdAt : "desc"
+                createdAt: "desc"
             },
-            where:{
-                role:"FARMER"
+            where: {
+                role: "FARMER"
             },
-            include:{
-                farmerProfile:true
+            include: {
+                farmerProfile: true
             }
         })
         return NextResponse.json(farmers)

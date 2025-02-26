@@ -3,9 +3,12 @@
 // Export the reeducer
 // Export the reducer and reducers
 
+
+
 const { createSlice } = require("@reduxjs/toolkit");
 
-const initialState = []
+//Get Initial State from localStorage If available 
+const initialState = (typeof window !== "undefined" && JSON.parse(localStorage.getItem("cart"))) || []
 
 const cartSlice = createSlice({
     name: "cart",
@@ -21,13 +24,22 @@ const cartSlice = createSlice({
                 existingItem.qty += 1
             } else {
                 //if the item doesn't exist, add it  to the cart
-                state.push({ id, title, salePrice, qty: 1, imageUrl })
-            }
+                const newItem = { id, title, salePrice, qty: 1, imageUrl }
+                state.push(newItem)
+                //update localStorage with the new state
+                if (typeof window !== "undefined") {
+                    localStorage.setItem("cart", JSON.stringify([...state, newItem]))
+                }
 
+            }
         },
         removeFromCart: (state, action) => {
             const cartId = action.payload
-            return state.filter((item) => item.id !== cartId)
+            const newState = state.filter((item) => item.id !== cartId)
+            if (typeof window !== "undefined") {
+                localStorage.setItem("cart", JSON.stringify(newState))
+            }
+            return newState
         },
         incrementQty: (state, action) => {
             const cartId = action.payload;
@@ -35,12 +47,22 @@ const cartSlice = createSlice({
             if (cartItem) {
                 cartItem.qty += 1
             }
+            //update localStorage with new state
+            if (typeof window !== "undefined") {
+                localStorage.setItem("cart", JSON.stringify([...state]))
+            }
+
         },
         decrementtQty: (state, action) => {
             const cartId = action.payload;
             const cartItem = state.find((item) => item.id === cartId)
             if (cartItem && cartItem.qty > 1) {
                 cartItem.qty -= 1
+                //update localStorage with new state
+
+                if (typeof window !== "undefined") {
+                    localStorage.setItem("cart", JSON.stringify([...state]))
+                }
             }
         },
     }

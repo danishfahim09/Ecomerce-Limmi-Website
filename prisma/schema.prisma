@@ -92,11 +92,10 @@ model Product {
   wholeSalePrice Float
   wholeSaleQty   Int
   productStock   Int
-  categoryId String   @db.ObjectId
-  category   Category @relation(fields: [categoryId], references: [id], onDelete:Cascade , onUpdate:Cascade)
+  categoryId     String   @db.ObjectId
+  category       Category @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
-
-  user   User   @relation(fields: [userId], references: [id] , onDelete:Cascade , onUpdate:Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId String @db.ObjectId
 
   createdAt DateTime  @default(now())
@@ -114,8 +113,8 @@ model Training {
   content     String
   isActive    Boolean
 
-  category   Category? @relation(fields: [categoryId], references: [id], onDelete:Cascade , onUpdate:Cascade)
-  categoryId String   @db.ObjectId
+  category   Category? @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  categoryId String    @db.ObjectId
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -134,20 +133,25 @@ enum Gender {
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  name          String?
-  email         String?   @unique
-  password      String
-  emailVerified DateTime?
-
-  products Product[]
-
-  role UserRole @default(USER)
-
-  farmerProfile FarmerProfile?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id                String         @id @default(auto()) @map("_id") @db.ObjectId
+  name              String?
+  email             String?        @unique
+  password          String
+  emailVerified     Boolean        @default(false)
+  products          Product[]
+  role              UserRole       @default(USER)
+  verificationToken String?
+  farmerProfile     FarmerProfile?
+  profile           UserProfile?
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+}
+model UserProfile{
+   id                String         @id @default(auto()) @map("_id") @db.ObjectId
+  userId              String  @unique @db.ObjectId
+  dateOfBirth  DateTime?
+  address String?
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model FarmerProfile {
@@ -168,8 +172,8 @@ model FarmerProfile {
   mainCrop           String
   code               String
 
-  user   User   @relation(fields: [userId], references: [id] , onDelete:Cascade , onUpdate:Cascade)
-  userId String  @db.ObjectId @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String @unique @db.ObjectId
 
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt

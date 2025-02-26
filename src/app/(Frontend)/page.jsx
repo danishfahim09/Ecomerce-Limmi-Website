@@ -10,7 +10,7 @@ export default async function Home() {
   const categories = categoriesData.filter((category)=>{
     return category.products.length >= 3
   })
-  console.log(categories)
+  //console.log(categories)
   return (
     <div className=" min-h-screen sm:px-3  ">
       {/* Caresole Section */}
@@ -19,7 +19,6 @@ export default async function Home() {
       {/* Market SList Caresoule */}
       <MarketList />
       
-      <h2>this is categoriies</h2>
       {categories.map((category, i) => {
         return (
           <div key={i} className="my-9">

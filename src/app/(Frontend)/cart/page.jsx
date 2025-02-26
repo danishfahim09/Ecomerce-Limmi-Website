@@ -9,7 +9,7 @@ import CardSubTotalCard from '@/components/frontend/CardSubTotalCard'
 
 function Cart() {
   const cartItem = useSelector((store) => store.cart)
-  console.log(cartItem, "this is my data ")
+  //console.log(cartItem, "this is my data ")
 
   const subTotal = cartItem.reduce((acc, currentItem) => {
     return acc + currentItem.salePrice * currentItem.qty

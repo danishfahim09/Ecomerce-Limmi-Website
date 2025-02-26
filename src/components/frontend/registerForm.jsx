@@ -18,7 +18,7 @@ export default function RegisterForm({ role = "USER" }) {
     } = useForm();
     const [loading, setLoading] = useState(false);
     const [emailErr, setEmailErr] = useState("");
-    
+
     async function onSubmit(data) {
         try {
             console.log(data);
@@ -47,7 +47,7 @@ export default function RegisterForm({ role = "USER" }) {
                 if (role === "USER") {
                     router.push("/")
                 } else {
-                    router.push(`/onboarding/${responseData.data.id}`);
+                    router.push(`/VerifyEmail`);
                 }
 
             } else {
@@ -115,15 +115,39 @@ export default function RegisterForm({ role = "USER" }) {
                 <span className="mx-2">or</span>
                 <div className="w-full bg-slate-500 h-[1px]"></div>
             </div>
-            <p className="py-4 text-sm font-light text-gray-500 dark:text-gray-400">
-                Already have an account?{" "}
-                <Link
-                    href="/login"
-                    className="font-medium text-purple-600 hover:underline dark:text-purple-500"
-                >
-                    Login
-                </Link>
-            </p>
+            <div className="flex justify-between gap-2 py-5">
+                <p className="  text-[0.75rem] font-light text-gray-500 dark:text-gray-400">
+                    Already have an account?{" "}
+                    <Link
+                        href="/login"
+                        className="font-medium text-purple-600 hover:underline dark:text-purple-500"
+                    >
+                        Login
+                    </Link>
+                </p>
+                {role === "USER" ? (
+                    <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400">
+                        Are you a Farmer?{" "}
+                        <Link
+                            href="/register-farmer"
+                            className="font-medium text-purple-600 hover:underline dark:text-purple-500"
+                        >
+                            Register Here
+                        </Link>
+                    </p>
+                ) : (
+                    <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400">
+                        Are you a  User?{" "}
+                        <Link
+                            href="/register"
+                            className="font-medium text-purple-600 hover:underline dark:text-purple-500"
+                        >
+                            Register Here
+                        </Link>
+                    </p>
+                )}
+
+            </div>
         </form>
     );
 }

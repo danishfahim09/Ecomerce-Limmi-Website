@@ -4,7 +4,7 @@ import { getData } from '@/lib/getData'
 
 async function UpdateBanner({params:{id}}) {
   const banner  =await getData(`banner/${id}`)
-  console.log(banner)
+  //console.log(banner)
   return (
     <div>
       <FormHeading tittle="Update Banner" />

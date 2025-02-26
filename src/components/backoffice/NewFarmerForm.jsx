@@ -24,21 +24,11 @@ function NewFarmerForm({ users }) {
             ...users
         },
     });
-
-    {
-        /*
-        id => aouto ()
-        tittle
-        slug => aouto()
-        description 
-        image
-        */
-    }
     const isActive = watch("isActive")
 
     const router =useRouter()
     function redirect(){
-        router.push('/dashboard/farmers')
+        router.push('/login')
     }
     async function onSubmite(data) {
         data.product = product

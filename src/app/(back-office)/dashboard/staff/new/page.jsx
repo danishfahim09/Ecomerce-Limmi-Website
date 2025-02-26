@@ -188,13 +188,6 @@ function NewTraining() {
         />
 
       </form>
-      {/*
-      -id
-      -tittle
-      -slug
-      -description
-      -image
-      */}
     </div>
   )
 }
