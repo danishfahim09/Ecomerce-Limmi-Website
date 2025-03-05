@@ -1,6 +1,8 @@
-import React from 'react'
-import Navbare from '@/components/frontend/Navbare.jsx'
-import Footer from '@/components/frontend/Footer'
+"use client";
+
+import React from 'react';
+import Navbare from '@/components/frontend/Navbare';
+import Footer from '@/components/frontend/Footer';
 
 function Layout({ children }) {
   return (
@@ -11,7 +13,7 @@ function Layout({ children }) {
       </div>
       <Footer />
     </div>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

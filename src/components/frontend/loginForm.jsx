@@ -32,7 +32,13 @@ export default function LoginForm() {
         // Sign-in was successful
         toast.success("Login Successful");
         reset();
-        //router.push("/login");
+        // Optional: Force session refresh
+    router.refresh();
+
+    // Thoda delay de kar redirect karo
+    setTimeout(() => {
+      router.push("/"); // ya koi aur page
+    }, 500);
       }
     } catch (error) {
       setLoading(false);

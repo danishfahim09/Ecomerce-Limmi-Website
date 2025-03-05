@@ -47,17 +47,19 @@ export async function POST(request) {
         })
         console.log(newUser)
         // Send The Email If User Role == FARMER
-            const userId = newUser.id
-            const linkText = "Verify Account"
-            const redirectUrl = `onboarding/${userId}?token=${token}`
-            const sendEmail = await resend.emails.send({
-                from: "onboarding@resend.dev",
-                to: "danishfahim0908@gmail.com",
-                subject: 'Account Verification - Limi Ecoumerce',
-                react: EmailTemplate({ name, redirectUrl, linkText }),
-            })
-            console.log("Email Response:", sendEmail);
-        
+        const userId = newUser.id
+        const linkText = "Verify Account"
+        const description = "Thank you for creating  an  account  with US . We request you to click on the link Below in order to Complete your onboarding Process .ThankYou"
+       const subject = "Account Verification - Limi Ecoumerce"
+        const redirectUrl = `onboarding/${userId}?token=${token}`
+        const sendEmail = await resend.emails.send({
+            from: "onboarding@resend.dev",
+            to: "danishfahim5857@gmail.com",
+            subject: subject,
+            react: EmailTemplate({ name, redirectUrl, linkText,description ,subject}),
+        })
+        console.log("Email Response:", sendEmail);
+
         return NextResponse.json({
             data: newUser,
             message: "User created successfully"

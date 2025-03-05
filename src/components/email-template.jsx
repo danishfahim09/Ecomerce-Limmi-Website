@@ -17,13 +17,13 @@ import {
 import * as React from 'react';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-export const EmailTemplate = ({ name = "", redirectUrl = "/login", linkText }) => (
+export const EmailTemplate = ({ name = "", redirectUrl = "/login", linkText , description ,subject}) => (
    
     <Html>
         <Head />
         <Body style={main}>
             <Preview>
-                A fine-grained personal access token has been added to your account
+                {subject}
             </Preview>
             <Container style={container}>
                 <Img
@@ -43,8 +43,7 @@ export const EmailTemplate = ({ name = "", redirectUrl = "/login", linkText }) =
                         Hey <strong>{name}</strong>!
                     </Text>
                     <Text style={text}>
-                        Thank you for creating  an  account  with US . We request you to click
-                        on the link Below in order to Complete your onboarding Process .ThankYou
+                       {description}
                     </Text>
 
                     <Link style={button} href={`${baseUrl}/${redirectUrl}`}>

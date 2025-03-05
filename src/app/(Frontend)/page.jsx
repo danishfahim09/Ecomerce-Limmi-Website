@@ -5,7 +5,7 @@ import CategoryList from '@/components/frontend/CategoryList'
 import CummunittyTrainnig from '@/components/frontend/CummunittyTrainnig'
 import { getData } from "@/lib/getData";
 import { getServerSession } from "next-auth"
-import authOptions from '@/lib/authOptions'
+import {authOptions} from '@/lib/authOptions'
 
 export default async function Home() {
   const categoriesData = await getData('categories')
@@ -13,7 +13,7 @@ export default async function Home() {
     return category.products.length >= 3
   })
   const session = await getServerSession(authOptions)
-  console.log(session.user)
+  //console.log(session.user)
   return (
     <div className=" min-h-screen sm:px-3  ">
       {/* Caresole Section */}

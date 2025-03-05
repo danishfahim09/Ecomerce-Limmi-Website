@@ -10,7 +10,7 @@ import { addToCart } from '../../../redux/slices/cartSlice';
 
 function Product({ product }) {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch();// Redux میں addToCart action چلا رہے ہو
 
     function handdleAddToiCard() {
         //dispatch the reducer
@@ -38,7 +38,7 @@ function Product({ product }) {
                     <p className='text-gray-700 dark:text-gray-300'>UGX {product.salePrice}</p>
                     <button
                         className='flex items-center space-x-2 text-white bg-lime-700 px-3 py-2 rounded-md'
-                        onClick={() => { handdleAddToiCard()}}
+                        onClick={() => { handdleAddToiCard() }}
                     >
                         <BaggageClaim />
                         <p>Add</p>

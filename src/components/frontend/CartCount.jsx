@@ -1,8 +1,7 @@
+'use client'
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { useSelector } from 'react-redux';
-import { store } from "../../../redux/Store";
-
 
 const CartCount = () => {
     const cartItem = useSelector((store) => store.cart)
@@ -15,7 +14,6 @@ const CartCount = () => {
                     {cartItem.length}
                 </div>
             </button>
-
         </Link>
     );
 };

@@ -1,3 +1,4 @@
+'use client'
 const SearchForm = () => {
     return (
         <form className="flex items-center w-full  mx-auto">

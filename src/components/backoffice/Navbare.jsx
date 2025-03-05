@@ -2,29 +2,16 @@
 import React from 'react'
 import { AlignJustify, Bell, Sun, User, X } from 'lucide-react'
 import Image from 'next/image'
-import { LogOut } from 'lucide-react'
-import { LayoutDashboard } from 'lucide-react'
-import { Cog } from 'lucide-react'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownMenuco } from "@nextui-org/dropdown";
-
-// drop down items
-//import {
-// DropdownMenu,
-// DropdownMenuContent,
-// DropdownMenuItem,
-// DropdownMenuLabel,
-//  DropdownMenuSeparator,
-//DropdownMenuTrigger,
-//} from "@/components/ui/dropdown-menu"
-
-
-
-
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/dropdown";
+import UserAvater from '@/components/backoffice/UserAvater';
+import { useSession } from 'next-auth/react'
 
 function Navbare({ showSideBar, setshowSideBar }) {
-
-
+  const { data: session, status } = useSession();
+  if (status === "loading") {
+    return <p>Loading...</p>
+  }
   return (
     <div className={showSideBar ? ' h-20  py-6 fixed top-0 w-full dark:bg-slate-800 bg-gray-100 ' : ' h-20  py-6 fixed top-0 w-full  sm:left-64 dark:bg-slate-800 bg-gray-100 '}>
       <div className={showSideBar ? 'w-full h-9   flex items-center justify-between  text-green-600 ' : 'lg:w-9/12 sm:w-8/12 w-11/12 h-9 2xl:w-10/12 flex items-center justify-between  text-green-600  '}>
@@ -36,7 +23,7 @@ function Navbare({ showSideBar, setshowSideBar }) {
         {/* 3 Icons */}
 
         {/*Change Background Colour dark an white mode Page*/}
-        <div className='flex space-x-4 sm:mr-4'>
+        <div className='flex items-center space-x-4 sm:mr-4'>
           <button>
             <ThemeToggle />
           </button>
@@ -111,39 +98,7 @@ function Navbare({ showSideBar, setshowSideBar }) {
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
-          <Dropdown>
-            <DropdownTrigger className='text-gray-200'>
-              <button>
-                <Image className=" w-10 h-10 rounded-full "
-                  width={200}
-                  height={200}
-                  src="/profile.jpg"
-                  alt='image'
-                />
-              </button>
-            </DropdownTrigger>
-            <DropdownMenu aria-label="Static Actions">
-              <DropdownItem key="new"><button className="flex gap-4  p-2">
-                <LayoutDashboard className='w-5 h-6 ' />
-                <span className='text-base '>Dashboard</span>
-              </button>
-              </DropdownItem>
-              <DropdownItem key="new"><button className='flex  gap-4  p-2'>
-                <Cog className='w-5 h-6 ' />
-                <span className='text-base '>Edit Profil</span>
-              </button>
-              </DropdownItem>
-              <DropdownItem key="new">
-                <button className='flex  gap-4  p-2 '>
-                  <LogOut className='w-5 h-6 ' />
-                  <span className='text-base'>Log Out</span>
-                </button>
-              </DropdownItem>
-              <DropdownItem key="delete" className="text-danger" color="danger">
-                Delete file
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
+          {status === "authenticated" && (<UserAvater user={session?.user} />)}
         </div>
       </div>
     </div>

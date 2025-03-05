@@ -1,21 +1,26 @@
-"use client"
-import SearchForm from '@/components/frontend/SearchForm'
+"use client";
+
+import SearchForm from '@/components/frontend/SearchForm';
 import Link from 'next/link';
 import Image from 'next/image';
-import { HelpCircle, HelpCircleIcon, ShoppingCart, User } from 'lucide-react';
+import { User } from 'lucide-react';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
-import HelperModel from '@/components/frontend/HelpeModel'
-import CartCount from '@/components/frontend/CartCount'
-
-//import { Button } from 'flowbite-react';
-///import logo from '/../../../public/applogo.png'
+import HelperModel from '@/components/frontend/HelpeModel';
+import CartCount from '@/components/frontend/CartCount';
+import { useSession } from 'next-auth/react';
+import UserAvater from '@/components/backoffice/UserAvater';
 
 const Navbare = () => {
-    
+    const { data: session, status } = useSession();
+
+    if (status === "loading") {
+        return <p>Loading...</p>;
+    }
+
     return (
-        <div className='bg-gray-100 dark:bg-gray-700' >
-            <div className=" flex items-center justify-between py-3 max-w-7xl mx-auto px-8 gap-9">
-                {/* logo*/}
+        <div className='bg-gray-100 dark:bg-gray-700'>
+            <div className="flex items-center justify-between py-3 max-w-7xl mx-auto px-8 gap-9">
+
                 <Link className='' href="/">
                     <Image
                         src="/applogo.png"
@@ -25,16 +30,19 @@ const Navbare = () => {
                     />
                 </Link>
 
-                {/* Search Bare */}
                 <div className="flex-grow">
                     <SearchForm />
                 </div>
 
-                <div >
-                    <Link href="/login" className='flex items-center space-x-1 text-green-950 dark:text-white'>
-                        <User />
-                        <span>Login</span>
-                    </Link>
+                <div>
+                    {status === "unauthenticated" ? (
+                        <Link href="/login" className='flex items-center space-x-1 text-green-950 dark:text-white'>
+                            <User />
+                            <span>Login</span>
+                        </Link>
+                    ) : (
+                        <UserAvater user={session?.user} />
+                    )}
                 </div>
 
                 <div className=''>
@@ -50,4 +58,5 @@ const Navbare = () => {
         </div>
     );
 };
+
 export default Navbare;
