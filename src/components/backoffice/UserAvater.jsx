@@ -15,8 +15,8 @@ import { generateInitials } from '@/lib/generateinitials'
 
 function UserAvater({ user={} }) {
   const { name, image } = user
-  console.log('this is my User Name:', user)
-  console.log(' this is my Name :', name)
+  //console.log('this is my User Name:', user)
+  ///console.log(' this is my Name :', name)
   const initials = generateInitials(name)
   const router = useRouter()
   async function handdleLougOut() {
