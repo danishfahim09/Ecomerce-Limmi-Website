@@ -11,12 +11,11 @@ import { useRouter } from 'next/navigation'
 
 function OrderSummary() {
     const [Loading, setLoading] = useState(false)
-    const router  = useRouter()
+    const router = useRouter()
     const currentStep = useSelector((store) => store.checkout.currentStep)
     const dispatch = useDispatch()
     const checkoutFormData = useSelector((store) => store.checkout.checkoutFormData)
     const cartItems = useSelector((store) => store.cart)
-
     function handlePravious() {
         dispatch(setCurrentStep(currentStep - 1))
     }
@@ -36,25 +35,25 @@ function OrderSummary() {
             setLoading(true);
             const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
             const response = await fetch(`${baseUrl}/api/orders`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(data),
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
             });
-        
+            const responseData = await response.json();
             if (response.ok) {
-              setLoading(false);
-              toast.success("Product Add Successfully");
-              router.push("/order-confirmation")
+                setLoading(false);
+                toast.success("Product Add Successfully");
+                router.push(`/order-confirmation/${responseData.id}`)
             } else {
-              setLoading(false);
-              toast.error(" Something Went Wrong Please Try Again ");
+                setLoading(false);
+                toast.error(" Something Went Wrong Please Try Again ");
             }
-          } catch (error) {
+        } catch (error) {
             setLoading(false);
             console.log(error);
-          }
+        }
     }
 
 

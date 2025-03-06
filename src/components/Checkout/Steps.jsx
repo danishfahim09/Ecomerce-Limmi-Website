@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 function Steps({ steps }) {
     const currentStep = useSelector((store) => store.checkout.currentStep)
+    const cartItem = useSelector((store) => store.cart)
     return (
         <nav className="flex text-sm md:text-xl mb-8 ">
             <ol
@@ -19,7 +20,7 @@ function Steps({ steps }) {
                             Cart
                             <span className="inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-bold bg-gray-400 rounded-full text-gray-50">
                                 {" "}
-                                4{" "}
+                                {cartItem.length}{" "}
                             </span>
                         </Link>
                     </div>

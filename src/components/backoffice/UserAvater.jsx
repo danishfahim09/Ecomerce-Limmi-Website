@@ -13,11 +13,10 @@ import { generateInitials } from '@/lib/generateinitials'
 
 
 
-function UserAvater({ user={} }) {
+function UserAvater({ user = {} }) {
   const { name, image } = user
-  //console.log('this is my User Name:', user)
-  ///console.log(' this is my Name :', name)
   const initials = generateInitials(name)
+  const role = user?.role
   const router = useRouter()
   async function handdleLougOut() {
     await signOut()
@@ -61,6 +60,14 @@ function UserAvater({ user={} }) {
             <span className='text-base '>Edit Profil</span>
           </Link >
         </DropdownItem>
+        {role === "USER" && (
+          <DropdownItem key="new">
+            <Link href="/dashboard/orders" className='flex  gap-4  p-2'>
+              <Cog className='w-5 h-6 ' />
+              <span className='text-base '>My Orders</span>
+            </Link >
+          </DropdownItem>
+        )}
         <DropdownItem key="new">
           <button className='flex  gap-4  p-2 ' onClick={handdleLougOut}>
             <LogOut className='w-5 h-6 ' />

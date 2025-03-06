@@ -8,6 +8,20 @@ export async function POST(request) {
         const { city, country, district, email, firstName, lastName,
             paymentMethod, phone, shippingCost, streetAddress, userId, } = checkoutFormData
 
+        
+      
+        //Create Order Number
+        function generateOrderNumber(length) {
+            const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            let orderNumber = '';
+
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                orderNumber += characters.charAt(randomIndex);
+            }
+
+            return orderNumber;
+        }
         const newOrder = await db.order.create({
             data: {
                 userId,
@@ -21,18 +35,24 @@ export async function POST(request) {
                 district,
                 shippingCost: parseFloat(shippingCost),
                 paymentMethod,
+                orderNumber: generateOrderNumber(8)
             }
-        }) 
+        })
+        // Example usage: Generate an order number with 8 characters
+
         const newOrderItems = await db.orderItem.createMany({
             data: orderItems.map((item) => ({
                 productId: item.id,
                 quantity: parseInt(item.qty),
                 price: parseFloat(item.salePrice),
                 orderId: newOrder.id,
+                imageUrl: item.imageUrl,
+                title: item.title,
+                
             })),
         });
 
-        console.log(newOrder,newOrderItems)
+        console.log(newOrder, newOrderItems)
         return NextResponse.json(newOrder)
     } catch (error) {
         console.log(error)
@@ -51,6 +71,9 @@ export async function GET() {
         const orrders = await db.order.findMany({
             orderBy: {
                 createdAt: "desc"
+            },
+            include: {
+                orderItems: true
             }
         })
         return NextResponse.json(orrders)
