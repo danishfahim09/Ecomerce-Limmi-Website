@@ -1,9 +1,7 @@
 'use client'
-import { current } from '@reduxjs/toolkit';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
-import { setCurrentStep } from '../../../redux/slices/checkoutSlice';
 import { useSelector } from 'react-redux';
 
 function Steps({ steps }) {

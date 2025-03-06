@@ -4,21 +4,27 @@ import React from 'react'
 import TextInput from '@/components/InputForm/TextInput'
 import TooggleInput from '@/components/InputForm/ToogleInput'
 import { useForm } from 'react-hook-form';
-import NavButton from '@/components/Checkout/stepforms/NavButton'
+import NavButton from '@/components/Checkout/NavButton'
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentStep, updateCheckoutFormData } from '../../../../redux/slices/checkoutSlice';
+import { useSession } from 'next-auth/react';
 
 
 function PersonalDetaileForms() {
-  const currentStep = useSelector((store) =>   store.checkout.currentStep  )
-  const existingFormData = useSelector((store)=>store.checkout.updateCheckoutFormData)
-  const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({defaultValues:{
-    ...existingFormData
-  }});
-  
-  
+  const { data: session, status } = useSession()
+  const userId = session?.user?.id 
+  const currentStep = useSelector((store) => store.checkout.currentStep)
+  const existingFormData = useSelector((store) => store.checkout.updateCheckoutFormData)
+  const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({
+    defaultValues: {
+      ...existingFormData
+    }
+  });
+
+
   const dispatch = useDispatch()
   async function processData(data) {
+    data.userId= userId
     //update the checkout data
     dispatch(updateCheckoutFormData(data))
     //update the current state

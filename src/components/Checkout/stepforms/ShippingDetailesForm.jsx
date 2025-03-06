@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 import TextInput from '@/components/InputForm/TextInput'
 import { useForm } from 'react-hook-form';
-import NavButton from '@/components/Checkout/stepforms/NavButton'
+import NavButton from '@/components/Checkout/NavButton'
 import { Circle, Truck } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentStep, updateCheckoutFormData } from '../../../../redux/slices/checkoutSlice';
@@ -38,7 +38,7 @@ function ShippingDetailesForm() {
       <div className="grid sm:grid-row-2 sm:gap-6">
         <TextInput
           lable='Street Address'
-          name='streetAdress'
+          name='streetAddress'
           register={register}
           errors={errors}
           className='w-full'
@@ -52,7 +52,7 @@ function ShippingDetailesForm() {
         />
         <TextInput
           lable='Country'
-          name='contry'
+          name='country'
           register={register}
           errors={errors}
 

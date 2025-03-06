@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 import { useForm } from 'react-hook-form';
-import NavButton from '@/components/Checkout/stepforms/NavButton'
+import NavButton from '@/components/Checkout/NavButton'
 import { Circle, CreditCard, HeartHandshakeIcon, Truck } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentStep, updateCheckoutFormData } from '../../../../redux/slices/checkoutSlice';
