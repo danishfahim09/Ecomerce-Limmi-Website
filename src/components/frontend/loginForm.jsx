@@ -7,12 +7,7 @@ import toast from "react-hot-toast";
 import Link from "next/link";
 export default function LoginForm() {
   const router = useRouter();
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, reset, formState: { errors }, } = useForm();
   const [loading, setLoading] = useState(false);
 
   async function onSubmit(data) {
@@ -33,12 +28,12 @@ export default function LoginForm() {
         toast.success("Login Successful");
         reset();
         // Optional: Force session refresh
-    router.refresh();
+        router.refresh();
 
-    // Thoda delay de kar redirect karo
-    setTimeout(() => {
-      router.push("/"); // ya koi aur page
-    }, 500);
+        // Thoda delay de kar redirect karo
+        setTimeout(() => {
+          router.push("/"); // ya koi aur page
+        }, 500);
       }
     } catch (error) {
       setLoading(false);
@@ -48,7 +43,7 @@ export default function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 ">   
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 ">
       <div>
         <label
           htmlFor="email"
@@ -134,8 +129,8 @@ export default function LoginForm() {
           </button>
         )}
       </div>
-      
-     
+
+
       <p className="text-sm font-light text-gray-500 dark:text-gray-400">
         Already have an account?{" "}
         <Link

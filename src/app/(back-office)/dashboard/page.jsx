@@ -19,7 +19,7 @@ async function page() {
   if (role === "FARMER") {
     return <FarmerDashboard />
   }
-  
+
   return (
     <div>
       <Heading tittle="Dashboard Overview" />

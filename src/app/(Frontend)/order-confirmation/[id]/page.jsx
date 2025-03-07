@@ -4,7 +4,8 @@ import React from 'react'
 import { getData } from '@/lib/getData'
 
 async function page({ params: { id } }) {
-    const order = await getData(`/orders/${id}`)
+    const order = await getData(`orders/${id}`)
+    console.log("this is my order",order,"this is my order")
     const { orderItems } = order
     const subTotal = orderItems.reduce((acc, item) =>
         acc + item.price * item.quantity, 0

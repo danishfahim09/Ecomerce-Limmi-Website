@@ -42,6 +42,7 @@ function OrderSummary() {
                 body: JSON.stringify(data),
             });
             const responseData = await response.json();
+            console.log("this is my response",response)
             if (response.ok) {
                 setLoading(false);
                 toast.success("Product Add Successfully");

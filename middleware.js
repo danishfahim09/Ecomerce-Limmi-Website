@@ -1,11 +1,21 @@
-import withAuth from "next-auth/middleware"
+import {withAuth} from 'next-auth/middleware'
 
 export default withAuth({
     pages: {
         signIn: '/login',
-        //error: '/error',
-    }
-})
-//match the pages in mildware
+    },
+    callbacks: {
+        authorized: ({ token, req }) => {
+            console.log("✅ Middleware Triggered:", req.nextUrl.pathname);
+            console.log("🔑 Token:", token);
+            return !!token;  // اگر token ہے تو allow, ورنہ login پر redirect
+        },
+    },
+});
 
-export const config = { matcher : ["/dashboard","/dashboard/profile"]}
+export const config = {
+    matcher: [
+        "/back-office/dashboard/:path*",
+        "/checkout"
+    ]
+};

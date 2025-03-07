@@ -85,6 +85,7 @@ export const authOptions = {
       return session;
     },
     async jwt({ token, user }) {
+      console.log(user ,"this is my user token  data ")
       if (user) {
         token.id = user.id;
         token.name = user.name;

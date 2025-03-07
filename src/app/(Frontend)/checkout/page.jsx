@@ -21,10 +21,6 @@ function page() {
             number: 4,
             title:  "Order Summary",
         },
-
-        
-      
-       
     ];
     return (
         <div className='bg-slate-200 dark:bg-slate-950 min-h-screen'>

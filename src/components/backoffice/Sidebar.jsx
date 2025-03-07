@@ -4,8 +4,6 @@ import React, { use, useState } from 'react'
 import { LayoutDashboard, Flower, Users, Store, Settings, Truck, User, LogOut, Contact2, Minus, ChevronRight, LayoutList, ChevronDownCircle, ChevronDown, Building2, Wallet2Icon, WalletCards } from 'lucide-react'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
-import { Sliders } from 'lucide-react'
-
 
 import {
   Collapsible,
@@ -13,8 +11,6 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import { signOut, useSession } from 'next-auth/react'
-
-
 
 function Sidebar({ showSideBar }) {
   const router = useRouter()
@@ -25,9 +21,9 @@ function Sidebar({ showSideBar }) {
   if (status === "loading") {
     return <p>Loading...</p>
   }
-  let userLink = []
+
   const role = session?.user?.role;
-  console.log("this is my role ", role, "this is my role ")
+   
 
   let SideBarLinks = [
     {
@@ -53,6 +49,11 @@ function Sidebar({ showSideBar }) {
       tittle: 'Orders',
       icon: Truck,
       link: '/dashboard/orders'
+    },
+    {
+      tittle: 'Sales',
+      icon: Truck,
+      link: '/dashboard/sales'
     },
     {
       id: 5,
@@ -136,6 +137,11 @@ function Sidebar({ showSideBar }) {
         link: '/dashboard/comunity'
       },
       {
+        tittle: 'Sales',
+        icon: Truck,
+        link: '/dashboard/sales'
+      },
+      {
         tittle: 'Wallet',
         icon: WalletCards,
         link: '/dashboard/wallet'
@@ -161,6 +167,11 @@ function Sidebar({ showSideBar }) {
         link: '/dashboard/orders'
       },
       {
+        tittle: 'Sales',
+        icon: Truck,
+        link: '/dashboard/sales'
+      },
+      {
         tittle: 'Profile',
         icon: Truck,
         link: '/dashboard/profile'
@@ -183,7 +194,6 @@ function Sidebar({ showSideBar }) {
     await signOut({ callbackUrl: '/' })
     router.push('/')
   }
-
 
   return (
     <div className={showSideBar ?

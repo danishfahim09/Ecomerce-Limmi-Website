@@ -25,7 +25,7 @@ function UserAvater({ user = {} }) {
   return (
     <Dropdown>
       <DropdownTrigger className='text-gray-200'>
-        <button className=" w-10 h-10 rounded-full flex items-center justify-center bg-green-600">
+        <button className=" w-10 h-10 rounded-full flex items-center justify-center bg-gray-400 border border-slate-500 dark:bg-green-600">
           {image ? (
             <Image
               width={200}
