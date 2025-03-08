@@ -5,18 +5,15 @@ import db from "@/lib/db";
 
 export async function GET(request, { params: { id } }) {
     try {
-        const orders = await db.order.findMany({
+        const order = await db.order.findUnique({
             where: {
-                userId: id
-            },
-            orderdBy: {
-                createdAt: "dec"
+                  id
             },
             include: {
                 orderItems: true
             }
         })
-        return NextResponse.json(orders)
+        return NextResponse.json(order)
     } catch (error) {
         console.error("Database Error:", error.message, error.stack);
         return NextResponse.json(

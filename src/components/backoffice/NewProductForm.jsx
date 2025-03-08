@@ -114,8 +114,6 @@ function NewProductForm({ catagories, farmers, updateData = {} }) {
           errors={errors}
           className='w-full'
         />
-
-
         <TextInput
           lable='Unit of Measurement (eg kilogram)'
           name="unit"

@@ -30,7 +30,7 @@ function OrderSummary() {
             orderItems: cartItems,
             checkoutFormData
         }
-        console.log(data)
+        //console.log(data,"this is my ")
         try {
             setLoading(true);
             const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;

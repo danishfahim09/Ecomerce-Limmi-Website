@@ -7,31 +7,31 @@ import { getData } from '@/lib/getData'
 import Link from 'next/link'
 
 async function ProductDetaile({ params: { slug } }) {
-  const category = await getData('/categories/67a27c489e9263a91e6894a1')
+  const product = await getData(`products/product/${slug}`)
   return (
     <div>
       <BreadCrum />
       <div className="grid grid-cols-12 gap-5">
-        <div className="col-span-3">
+        <div className="col-span-3 ">
           <Image
-            className='w-full bg-red-200'
-            src='/th (3).jpeg'
-            width={34}
-            height={234}
-            alt='fasf'
+            className='  bg-red-200 w-64 h-72'
+            src={product.imageUrl}
+            width={500}
+            height={500}
+            alt={product.title}
           />
         </div>
         <div className='col-span-6'>
           <div className="flex items-center justify-center mb-6">
-            <h2 className='text-xl lg:text-3xl font-semibold'>Calabaza Squash Product</h2>
+            <h2 className='text-xl lg:text-3xl font-semibold'>{product.title}</h2>
             <button><Share2 /></button>
           </div>
           <div className="border-b border-gray-500">
             <p className='py-2  '>
-              To keek basic fresh, trim the stems and place them in a glass or jaar of water
+              {product.description}
             </p>
             <div className="flex items-center gap-8 mb-4">
-              <p>SKU: 52345</p>
+              <p>SKU: {product.qty}</p>
               <p className='bg-lime-300 py-1.5 px-4 rounded-full text-slate-900'>
                 <b>Stock: </b>
                 230
@@ -41,8 +41,8 @@ async function ProductDetaile({ params: { slug } }) {
 
           <div className='flex items-center justify-between gap-4 pt-4 border-b border-gray-500 pb-2'>
             <div className="flex items-center gap-4">
-              <h4 className='text-2xl'>UGX: 100</h4>
-              <del className='text-slate-400 text-sm'>UGX: 10000</del>
+              <h4 className='text-2xl'>UGX: {product.salePrice}</h4>
+              <del className='text-slate-400 text-sm'>UGX: {product.productPrice}</del>
             </div>
 
             <p className='flex items-center '>
@@ -136,7 +136,7 @@ async function ProductDetaile({ params: { slug } }) {
       </div>
       <div className="bg-white p-4 dark:bg-slate-700 my-8 rounded-xl">
         <h2 className='mb-4 text-xl font-semibold text-slate-400 ml-3'>Simmilar Products</h2>
-        <CategoryCarousel products={category.products} />
+        {/* <CategoryCarousel products={product.products} /> */}
       </div>
     </div>
   )

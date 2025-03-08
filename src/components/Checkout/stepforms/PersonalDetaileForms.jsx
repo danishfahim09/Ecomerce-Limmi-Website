@@ -12,7 +12,7 @@ import { useSession } from 'next-auth/react';
 
 function PersonalDetaileForms() {
   const { data: session, status } = useSession()
-  const userId = session?.user?.id 
+  const userId = session?.user?.id
   const currentStep = useSelector((store) => store.checkout.currentStep)
   const existingFormData = useSelector((store) => store.checkout.updateCheckoutFormData)
   const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({
@@ -24,12 +24,15 @@ function PersonalDetaileForms() {
 
   const dispatch = useDispatch()
   async function processData(data) {
-    data.userId= userId
-    //update the checkout data
-    dispatch(updateCheckoutFormData(data))
-    //update the current state
-    dispatch(setCurrentStep(currentStep + 1))
-    console.log(data)
+    if (userId) {
+      data.userId = userId
+      //update the checkout data
+      dispatch(updateCheckoutFormData(data))
+      //update the current state
+      dispatch(setCurrentStep(currentStep + 1))
+      console.log(data)
+    }
+
   }
   return (
     <form onSubmit={handleSubmit(processData)} className="w-full max-w-4xl mt-16 mx-auto h-auto dark:bg-slate-800 bg-gray-100 dark:border-gray-700 p-4
