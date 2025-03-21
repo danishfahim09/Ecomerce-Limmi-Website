@@ -16,11 +16,11 @@ export default async function Home() {
   //console.log(session.user)
   return (
     <div className=" min-h-screen sm:px-3  ">
-      {/* Caresole Section */}
+      Caresole Section
       <h2>this is   a hero section </h2>
       <Hero />
 
-      {/* Market SList Caresoule */}
+      Market SList Caresoule
       <h2>this is   a Markete  section </h2>
       <MarketList />
       

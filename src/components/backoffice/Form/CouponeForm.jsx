@@ -11,8 +11,17 @@ import { useRouter } from 'next/navigation';
 import TooggleInput from '@/components/InputForm/ToogleInput'
 import { makePutRequest } from '@/lib/apiRequest'
 import { ConvertIsoDateToNormal } from '@/lib/ConvertIsoDateToNormal'
+import { useSession } from 'next-auth/react';
 
 function CouponeForm({ updateData = {} }) {
+    const { data: session, status } = useSession()
+    if (status === "Loading") {
+        <p>Loading...</p>
+
+    }
+
+    const venderId = session?.user?.id
+
     const expiryDateNormal = ConvertIsoDateToNormal(updateData.expiryDate)
     updateData.expiryDate = expiryDateNormal
     const id = updateData?.id ?? ""
@@ -30,6 +39,9 @@ function CouponeForm({ updateData = {} }) {
         router.push('/dashboard/couponse')
     }
     async function onSubmite(data) {
+
+        data.venderId = venderId
+
         // Generate coupone Code
         const couponeCode = Generatecouponcode(data.title, data.expiryDate)
         data.couponCode = couponeCode
@@ -37,7 +49,7 @@ function CouponeForm({ updateData = {} }) {
         //convert Date To Iso Formated Date
         const isoFormatedDate = generateIsoFormattedDate(data.expiryDate)
         data.expiryDate = isoFormatedDate
-        
+
         if (id) {
             //Make Put  Request Update
             data.id = id
@@ -46,6 +58,7 @@ function CouponeForm({ updateData = {} }) {
             //Make Post Request (Create)
             makePostRequest(setLoading, 'api/couponse', data, 'Coupon', reset, redirect);
         }
+        console.log(data)
     }
 
     return (

@@ -2,7 +2,6 @@
 import React from 'react'
 
 import TextInput from '@/components/InputForm/TextInput'
-import TooggleInput from '@/components/InputForm/ToogleInput'
 import { useForm } from 'react-hook-form';
 import NavButton from '@/components/Checkout/NavButton'
 import { useDispatch, useSelector } from 'react-redux';

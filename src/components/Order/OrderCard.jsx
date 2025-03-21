@@ -10,6 +10,7 @@ export default function OrderCard({ order }) {
     if (order.orderItems.length === 0) {
         return null
     }
+    console.log(order,"this is my orders ")
     return (
         <li className="overflow-hidden bg-white border border-gray-200 rounded-md">
             <div className="lg:flex">
@@ -105,7 +106,7 @@ export default function OrderCard({ order }) {
                         </button>
 
                         <Link
-                        href="/dashboard/orders/4234/invoice"
+                        href={`/dashboard/orders/${order.id}/invoice`}
                             type="button"
                             className="inline-flex items-center justify-center px-4 py-2.5 text-sm font-bold text-gray-900 transition-all duration-200 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 hover:bg-gray-100"
                         >

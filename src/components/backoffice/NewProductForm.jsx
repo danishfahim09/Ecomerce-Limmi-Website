@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import SubmitButton from '@/components/InputForm/SubmitButton'
 import TextAreaInput from '@/components/InputForm/TextAreaInput'
 import { generateSlug } from '@/lib/generateSlug'
-import ImageInput from '@/components/InputForm/imageInput'
+import MultipleImageInput from '@/components/InputForm/MultipleImageInput'
 import { makePostRequest, makePutRequest } from '@/lib/apiRequest'
 import SelectInput from '@/components/InputForm/selectInput'
 import { useRouter } from 'next/navigation';
@@ -17,9 +17,13 @@ function NewProductForm({ catagories, farmers, updateData = {} }) {
   const initialImageUrl = updateData?.imageUrl ?? ""
   const initialTags = updateData?.tags ?? []
   const id = updateData?.id ?? ""
+  console.log(id,"i am data id ")
   const [imageUrl, setimageUrl] = useState(initialImageUrl);
   const [tags, settags] = useState(initialTags)
   const [Loading, setLoading] = useState(false);
+  const [productImages, setProductImages] = useState([])
+  console.log(productImages)
+
   const { register, handleSubmit, watch, reset, formState: { errors } } = useForm({
     defaultValues: {
       isWholeSale: false,
@@ -44,7 +48,7 @@ function NewProductForm({ catagories, farmers, updateData = {} }) {
     data.tags = tags
     data.slug = slug
     data.qty = 1
-    data.imageUrl = imageUrl
+    data.productImages = productImages
     console.log(data)
 
     if (id) {
@@ -56,7 +60,8 @@ function NewProductForm({ catagories, farmers, updateData = {} }) {
       //Make Post Request (Create)
       makePostRequest(setLoading, "api/products", data, 'Product', reset, redirect)
     }
-
+    
+    //setProductImages([])
     //setimageUrl("")
   }
 
@@ -167,11 +172,11 @@ function NewProductForm({ catagories, farmers, updateData = {} }) {
         )}
 
       </div>
-      <ImageInput
-        imageUrl={imageUrl}
-        setimageUrl={setimageUrl}
-        endPoint='ProductImageUploader'
-        lable="Product Image "
+      <MultipleImageInput
+        imageUrls={productImages}
+        setimageUrls={setProductImages}
+        endPoint='MultipleProductsUploader'
+        lable="Product Image"
       />
 
       {/* Tags Page */}

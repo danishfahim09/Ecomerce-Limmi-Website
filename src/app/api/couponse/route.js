@@ -3,14 +3,15 @@ import db from "../../../lib/db";
 
 export async function POST(request) {
     try {
-        const { title, couponCode, expiryDate, isActive } = await request.json();
+        const { title, couponCode, expiryDate, isActive ,venderId} = await request.json();
         console.log("Data received by API:", { title, couponCode, expiryDate })
         const newCoupon = await db.coupon.create({
             data: {
                 title,
                 couponCode,
                 expiryDate,
-                isActive
+                isActive,
+                venderId
             },
         });
         console.log(newCoupon)

@@ -2,7 +2,7 @@ import React from 'react'
 
 function page() {
   return (
-    <div>Wallet</div>
+   <h2>I am Market</h2>
   )
 }
 

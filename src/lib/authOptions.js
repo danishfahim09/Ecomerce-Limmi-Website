@@ -73,7 +73,7 @@ export const authOptions = {
   callbacks: {
     async session({ session, token }) {
       if (token) {
-        console.log(`token:${token} in session`);
+        //console.log("Token:",token);
         session.user.id = token.id;
         session.user.name = token.name;
         session.user.email = token.email;
@@ -81,11 +81,11 @@ export const authOptions = {
         session.user.image = token.picture;
         session.user.emailVerified = token.emailVerified;
       }
-      console.log(`session:${session.user}`);
+      //console.log("Session:", session);
       return session;
     },
     async jwt({ token, user }) {
-      console.log(user ,"this is my user token  data ")
+      console.log(user, "this is my user token  data ")
       if (user) {
         token.id = user.id;
         token.name = user.name;

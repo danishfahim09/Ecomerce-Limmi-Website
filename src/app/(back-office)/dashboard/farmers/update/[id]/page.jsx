@@ -1,9 +1,17 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
+import NewFarmerForm from '@/components/backoffice/NewFarmerForm'
+import FormHeader from '@/components/backoffice/FormHeader'
 
-function UpdateCatagory() {
+function UpdateCustomer() {
   return (
-    <div>updateCatagory</div>
+    <div>
+      <FormHeader
+        title="Update Customer"
+      />
+      <NewFarmerForm />
+    </div>
   )
 }
 
-export default UpdateCatagory
+export default UpdateCustomer

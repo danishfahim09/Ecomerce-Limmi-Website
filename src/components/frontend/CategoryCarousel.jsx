@@ -6,7 +6,7 @@ import "react-multi-carousel/lib/styles.css";
 import Product from '@/components/frontend/Product'
 
 function CategoryCarousel({ products }) {
-
+console.log(products,"i am all products")
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
