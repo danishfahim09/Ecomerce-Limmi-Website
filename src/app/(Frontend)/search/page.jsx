@@ -3,7 +3,7 @@ import FilterComponent from '@/components/frontend/Filter/FilterComponent'
 import { getData } from '@/lib/getData';
 
 async function page({ searchParams }) {
-    console.log(searchParams,"thi is my search")
+    
     const {  search } = searchParams;
     // const page = searchTerm.page || 1;
 

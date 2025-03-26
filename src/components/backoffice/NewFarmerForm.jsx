@@ -26,19 +26,19 @@ function NewFarmerForm({ users }) {
     });
     const isActive = watch("isActive")
 
-    const router =useRouter()
-    function redirect(){
+    const router = useRouter()
+    function redirect() {
         router.push('/login')
     }
     async function onSubmite(data) {
         data.product = product
         data.userId = users.id
         const code = generateUserCode("LLF", data.name)
-        console.log("i  am a code ",code)
+        console.log("i  am a code ", code)
         data.code = code
         data.profileImageUrl = imageUrl
         console.log(data)
-        makePostRequest(setLoading, "api/farmers", data, 'Category', reset, redirect )
+        makePostRequest(setLoading, "api/farmers", data, 'Category', reset, redirect)
         setimageUrl('')
     }
 
@@ -119,7 +119,9 @@ function NewFarmerForm({ users }) {
                     errors={errors}
                     className='w-full'
                 />
-                <ArrayitemInput items={product} setitems={setproduct}
+                <ArrayitemInput
+                    items={product}
+                    setitems={setproduct}
                     tittle="Add Product" />
 
                 {/*configure this endpoint in the core.js*/}

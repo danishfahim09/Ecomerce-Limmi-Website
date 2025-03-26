@@ -1,7 +1,8 @@
 import React from "react";
 import LargCard from "./LargCard";
 
-function LargeCards() {
+function LargeCards({ sales }) {
+  const totalSales = sales.reduce((acc, item) => acc + item.total, 0).toFixed(2) ?? 0
   const orders = [
     {
       period: "Today-Order",
@@ -23,17 +24,17 @@ function LargeCards() {
     },
     {
       period: "All Time-Orders",
-      sales: 50000,
+      sales: totalSales,
       color: "bg-purple-400",
       darkMode: "dark:bg-purple-700",
     },
   ];
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      
-      {orders.map((item,i)=>{
-        return(
-          <LargCard className="bg-orange-700" key={i} data={item}/>
+
+      {orders.map((item, i) => {
+        return (
+          <LargCard className="bg-orange-700" key={i} data={item} />
         )
       })}
     </div>

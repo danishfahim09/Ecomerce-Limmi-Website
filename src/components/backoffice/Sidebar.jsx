@@ -116,26 +116,15 @@ function Sidebar({ showSideBar }) {
   if (role === "FARMER") {
     SideBarLinks = [
       {
-        tittle: 'Coustomers',
-        icon: Store,
-        link: '/dashboard/customers'
-      },
-      {
-        tittle: 'Markets',
-        icon: Store,
-        link: '/dashboard/markets'
-      },
-      {
-        tittle: 'Limmi-Comunity',
-        icon: Building2,
-        link: '/dashboard/comunity'
-      },
-      {
         tittle: 'Sales',
         icon: Truck,
         link: '/dashboard/sales'
       },
-      
+      {
+        tittle: 'My Orders',
+        icon: Truck,
+        link: '/dashboard/orders'
+      },
       {
         tittle: 'Wallet',
         icon: WalletCards,
@@ -176,11 +165,7 @@ function Sidebar({ showSideBar }) {
   }
   if (role === "USER") {
     SideBarLinks = [
-      {
-        tittle: 'Orders',
-        icon: Truck,
-        link: '/dashboard/orders'
-      },
+       
       {
         tittle: 'Sales',
         icon: Truck,

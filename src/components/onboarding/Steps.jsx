@@ -5,7 +5,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 
 function Steps({ steps }) {
-    const currentStep = useSelector((store) => store.onbording.currentStep)
+    const currentStep = useSelector((store) => store.checkout.currentStep)
     const cartItem = useSelector((store) => store.cart)
     return (
         <nav className="flex text-sm md:text-xl mb-8 ">
@@ -15,14 +15,10 @@ function Steps({ steps }) {
             >
                 <li>
                     <div className="-m-1">
-                        <Link href="/cart" className="inline-flex items-center p-1 text-sm md:text-base  font-medium text-gray-500 rounded-md focus:outline-none focus:ring-2 focus:text-gray-900
+                        <h2 href="/cart" className="inline-flex items-center p-1 text-sm md:text-base  font-medium text-gray-500 rounded-md focus:outline-none focus:ring-2 focus:text-gray-900
                           focus:ring-gray-900 dark:hover:text-lime-500 hover:text-gray-700 ">
-                            Cart
-                            <span className="inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-bold bg-gray-400 rounded-full text-gray-50">
-                                {" "}
-                                {cartItem.length}{" "}
-                            </span>
-                        </Link>
+                            Account
+                        </h2>
                     </div>
                 </li>
 

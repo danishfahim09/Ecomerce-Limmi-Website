@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentStep } from '../../../redux/slices/checkoutSlice'
 
 function NavButton() {
-    const currentStep = useSelector((store) => store.onboarding.currentStep)
+    const currentStep = useSelector((store) => store.onbording.currentStep)
     const dipatch = useDispatch()
     function handlePravious() {
         dipatch(setCurrentStep(currentStep - 1))

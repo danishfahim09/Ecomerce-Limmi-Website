@@ -15,7 +15,6 @@ import {
 export default function Paginate({ totalPages }) {
     const SearchParams = useSearchParams()
     const currentPage = parseInt(SearchParams.get("page") || 1)
-    console.log(currentPage, totalPages)
     return (
         <Pagination>
             <PaginationContent>

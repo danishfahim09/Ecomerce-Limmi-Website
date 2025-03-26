@@ -5,17 +5,16 @@ import "react-multi-carousel/lib/styles.css";
 
 import Product from '@/components/frontend/Product'
 
-function CategoryCarousel({ products }) {
-console.log(products,"i am all products")
+function CategoryCarousel({ products, isMarketPage = false }) {
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 5,
+            items: isMarketPage ? 3 : 4,
             slidesToSlide: 3 // optional, default to 1.
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 3,
+            items: isMarketPage ? 2 : 3,
             slidesToSlide: 2 // optional, default to 1.
         },
         mobile: {

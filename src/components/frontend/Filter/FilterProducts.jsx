@@ -6,9 +6,7 @@ import Paginate from '@/components/frontend/Filter/Paginate'
 async function FilterProducts({ products = [] }) {
     const pageSize = 3
     const totalProductCount = products.length;
-    console.log(totalProductCount,"this  i my total product count")
     const totalPages = Math.ceil(totalProductCount / pageSize)
-    console.log(totalPages,"i am a total pages ")
     return (
         <div >
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>

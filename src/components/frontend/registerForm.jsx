@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -9,6 +9,9 @@ import TextInput from "../InputForm/TextInput";
 
 export default function RegisterForm({ role = "USER" }) {
     const router = useRouter(); // redirect on the client side
+    const searchParams = useSearchParams()
+    const plan = searchParams.get("plan")
+    console.log(plan,"this is my plan")
     const {
         register,
         handleSubmit,
@@ -20,6 +23,8 @@ export default function RegisterForm({ role = "USER" }) {
     const [emailErr, setEmailErr] = useState("");
 
     async function onSubmit(data) {
+        data.plan = plan
+        console.log(data)
         try {
             console.log(data);
             setLoading(true);
@@ -47,7 +52,8 @@ export default function RegisterForm({ role = "USER" }) {
                 if (role === "USER") {
                     router.push("/")
                 } else {
-                    router.push(`/VerifyEmail`);
+                    const  { data} =  responseData
+                    router.push(`/VerifyEmail?userId=${data.id}`);
                 }
 
             } else {
@@ -129,7 +135,7 @@ export default function RegisterForm({ role = "USER" }) {
                     <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400">
                         Are you a Farmer?{" "}
                         <Link
-                            href="/register-farmer"
+                            href="/farmer-pricing"
                             className="font-medium text-purple-600 hover:underline dark:text-purple-500"
                         >
                             Register Here

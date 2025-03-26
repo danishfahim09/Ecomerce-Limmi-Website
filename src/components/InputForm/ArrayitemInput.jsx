@@ -3,7 +3,7 @@ import React from 'react'
 import { Plus, Search, X } from 'lucide-react'
 import { useState } from 'react'
 
-function ArrayitemInput({items,setitems,tittle}) {
+function ArrayitemInput({items,setitems,itemTitle}) {
   const [showTagForm, setshowTagForm] = useState(false)
   const [tagErrorMsg, settagErrorMsg] = useState('')
   
@@ -88,7 +88,7 @@ function ArrayitemInput({items,setitems,tittle}) {
                 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-slate-800 dark:text-gray-300
               dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
               <Plus className='w-5 h-5' />
-              <span>{tittle}</span>
+              <span>{itemTitle}</span>
             </button>
           )
         }

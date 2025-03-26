@@ -10,7 +10,6 @@ function FilterComponent({ category, products }) {
 
     const { title, slug } = category
     const productCount = category.products.length
-    console.log(productCount, "this is my product count ")
     return (
         <div className="">
             <div className="bg-white space-y-6 text-slate-900 py-8 px-4 ">

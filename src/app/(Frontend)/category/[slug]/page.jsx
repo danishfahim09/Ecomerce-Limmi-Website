@@ -21,13 +21,13 @@ async function page({ params: { slug }, searchParams }) {
     }else {
         products = await getData(`products?catId=${category.id}`)
     }
-    console.log(products,"i am products")
+    
     //console.log(products,"i am a product")
     //const totalPage  = tottalProductCount / pageSrize
     // console.log(searchParams.sort, "i am searchParms")
     // 
     // const products = await getData(`products?catId=${category.id}`)
-    console.log(category,"i am category")
+    
     return (
         <div>
             <h2>this is my slug {slug}</h2>

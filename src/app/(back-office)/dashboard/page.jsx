@@ -9,24 +9,32 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/authOptions'
 import UserDashboard from '@/components/backoffice/UserDashboard'
 import FarmerDashboard from '@/components/backoffice/FarmerDashboard'
+import { getData } from '@/lib/getData'
 
 async function page() {
   const session = await getServerSession(authOptions)
   const role = session?.user?.role;
-  if (role === "USER") {
-    return <UserDashboard />
-  }
-  if (role === "FARMER") {
-    return <FarmerDashboard />
-  }
+
+
+  const sales = await getData("sales")
+  const orders = await getData("orders")
+  const products = await getData("products")
+
+  // if (role === "USER") {
+  //   return <UserDashboard />
+  // }
+  // if (role === "FARMER") {
+  //   return <FarmerDashboard />
+  // }
+  // console.log(role)
 
   return (
     <div>
       <Heading tittle="Dashboard Overview" />
       {/* Large Cards */}
-      <LargeCard />
+      <LargeCard sales={sales}/>
       {/* Small Cards */}
-      <SmallCards />
+      <SmallCards orders={orders}/>
       {/* Charts */}
       <DashbordChats />
       {/* Resent order-Table */}
