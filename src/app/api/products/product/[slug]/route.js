@@ -9,6 +9,7 @@ export async function GET(request, { params: { slug } }) {
             where: {
                 slug,
             },
+             
         })
         return NextResponse.json(product)
     } catch (error) {
@@ -81,7 +82,7 @@ export async function PUT(request, { params: { id } }) {
             wholeSalePrice,
             wholeSaleQty
         } = await request.json();
-    
+
         const existingProduct = await db.product.findUnique({
             where: {
                 id,
@@ -95,32 +96,32 @@ export async function PUT(request, { params: { id } }) {
                 {
                     status: 404
                 }
-            ) 
+            )
         }
         const updatingProduct = await db.product.update({
-            where:{
+            where: {
                 id
             },
             data: {
                 barCode,
                 categoryId,
                 description,
-                userId:farmerId,
+                userId: farmerId,
                 imageUrl,
                 isActive,
                 isWholeSale,
                 productCode,
-                productStock:parseInt(productStock),
-                productPrice:parseFloat(productPrice),
-                qty:parseInt(qty),
-                salePrice:parseFloat(salePrice),
+                productStock: parseInt(productStock),
+                productPrice: parseFloat(productPrice),
+                qty: parseInt(qty),
+                salePrice: parseFloat(salePrice),
                 sku,
                 slug,
                 tags,
                 title,
                 unit,
-                wholeSalePrice:parseFloat(wholeSalePrice),
-                wholeSaleQty:parseInt(wholeSaleQty)
+                wholeSalePrice: parseFloat(wholeSalePrice),
+                wholeSaleQty: parseInt(wholeSaleQty)
             }
         })
         console.log(updatingProduct)

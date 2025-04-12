@@ -7,7 +7,7 @@ const SearchForm = () => {
     const router =useRouter()
     function handleSearch(data) {
         const { searchTerm } = data;
-        console.log(searchTerm)
+         
         reset()
         router.push(`/search?search=${searchTerm}`)
     }

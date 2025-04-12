@@ -60,3 +60,41 @@ export async function DELETE(request, { params: { id } }) {
         );
     }
 }
+
+export async function PUT(request, { params: { id } }) {
+    try {
+        const { status,emailVerified,} = await request.json();
+
+        const existingUser = await db.user.findUnique({
+            where: {
+                id,
+            }
+        })
+        if (!existingUser) {
+            return NextResponse.json({
+                data: null,
+                message: "Not Found"
+            },
+                {
+                    status: 404
+                }
+            )
+        }
+        const updatingUser = await db.user.update({
+            where: {
+                id
+            },
+            data: { status,emailVerified,} 
+        })
+        console.log(updatingUser)
+        return NextResponse.json(updatingUser)
+    } catch (error) {
+        console.log(error)
+        return NextResponse.json(
+            {
+                error,
+                message: "Failed to Update User"
+            }, { status: 500 }
+        )
+    }
+}

@@ -5,7 +5,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 
 function Steps({ steps }) {
-    const currentStep = useSelector((store) => store.onbording.currentStep)
+    const currentStep = useSelector((store) => store.onboarding.currentStep)
     const cartItem = useSelector((store) => store.cart)
     return (
         <nav className="flex text-sm md:text-xl mb-8 ">

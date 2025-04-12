@@ -147,6 +147,7 @@ model User {
   role              UserRole       @default(USER)
   plan             String?
   verificationToken String?
+  status  Boolean @default(false)
   farmerProfile     FarmerProfile?
   profile           UserProfile?
   order             Order[] //  User can multiple orders 
@@ -189,8 +190,8 @@ model FarmerProfile {
   contactPerson      String?
   contactPersonPhone String?
   profileImageUrl    String?
-  firstName              String
-  lastName               String
+  name              String
+  email               String
   notes              String?
   phone              String
   physicalAddress    String?

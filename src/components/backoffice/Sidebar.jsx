@@ -116,34 +116,39 @@ function Sidebar({ showSideBar }) {
   if (role === "FARMER") {
     SideBarLinks = [
       {
-        tittle: 'Sales',
+        tittle: 'Coustomers',
         icon: Truck,
-        link: '/dashboard/sales'
+        link: '/dashboard/customers'
       },
       {
-        tittle: 'My Orders',
+        tittle: 'Markets',
         icon: Truck,
+        link: '/dashboard/markets'
+      },
+      {
+        tittle: 'Farmers',
+        icon: Truck,
+        link: '/dashboard/farmers'
+      },
+      {
+        tittle: 'Orders',
+        icon: WalletCards,
         link: '/dashboard/orders'
       },
       {
-        tittle: 'Wallet',
-        icon: WalletCards,
-        link: '/dashboard/wallet'
-      },
-      {
-        tittle: 'Farmer Support',
+        tittle: 'Sales',
         icon: Settings,
-        link: '/dashboard/setting'
+        link: '/dashboard/sales'
       },
       {
-        tittle: 'Setting',
+        tittle: 'Our Staf',
         icon: Settings,
-        link: '/dashboard/setting'
+        link: '/dashboard/staff'
       },
       {
-        tittle: 'Online Store',
+        tittle: 'Limi-Comunity',
         icon: Store,
-        link: '/dashboard/onlineStore'
+        link: '/dashboard/comunity'
       },
 
     ]
@@ -165,7 +170,6 @@ function Sidebar({ showSideBar }) {
   }
   if (role === "USER") {
     SideBarLinks = [
-       
       {
         tittle: 'Sales',
         icon: Truck,

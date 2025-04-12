@@ -24,7 +24,7 @@ export default function RegisterForm({ role = "USER" }) {
 
     async function onSubmit(data) {
         data.plan = plan
-        console.log(data)
+    
         try {
             console.log(data);
             setLoading(true);

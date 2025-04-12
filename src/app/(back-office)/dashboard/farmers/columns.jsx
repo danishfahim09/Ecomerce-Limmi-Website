@@ -4,7 +4,7 @@ import { ColumnDef } from "@tanstack/react-table"
 import { MoreHorizontal, ArrowUpDown } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 import Datecolumn from '@/components/DataTable-Coulumns/DateColumns'
-import ImageColumn from '@/components/DataTable-Coulumns/ImageColumn'
+import Status from '@/components/DataTable-Coulumns/Status'
 import SortableColumn from '@/components/DataTable-Coulumns/SortableColumn'
 import ActionColumn from '@/components/DataTable-Coulumns/ActionColumn'
 
@@ -45,6 +45,15 @@ export const columns = [
   {
     accessorKey: "role",
     header: "Role",
+  },
+  {
+    accessorKey: "plan",
+    header: "Plan",
+  },
+  {
+    accessorKey: "status",
+    header: "Status",
+    cell: ({ row }) => (<Status row={row} accessorKey={'status'} />)
   },
   {
     accessorKey: "createdAt",

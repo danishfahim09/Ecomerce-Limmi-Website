@@ -8,7 +8,7 @@ import toast from 'react-hot-toast'
 
 
 function CartProduct({ cartItems }) {
-    console.log("this is my cart items ",cartItems)
+    
     const dispatch = useDispatch()
     function handledCartItemDelete(cartId) {
         dispatch(removeFromCart(cartId));

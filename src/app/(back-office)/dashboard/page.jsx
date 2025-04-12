@@ -36,7 +36,7 @@ async function page() {
       {/* Small Cards */}
       <SmallCards orders={orders}/>
       {/* Charts */}
-      <DashbordChats />
+      <DashbordChats sales={sales}/>
       {/* Resent order-Table */}
       <CoustomDataTable />
     </div>

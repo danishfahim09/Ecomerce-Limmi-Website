@@ -48,7 +48,8 @@ export async function GET() {
         const trainings = await db.training.findMany({
             orderBy: {
                 createdAt : "desc"
-            }
+            },
+            
         })
         return NextResponse.json(trainings)
     } catch (error) {
