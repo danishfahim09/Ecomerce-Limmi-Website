@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import { getData } from '@/lib/getData'
 import CategoryList from '@/components/frontend/CategoryList'
-import BreadCrumb from '@/components/frontend/BreadCrum'
+import BreadCrum from '@/components/frontend/BreadCrum'
 
 async function page({ params: { slug } }) {
   const market = await getData(`markets/details/${slug}`)
@@ -17,7 +17,7 @@ async function page({ params: { slug } }) {
   console.log(marketeCategories)
   return (
     <>
-      <BreadCrumb />
+      <BreadCrum />
       <div className="flex items-center  text-slate-800 dark:text-slate-200  overflow-auto p-4  bg-white rounded-lg  border-1 border-gray-100 dark:bg-gray-700 dark:border-gray-700 shadow-lg dark:shadow-sm shadow-gray-300 dark:shadow-gray-500 gap-6">
         <div className="">
           <Image

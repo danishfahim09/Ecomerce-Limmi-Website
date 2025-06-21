@@ -10,7 +10,7 @@ function Cart() {
   const subTotal = cartItem.reduce((acc, currentItem) => {
     return acc + currentItem.salePrice * currentItem.qty
   }, 0)
-     .toFixed(2) ?? 0;
+    .toFixed(2) ?? 0;
 
   return (
     <div>
