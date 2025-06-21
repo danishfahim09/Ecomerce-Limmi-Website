@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 
 function BreadCrum() {
     const pathname = usePathname()
+    console.log(pathname,"i am a pathname data ")
     const pathArr = pathname.split("/")
     pathArr.shift()
  
@@ -21,7 +22,7 @@ function BreadCrum() {
                     </Link>
                 </li>
                 {
-                    pathArr.map((item, i) => {
+                    pathArr?.map((item, i) => {
                         return (
                             <li key={i}>
                                 <div className="flex items-center capitalize">

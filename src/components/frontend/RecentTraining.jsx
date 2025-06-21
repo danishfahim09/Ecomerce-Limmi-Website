@@ -13,7 +13,7 @@ function RecentTraining({ resentTrainings }) {
             <div className="mt-6 space-y-5">
 
                 {
-                    resentTrainings.map((training, i) => {
+                    resentTrainings?.map((training, i) => {
                         const normalDate = ConvertIsoDateToNormal(training.createdAt)
                         return (
                             <div key={i}

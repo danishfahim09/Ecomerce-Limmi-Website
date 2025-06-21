@@ -1,7 +1,7 @@
+export const dynamic = 'force-dynamic'
 import React from 'react'
-import BreadCrum from '@/components/frontend/Breadcrum'
-import Image from 'next/image'
-import { Minus, Plus, Share2, Tag, BaggageClaim, Send } from 'lucide-react'
+import BreadCrum from '@/components/frontend/BreadCrum'
+import { Tag, Send } from 'lucide-react'
 import CategoryCarousel from '@/components/frontend/CategoryCarousel'
 import { getData } from '@/lib/getData'
 import Link from 'next/link'
@@ -11,12 +11,12 @@ import ProductImageCarousel from '@/components/frontend/ProductImageCarousel'
 
 async function ProductDetaile({ params: { slug } }) {
   const product = await getData(`products/product/${slug}`)
-  console.log(product,"i am product category ")
+  console.log(product, "i am product category ")
   const id = product
   const catId = product.categoryId
   const category = await getData(`categories/${catId}`)
   const categoryProduct = category.products
-  const products = categoryProduct.filter((product) => product.id !== id)
+  const products =Array.isArray(categoryProduct) ? categoryProduct.filter((product) => product.id !== id):[]
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const urlToShare = `${baseUrl}/product/${slug}`
   return (

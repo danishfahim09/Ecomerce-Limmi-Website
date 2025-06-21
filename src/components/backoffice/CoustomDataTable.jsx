@@ -58,7 +58,7 @@ function CoustomDataTable() {
                     </thead>
                     <tbody>
                         {
-                            Current_Displayed_Data.map((item, i) => {
+                            Current_Displayed_Data?.map((item, i) => {
                                 return (
                                 
                                     <tr key={i} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800" >

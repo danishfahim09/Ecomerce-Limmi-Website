@@ -45,7 +45,7 @@ function CategoryCarousel({ products, isMarketPage = false }) {
                 itemClass="px-4"
             >
                 {
-                    products.map((product, i) => {
+                    products?.map((product, i) => {
                         return (
                             <Product key={i} product={product} />
                         )

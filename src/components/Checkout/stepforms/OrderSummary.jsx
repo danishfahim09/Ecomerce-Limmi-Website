@@ -1,3 +1,4 @@
+ 
 'use client'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
@@ -64,7 +65,7 @@ function OrderSummary() {
             <h2 className='text-xl font-semibold mb-4 dark:text-lime-400'>
                 Order Summary
             </h2>
-            {cartItems.map((cartItem, i) => {
+            {cartItems?.map((cartItem, i) => {
                 return (
                     <div key={i} className="pb-3 mb-4 flex items-center justify-between border-b border-slate-400  text-sm font-semibold">
                         <div className="flex items-center gap-3">

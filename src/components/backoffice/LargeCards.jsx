@@ -32,7 +32,7 @@ function LargeCards({ sales }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 
-      {orders.map((item, i) => {
+      {orders?.map((item, i) => {
         return (
           <LargCard className="bg-orange-700" key={i} data={item} />
         )

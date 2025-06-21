@@ -46,7 +46,7 @@ function CummunittyTrainnigCarasoule({ training }) {
         itemClass="px-4"
       >
         {
-          training.map((training, i) => {
+          training?.map((training, i) => {
             return (
               <div key={i} className=' border-1 rounded-lg mr-3 dark:hover:bg-slate-600 dark:hover:opacity-70'>
                 <Link href="#" className=''>

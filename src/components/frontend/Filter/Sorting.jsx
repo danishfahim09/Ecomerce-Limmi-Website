@@ -33,7 +33,7 @@ function Sorting({ title, slug, isSearch }) {
                 <p>Shor by:</p>
                 <div className="flex items-center">
                     {
-                        sortingLinks.map((link, i) => {
+                        sortingLinks?.map((link, i) => {
                             const actualPathName = `${pathname}${link.params}`
                             console.log(actualPathName)
                             return (

@@ -2,8 +2,6 @@ const { signOut } = require("next-auth/react")
 const { useRouter } = require("next/navigation")
 
 
-export default async function handleLogOut(){
-    const router = useRouter();
+export default async function handleLogOut() {
     await signOut()
-    router.push("/")
 }

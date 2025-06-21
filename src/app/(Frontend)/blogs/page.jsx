@@ -1,3 +1,5 @@
+
+export const dynamic = 'force-dynamic'
 import React from 'react'
 import CummunittyTrainnig from '@/components/frontend/CummunittyTrainnig'
 import { getData } from '@/lib/getData'

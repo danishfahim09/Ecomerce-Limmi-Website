@@ -1,4 +1,5 @@
 
+export const dynamic = 'force-dynamic'
 import React from 'react'
 import NewMarketForm from '@/components/backoffice/NewMarketForm'
 import { getData } from '@/lib/getData'
@@ -6,18 +7,18 @@ import { getData } from '@/lib/getData'
 
 
 async function NewMarket() {
-   
-    const categoriesData = await getData("categories")
 
-    const catagories = categoriesData.map((farmerData)=>{
-      return{
-        id:farmerData.id,
-        title:farmerData.title
-      }
-    })
+  const categoriesData = await getData("categories")
+
+  const catagories = categoriesData?.map((farmerData) => {
+    return {
+      id: farmerData.id,
+      title: farmerData.title
+    }
+  })
 
   return (
-    <NewMarketForm catagories={catagories}/>
+    <NewMarketForm catagories={catagories} />
   )
 }
 

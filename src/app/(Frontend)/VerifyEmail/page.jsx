@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import { Info } from 'lucide-react'
 import React from 'react'
 import { getData } from '@/lib/getData'

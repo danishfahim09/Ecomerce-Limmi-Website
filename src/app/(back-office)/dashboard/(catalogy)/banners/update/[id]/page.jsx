@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import FormHeading from '@/components/backoffice/FormHeader'
 import BannerForm from '@/components/backoffice/Form/BannerForm'
 import { getData } from '@/lib/getData'

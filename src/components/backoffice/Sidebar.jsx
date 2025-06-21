@@ -242,7 +242,7 @@ function Sidebar({ showSideBar }) {
               <CollapsibleContent>
                 <div className='rounded-lg dark:bg-black dark:text-gray-600  mx-3 mt-4'>
                   {
-                    CatalogLinks.map((item, i) => {
+                    CatalogLinks?.map((item, i) => {
                       const Icon = item.icon
                       return (
                         <Link key={i}
@@ -267,7 +267,7 @@ function Sidebar({ showSideBar }) {
 
           {/*Side Bare*/}
           {
-            SideBarLinks.map((item, i) => {
+            SideBarLinks?.map((item, i) => {
               const Icon = item.icon
               const ShowSideBorder = (id) => {
                 setSideBoarder(id)

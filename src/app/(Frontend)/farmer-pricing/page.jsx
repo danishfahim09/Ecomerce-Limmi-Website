@@ -37,7 +37,7 @@ export default function Page() {
             </button>
 
             <div className="grid grid-cols-3 gap-6 my-6">
-                {plans.map((plan, i) => (
+                {plans?.map((plan, i) => (
                     <div key={i} className="w-full max-w-sm border border-gray-300 rounded-lg shadow-sm dark:border-gray-200 flex flex-col">
                         <div className="border-b border-gray-200 py-4 px-5">
                             <div className="flex items-center justify-between">
@@ -58,7 +58,7 @@ export default function Page() {
                         </div>
 
                         <ul role="list" className="space-y-4 my-6 mx-4">
-                            {plan.features.map((item, i) => (
+                            {plan.features?.map((item, i) => (
                                 <li key={i} className="flex items-center">
                                     <svg className="shrink-0 w-4 h-4 text-lime-700 dark:text-lime-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />

@@ -1,15 +1,8 @@
 "use client"
-import Image from "next/image"
-import { ColumnDef } from "@tanstack/react-table"
-import { MoreHorizontal, ArrowUpDown } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 import Datecolumn from '@/components/DataTable-Coulumns/DateColumns'
-import ImageColumn from '@/components/DataTable-Coulumns/ImageColumn'
 import SortableColumn from '@/components/DataTable-Coulumns/SortableColumn'
 import ActionColumn from '@/components/DataTable-Coulumns/ActionColumn'
-
-import { Button } from "@/components/ui/button"
-
 
 export const columns = [
   {

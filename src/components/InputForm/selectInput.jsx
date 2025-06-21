@@ -31,7 +31,7 @@ function SelectInput({
                 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-400
                 dark:focus:border-gray-500'
             >
-                {options.map((option, i) => {
+                {options?.map((option, i) => {
                     return (
                         <option value={option.id} key={i}>
                             {option.title}

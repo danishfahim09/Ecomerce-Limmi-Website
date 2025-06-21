@@ -1,4 +1,5 @@
 
+export const dynamic = 'force-dynamic'
 import React from 'react'
 import Heading from '@/components/backoffice/Heading'
 import LargeCard from '@/components/backoffice/LargeCards'
@@ -32,11 +33,11 @@ async function page() {
     <div>
       <Heading tittle="Dashboard Overview" />
       {/* Large Cards */}
-      <LargeCard sales={sales}/>
+      <LargeCard sales={sales} />
       {/* Small Cards */}
-      <SmallCards orders={orders}/>
+      <SmallCards orders={orders} />
       {/* Charts */}
-      <DashbordChats sales={sales}/>
+      <DashbordChats sales={sales} />
       {/* Resent order-Table */}
       <CoustomDataTable />
     </div>

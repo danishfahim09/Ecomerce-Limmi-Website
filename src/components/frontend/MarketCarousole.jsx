@@ -45,7 +45,7 @@ function MarketCarousole({ markets }) {
                 itemClass="px-4"
             >
                 {
-                    markets.map((market, i) => {
+                    markets?.map((market, i) => {
                         return (
                             <Link key={i} href={`/market/${market.slug}`} className='rounded-lg mr-3 bg-red-400 overflow-'>
                                 <Image

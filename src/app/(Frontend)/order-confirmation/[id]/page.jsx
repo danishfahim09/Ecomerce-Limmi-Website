@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import { CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react'
@@ -76,7 +77,7 @@ async function page({ params: { id } }) {
 
                                     <div className="flow-root mt-8">
                                         <ul className="divide-y divide-gray-200 -my-7">
-                                            {orderItems.length > 0 && orderItems.map((item, i) => {
+                                            {orderItems.length > 0 && orderItems?.map((item, i) => {
                                                 return (
                                                     <li key={i}
                                                         className="flex items-start justify-between space-x-5 py-7 md:items-stretch"

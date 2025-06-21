@@ -1,10 +1,11 @@
+export const dynamic = 'force-dynamic'
 import React from 'react'
 import FilterComponent from '@/components/frontend/Filter/FilterComponent'
 import { getData } from '@/lib/getData';
 
 async function page({ searchParams }) {
-    
-    const {  search } = searchParams;
+
+    const { search } = searchParams;
     // const page = searchTerm.page || 1;
 
     let products;
@@ -15,12 +16,12 @@ async function page({ searchParams }) {
     }
     console.log(products, "i am products")
 
-const category = {
-    title:search,
-    slug:"",
-    products,
-    isSearch:true
-}
+    const category = {
+        title: search,
+        slug: "",
+        products,
+        isSearch: true
+    }
 
     //console.log(products,"i am a product")
     //const totalPage  = tottalProductCount / pageSrize

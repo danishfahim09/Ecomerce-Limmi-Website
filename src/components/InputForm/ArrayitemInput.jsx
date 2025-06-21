@@ -95,7 +95,7 @@ function ArrayitemInput({items,setitems,itemTitle}) {
 
         {/* All Tags */}
       <div className={`flex flex-wrap gap-7 rounded-md ${border} p-3 my-2`}>
-        {items.map((item, i) => {
+        {items?.map((item, i) => {
           return (
             <div key={i} className="flex gap-1 dark:bg-gray-400 border-1  dark:border-gray-500  py-1 px-2 items-center rounded-md text-center dark:text-gray-800 cursor-pointer">
               <p>{item}</p>

@@ -1,11 +1,11 @@
+export const dynamic = 'force-dynamic'
 import React from 'react'
-import Link from 'next/link'
-import CummunittyTrainnigCarasoule from '@/components/frontend/CummunittyTrainnigCarasoule'
+import Link from 'next/link' 
 import { getData } from '@/lib/getData'
 import BlogCard from '@/components/frontend/BlogCard'
 import { MoveRight } from 'lucide-react'
 
-async function CummunittyTrainnig({title,trainings}) {
+async function CummunittyTrainnig({ title, trainings }) {
 
     return (
         <section className="py-12 bg-white dark:bg-slate-700 sm:py-16 lg:py-20 shadow-lg">
@@ -17,7 +17,7 @@ async function CummunittyTrainnig({title,trainings}) {
                         </h2>
                         <Link href="/blogs" className=' flex gap-1 text-slate-50 rounded-md px-4 py-2 bg-slate-800 hover:bg-slate-900 duration-300 transition-all' >
                             See All
-                            <MoveRight className='flex-shrink-0 mx-2'/>
+                            <MoveRight className='flex-shrink-0 mx-2' />
                         </Link>
                     </div>
 
@@ -29,7 +29,7 @@ async function CummunittyTrainnig({title,trainings}) {
                 <div
                     className="grid max-w-md grid-cols-1 mx-auto mt-12 sm:mt-16 md:grid-cols-3 gap-y-12 md:gap-x-8 lg:gap-x-16 md:max-w-none">
                     {
-                        trainings.map((training, i) => {
+                        trainings?.map((training, i) => {
                             return (
                                 <BlogCard key={i} training={training} />
                             )

@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import CartProduct from './CartProduct'
 import EmptyCard from './EmptyCart'
@@ -7,7 +8,7 @@ function CartItem({ cartItems }) {
         <div className="col-span-8 sm:col-span-full">
             {cartItems.length > 0 && (
                 <>
-                    <h2 className='py-2 mb-6 sm:col-span-full text-2xl'>Your Carat</h2>
+                    <h2 className='py-2 mb-6 sm:col-span-full text-2xl text-black dark:text-white'>Your Carat</h2>
                     <div className="pb-3 flex items-center justify-between border-b border-slate-400 text-slate-500 text-sm font-semibold mb-4">
                         <h2 className='uppercase'>Product</h2>
                         <h2 className='uppercase'>Quantity</h2>

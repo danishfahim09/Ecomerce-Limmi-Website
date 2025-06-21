@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import React from 'react'
 import PageHeading from '@/components/backoffice/PageHeader'
 import DataTable from '@/components/data-table-components/DataTable'
@@ -10,14 +11,14 @@ async function page() {
   return (
     <div>
       <PageHeading
-      heading="Farmer"
-      href="/dashboard/farmers/new"
-      linkTittle="Add Farmer"
+        heading="Farmer"
+        href="/dashboard/farmers/new"
+        linkTittle="Add Farmer"
       />
       {/*Table*/}
-            <div className="py-10">
-              <DataTable data={coustomers} columns={columns} />
-            </div>
+      <div className="py-10">
+        <DataTable data={coustomers} columns={columns} />
+      </div>
     </div>
   )
 }

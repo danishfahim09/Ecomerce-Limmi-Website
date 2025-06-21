@@ -53,7 +53,7 @@ function PriceFilter({ slug }) {
         {/* filter */}
         <div className="flex flex-col gap-3">
           {
-            priceRanges.map((link, i) => {
+            priceRanges?.map((link, i) => {
 
               return <Link
                 key={i}

@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import { authOptions } from '@/lib/authOptions'
 import { getData } from '@/lib/getData'
 import { scales } from 'chart.js'
@@ -11,9 +12,9 @@ async function FarmerDashboard() {
   const user = session?.user
   const { name, email, id, role, emailVerified, status = false } = user
   const sales = await getData("sales")
-  const salesById = sales.filter((sale) => sale.vendorId === id)
+  const salesById =Array.isArray(sales) ? sales.filter((sale) => sale.vendorId === id):[]
   const products = await getData("products")
-  const productsById = products.filter((product) => product.userId === id)
+  const productsById =Array.isArray(products) ? products.filter((product) => product.userId === id):[]
   if (!status) {
     return (
       <div className="max-w-3xl mx-auto min-h-screen mt-8">

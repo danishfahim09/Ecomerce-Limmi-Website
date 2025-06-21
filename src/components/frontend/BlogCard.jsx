@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import React from 'react'
 import { ConvertIsoDateToNormal } from '@/lib/ConvertIsoDateToNormal'
 import Link from 'next/link'
@@ -9,7 +10,7 @@ async function BlogCard({ training }) {
     const categoryId = training.categoryId;
     const category = await getData(`categories/${categoryId}`)
     const categoryTitle = category.title
-     
+
     const normalDate = ConvertIsoDateToNormal(training.createdAt)
     return (
         <div className="group shadow-lg">
@@ -24,7 +25,7 @@ async function BlogCard({ training }) {
                     />
                 </div>
                 <span
-                    className="absolute px-3 py-2 text-xs font-bold tracking-widest text-gray-900 uppercase bg-white rounded left-3 top-3">
+                    className="absolute px-3 py-2 text-xs font-bold tracking-widest text-white uppercase bg-white rounded left-3 top-3">
                     {categoryTitle}
                 </span>
             </div>

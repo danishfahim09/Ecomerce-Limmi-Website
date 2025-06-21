@@ -10,7 +10,7 @@ import 'swiper/css/thumbs';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 function ProductImageCarousel({ productImages = [], thumbnail }) {
-console.log(productImages,"i am all product immages ")
+    console.log(productImages, "i am all product immages ")
     const [thumbsSwiper, setThumbsSwiper] = useState(null); // ✅ useState استعمال
 
     return (
@@ -37,14 +37,17 @@ console.log(productImages,"i am all product immages ")
                             modules={[FreeMode, Navigation, Thumbs]}
                             className="mySwiper2"
                         >
-                            {productImages.map((image, i) => (
+                            {productImages?.map((image, i) => (
                                 <SwiperSlide key={i}>
-                                    <img src={image} alt={`Image ${i}`} />
+                                    <Image
+                                        width={1000}
+                                        height={1000}
+                                        src={image}
+                                        alt={`Image ${i}`}
+                                    />
                                 </SwiperSlide>
                             ))}
-                        </Swiper>
-
-                        {/* ✅ Inner Swiper باہر لے آیا */}
+                        </Swiper> 
                         <Swiper
                             onSwiper={setThumbsSwiper}
                             spaceBetween={10}
@@ -54,9 +57,12 @@ console.log(productImages,"i am all product immages ")
                             modules={[FreeMode, Navigation, Thumbs]}
                             className="mySwiper mt-4"
                         >
-                            {productImages.map((image, i) => (
+                            {productImages?.map((image, i) => (
                                 <SwiperSlide key={i}>
-                                    <img src={image} alt={`Thumb ${i}`} />
+                                    <Image
+                                        width={1000}
+                                        height={1000}
+                                        src={image} alt={`Thumb ${i}`} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>

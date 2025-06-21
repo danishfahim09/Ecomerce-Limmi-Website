@@ -22,7 +22,7 @@ function Steps({ steps }) {
                     </div>
                 </li>
 
-                {steps.map((step, i) => {
+                {steps?.map((step, i) => {
                     return (
                         <li key={i}>
                             <div className="flex items-center">

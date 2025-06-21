@@ -10,7 +10,7 @@ export default function OrderCard({ order }) {
     if (order.orderItems.length === 0) {
         return null
     }
-    console.log(order,"this is my orders ")
+    console.log(order, "this is my orders ")
     return (
         <li className="overflow-hidden bg-white border border-gray-200 rounded-md">
             <div className="lg:flex">
@@ -49,9 +49,9 @@ export default function OrderCard({ order }) {
 
                 <div className="flex-1 px-4 py-6 sm:p-6 lg:p-8">
                     <ul className="space-y-7">
-                        {order.orderItems.length > 0 ? order.orderItems.map((item, i) => {
+                        {order.orderItems.length > 0 ? order.orderItems?.map((item, i) => {
                             const slug = generateSlug(item.title)
-                            console.log("i am a slug",slug)
+                            console.log("i am a slug", slug)
                             return (
                                 < li key={i} className="relative flex pb-10 sm:pb-0">
                                     <div className="flex-shrink-0">
@@ -106,7 +106,7 @@ export default function OrderCard({ order }) {
                         </button>
 
                         <Link
-                        href={`/dashboard/orders/${order.id}/invoice`}
+                            href={`/dashboard/orders/${order.id}/invoice`}
                             type="button"
                             className="inline-flex items-center justify-center px-4 py-2.5 text-sm font-bold text-gray-900 transition-all duration-200 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 hover:bg-gray-100"
                         >

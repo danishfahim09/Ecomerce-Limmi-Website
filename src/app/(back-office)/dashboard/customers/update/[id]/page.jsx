@@ -1,3 +1,5 @@
+
+export const dynamic = 'force-dynamic'
 import React from 'react'
 import CustomerForm from '@/components/backoffice/CustomerForm'
 import FormHeader from '@/components/backoffice/FormHeader'

@@ -13,7 +13,7 @@ export default function MultipleImageInput({
     endPoint = "",
 }) {
     function handleImageRomove(imageIndex) {
-        const updateImages = imageUrls.filter((image, index) => index !== imageIndex)
+        const updateImages = Array.isArray(imageUrls) ? imageUrls.filter((image, index) => index !== imageIndex) : []
         setimageUrls(updateImages)
     }
     return (
@@ -29,7 +29,7 @@ export default function MultipleImageInput({
                     (
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 
-                            {imageUrls.map((imageUrl, i) => {
+                            {imageUrls?.map((imageUrl, i) => {
                                 return (
                                     <div
                                         key={i}

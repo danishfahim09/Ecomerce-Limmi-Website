@@ -28,10 +28,17 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+
 # vercel
 .vercel
-/All Importent Ebsite Links That Best REact Tools
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-New Things That I Will I will Be Know First Time
+
+# -----------------------------
+# Notes (not actual file paths)
+# -----------------------------
+
+# All Important Website Links That Are The Best React Tools
+# New Things That I Will Know For The First Time

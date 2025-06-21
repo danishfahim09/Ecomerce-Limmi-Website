@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import React from 'react'
 // import PageHeading from '@/components/backoffice/PageHeader'
 import DataTable from '@/components/data-table-components/DataTable'
@@ -17,9 +18,9 @@ console.log(allSales,"thi is my sales")
   //felter by venderId => to get sales for this vender
   //fetch order by Id 
   //coustemer name, email, phone ,orderNumber
-  const farmerSales = allSales.filter((sale) =>
+  const farmerSales =Array.isArray(allSales) ? allSales.filter((sale) =>
     sale.vendorId === "67a271f39e9263a91e68949f"
-  )
+  ):[]
   console.log(farmerSales,"i am famer sale hoo")
   return (
     <div>

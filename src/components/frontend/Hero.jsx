@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
@@ -18,7 +19,7 @@ export default async function Hero() {
 
       {/*  Carasoule */}
       <div className="sm:col-span-7 col-span-12 bg-[rgb(37,45,61,1)]  rounded-md overflow-hidden relative">
-        <HeroCarousel banners={banners}/>
+        <HeroCarousel banners={banners} />
       </div>
 
       {/*  Helper */}

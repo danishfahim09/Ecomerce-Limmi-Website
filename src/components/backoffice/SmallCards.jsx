@@ -14,7 +14,7 @@ function SmallCards({ orders }) {
     canceling: "CANCELED",
   }
   function getOrderCountingByStatus(status) {
-    const filterdOrders = orders.filter((order) => order.orderStatus === status)
+    const filterdOrders =Array.isArray(orders) ? orders.filter((order) => order.orderStatus === status):[]
     const count = filterdOrders.length.toString().padStart(2, "0")
     return count
   }
@@ -57,7 +57,7 @@ function SmallCards({ orders }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5">
 
-      {orderStatus.map((item, i) => {
+      {orderStatus?.map((item, i) => {
         return (
           <SmallCard data={item} key={i} />
         )

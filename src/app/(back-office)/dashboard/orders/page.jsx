@@ -1,5 +1,6 @@
+export const dynamic = 'force-dynamic'
 import React from 'react'
-import OrderCard from '@/components/order/OrderCard'
+import OrderCard from '@/components/Order/OrderCard'
 import { getData } from '@/lib/getData'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/authOptions'
@@ -15,7 +16,7 @@ async function page() {
   if (orders.length === 0 || !orders) {
     return <p>No Orders Yet</p>
   }
-  const userOrders = orders.filter((order) => order.userId === userId)
+  const userOrders =Array.isArray(orders) ? orders.filter((order) => order.userId === userId):[]
   console.log("this is my order ", orders)
   return (
     <section className="py-12 bg-white sm:py-16 lg:py-20">
@@ -27,7 +28,7 @@ async function page() {
           </div>
 
           <ul className="mt-8 space-y-5 lg:mt-12 sm:space-y-6 lg:space-y-10">
-            {orders.map((order, i) => {
+            {orders?.map((order, i) => {
               return <OrderCard key={i} order={order} />
             })}
 

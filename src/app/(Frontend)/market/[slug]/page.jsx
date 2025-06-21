@@ -1,19 +1,19 @@
-import Image from 'next/image'
-import Link from 'next/link'
+export const dynamic = 'force-dynamic'
+import Image from 'next/image' 
 import React from 'react'
 import { getData } from '@/lib/getData'
 import CategoryList from '@/components/frontend/CategoryList'
-import BreadCrumb from '@/components/frontend/Breadcrum'
+import BreadCrumb from '@/components/frontend/BreadCrum'
 
 async function page({ params: { slug } }) {
   const market = await getData(`markets/details/${slug}`)
   const marketCategoryIds = market.categoryIds;
   //console.log(marketCategoryIds)
   const categoriesData = await getData('categories')
-  const categories = categoriesData.filter((category) => {
+  const categories =Array.isArray(categoriesData) ? categoriesData.filter((category) => {
     return category.products.length >= 3
-  })
-  const marketeCategories = categories.filter((category) => marketCategoryIds.includes(category.id))
+  }) : []
+  const marketeCategories =Array.isArray(categories) ? categories.filter((category) => marketCategoryIds.includes(category.id)):[]
   console.log(marketeCategories)
   return (
     <>
@@ -36,7 +36,7 @@ async function page({ params: { slug } }) {
       <div className="grid grid-cols-12 gap-4 py-8 w-full">
 
         <div className="sm:col-span-10 col-span-10   rounded-md overflow-hidden relative">
-          {categories.map((category, i) => {
+          {categories?.map((category, i) => {
             return (
               <div key={i} className="space-y-8">
                 <CategoryList category={category} isMarketPage={false} />

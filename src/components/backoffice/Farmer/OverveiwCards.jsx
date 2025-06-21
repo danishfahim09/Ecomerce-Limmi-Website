@@ -30,7 +30,7 @@ function OverveiwCards({ sales, products }) {
     return (
         <div className='max-w-7xl grid grid-cols-4 gap-10 mx-auto'>
             {
-                analytics.map((item, i) => {
+                analytics?.map((item, i) => {
                     return (
                         <div key={i} className="border border-slate-700 rounded-xl ">
                             <div className="flex items-center justify-between px-4 py-3">

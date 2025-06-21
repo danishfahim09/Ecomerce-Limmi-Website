@@ -10,10 +10,10 @@ import { authOptions } from '@/lib/authOptions'
 export default async function Home() {
   const categoriesData = await getData('categories')
   const training = await getData('training')
-  
-  const categories = categoriesData.filter((category) => {
+
+  const categories = Array.isArray(categories)? categoriesData.filter((category) => {
     return category.products.length >= 3
-  })
+  }) : []
   const session = await getServerSession(authOptions)
 
   return (
@@ -25,17 +25,17 @@ export default async function Home() {
       <MarketList />
 
 
-      {categories.map((category, i) => {
+      {categories?.map((category, i) => {
         return (
           <div key={i} className="my-9">
-            <CategoryList  category={category} isMarketPage={false} />
+            <CategoryList category={category} isMarketPage={false} />
           </div>
         );
       })}
 
       {/* Comunnity Trainnig Caresoule */}
       <div className="my-9">
-        <CummunittyTrainnig title="Feautured Trainings" trainings={training.slice(0, 3)} />
+        {/* <CummunittyTrainnig title="Feautured Trainings" trainings={training.slice(0, 3)} /> */}
       </div>
 
       <h2 className="text-4xl">Wellcome To Limmi Ecoumerce Website</h2>

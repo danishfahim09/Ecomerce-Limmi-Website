@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import React from 'react'
 import RecentTraining from '@/components/frontend/RecentTraining'
 import { getData } from '@/lib/getData'
@@ -13,7 +14,7 @@ async function page({ params: { slug } }) {
     const allTraining = await getData('training')
     const category = await getData(`categories/${training.categoryId}`)
 
-    const resentTrainings = allTraining.filter((training) => training.id !== trainingId)
+    const resentTrainings =Array.isArray(allTraining) ? allTraining.filter((training) => training.id !== trainingId):[]
     console.log(resentTrainings, "this is my all resentTrainings ")
     return (
         <>

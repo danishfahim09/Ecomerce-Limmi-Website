@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import React from 'react'
 import FilterComponent from '@/components/frontend/Filter/FilterComponent'
 import { getData } from '@/lib/getData'
@@ -7,7 +8,7 @@ async function page({ params: { slug }, searchParams }) {
     const page = searchParams.page || 1;
     const category = await getData(`categories/filter/${slug}`)
     let products;
-    
+
     if (page) {
         products = await getData(`products?catId=${category.id}&page=${page}`)
     } else if (max && min) {
@@ -18,16 +19,16 @@ async function page({ params: { slug }, searchParams }) {
         products = await getData(`products?catId=${category.id}&sort=asc&max=${max}`)
     } else if (sort) {
         products = await getData(`products?catId=${category.id}&sort=${sort}`)
-    }else {
+    } else {
         products = await getData(`products?catId=${category.id}`)
     }
-    
+
     //console.log(products,"i am a product")
     //const totalPage  = tottalProductCount / pageSrize
     // console.log(searchParams.sort, "i am searchParms")
     // 
     // const products = await getData(`products?catId=${category.id}`)
-    
+
     return (
         <div>
             <h2>this is my slug {slug}</h2>

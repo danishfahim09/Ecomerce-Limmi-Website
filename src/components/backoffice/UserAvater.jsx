@@ -45,31 +45,31 @@ function UserAvater({ user = {} }) {
       <DropdownMenu aria-label="Static Actions">
         <DropdownItem key="new">
 
-          <h2 className='border-b-1 border-white text-center pb-3 rounded-sm'>{name}</h2>
+          <h2 className='border-b-1 border-white text-center pb-3 rounded-sm text-black dark:text-white'>{name}</h2>
 
         </DropdownItem>
         <DropdownItem key="new">
-          <Link href="/dashboard" className="flex gap-4  p-2">
+          <Link href="/dashboard" className="flex gap-4  p-2 text-black dark:text-white">
             <LayoutDashboard className='w-5 h-6 ' />
             <span className='text-base '>Dashboard</span>
           </Link>
         </DropdownItem>
         <DropdownItem key="new">
-          <Link href="/dashboard/profile" className='flex  gap-4  p-2'>
+          <Link href="/dashboard/profile" className='flex  gap-4  p-2 text-black dark:text-white'>
             <Cog className='w-5 h-6 ' />
             <span className='text-base '>Edit Profil</span>
           </Link >
         </DropdownItem>
         {role === "USER" && (
           <DropdownItem key="new">
-            <Link href="/dashboard/orders" className='flex  gap-4  p-2'>
+            <Link href="/dashboard/orders" className='flex  gap-4  p-2 text-black dark:text-white'>
               <Cog className='w-5 h-6 ' />
               <span className='text-base '>My Orders</span>
             </Link >
           </DropdownItem>
         )}
         <DropdownItem key="new">
-          <button className='flex  gap-4  p-2 ' onClick={handdleLougOut}>
+          <button className='flex  gap-4  p-2 text-black dark:text-white' onClick={handdleLougOut}>
             <LogOut className='w-5 h-6 ' />
             <span className='text-base'>Log Out</span>
           </button>

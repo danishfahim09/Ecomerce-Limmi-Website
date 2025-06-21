@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import React from 'react'
 import PageHeading from '@/components/backoffice/PageHeader'
 import DataTable from '@/components/data-table-components/DataTable'
@@ -8,7 +9,7 @@ import { authOptions } from '@/lib/authOptions'
 
 async function page() {
 
-  const session =await getServerSession(authOptions)
+  const session = await getServerSession(authOptions)
   if (!session) {
     return null
   }
@@ -18,7 +19,10 @@ async function page() {
   const allProducts = await getData('products')
   //console.log(allProducts,"this is my all products ")
   const id = session?.user?.id
-  const farmerProduct = allProducts.filter((product) => product.userId === id)
+
+
+
+  const farmerProduct = Array.isArray(allProducts) ? allProducts.filter((product) => product.userId === id) : []
   //67b2f4591cda9532b58b9a05
   //console.log(allProducts)
   console.log(farmerProduct, "i  am danish")

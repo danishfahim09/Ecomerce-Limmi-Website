@@ -28,7 +28,7 @@ function HeroCarousel({ banners }) {
             defaultControlsConfig={config}  // ✅ Sahi naam yeh hai
             className="rounded-md flex  overflow-hidden">
 
-            {banners.map((banner, i) => {
+            {banners?.map((banner, i) => {
                 return (
                     <Image key={i} src={banner.imageUrl}
                         alt='image'

@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import React from 'react'
 import PageHeading from '@/components/backoffice/PageHeader'
 import DataTable from '@/components/data-table-components/DataTable'
