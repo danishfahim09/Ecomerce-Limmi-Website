@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic'
 import React from 'react'
-Crum from '@/components/frontend/BredCrum'
+import BredCrumb from '@/components/frontend/Filter/BredCrumb'
 import { Tag, Send } from 'lucide-react'
 import CategoryCarousel from '@/components/frontend/CategoryCarousel'
 import { getData } from '@/lib/getData'
@@ -21,7 +21,7 @@ async function ProductDetaile({ params: { slug } }) {
   const urlToShare = `${baseUrl}/product/${slug}`
   return (
     <div>
-      <BreadCrum />
+      <BredCrumb />
       <div className="grid grid-cols-12 gap-5">
 
         <ProductImageCarousel productImages={product.productImages} thumbnail={product.imageUrl} />
