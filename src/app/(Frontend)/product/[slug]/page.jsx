@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic'
 import React from 'react'
-import BreadCrum from '@/components/frontend/BreadCrum'
+Crum from '@/components/frontend/BredCrum'
 import { Tag, Send } from 'lucide-react'
 import CategoryCarousel from '@/components/frontend/CategoryCarousel'
 import { getData } from '@/lib/getData'

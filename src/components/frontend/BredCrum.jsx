@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 
-function BreadCrum() {
+function BredCrum() {
     const pathname = usePathname()
     console.log(pathname,"i am a pathname data ")
     const pathArr = pathname.split("/")

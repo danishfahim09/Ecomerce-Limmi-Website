@@ -1,23 +1,23 @@
 export const dynamic = 'force-dynamic'
-import Image from 'next/image' 
+import Image from 'next/image'
 import React from 'react'
 import { getData } from '@/lib/getData'
 import CategoryList from '@/components/frontend/CategoryList'
-import BreadCrum from '@/components/frontend/BreadCrum'
+import BredCrumb from '@/components/frontend/Filter/BredCrumb'
 
 async function page({ params: { slug } }) {
   const market = await getData(`markets/details/${slug}`)
   const marketCategoryIds = market.categoryIds;
   //console.log(marketCategoryIds)
   const categoriesData = await getData('categories')
-  const categories =Array.isArray(categoriesData) ? categoriesData.filter((category) => {
+  const categories = Array.isArray(categoriesData) ? categoriesData.filter((category) => {
     return category.products.length >= 3
   }) : []
-  const marketeCategories =Array.isArray(categories) ? categories.filter((category) => marketCategoryIds.includes(category.id)):[]
+  const marketeCategories = Array.isArray(categories) ? categories.filter((category) => marketCategoryIds.includes(category.id)) : []
   console.log(marketeCategories)
   return (
     <>
-      <BreadCrum />
+      <BredCrumb />
       <div className="flex items-center  text-slate-800 dark:text-slate-200  overflow-auto p-4  bg-white rounded-lg  border-1 border-gray-100 dark:bg-gray-700 dark:border-gray-700 shadow-lg dark:shadow-sm shadow-gray-300 dark:shadow-gray-500 gap-6">
         <div className="">
           <Image

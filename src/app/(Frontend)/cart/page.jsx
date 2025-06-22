@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import BreadCrum from '@/components/frontend/BreadCrum'
+import BredCrumb from '@/components/frontend/Filter/BredCrumb'
 import { useSelector } from 'react-redux'
 import CartItem from '@/components/frontend/CartItem'
 import CardSubTotalCard from '@/components/frontend/CardSubTotalCard'
@@ -14,7 +14,7 @@ function Cart() {
 
   return (
     <div>
-      <BreadCrum />
+      <BredCrumb />
       <div className="grid grid-cols-12 gap-6 md:gap-14">
         <CartItem cartItems={cartItem} />
         <CardSubTotalCard subTotal={subTotal} />
