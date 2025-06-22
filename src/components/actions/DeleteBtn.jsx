@@ -23,8 +23,7 @@ export default function DeleteBtn({ title, endpoint }) {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!",
         }).then(async (result) => {
-
-            // http://localhost:3000/api/categories/123
+ 
             if (result.isConfirmed) {
                 console.log('yes i have been cliked')
                 const res = await fetch(`${baseUrl}/api/${endpoint}`, {

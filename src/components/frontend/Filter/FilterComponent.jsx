@@ -1,6 +1,6 @@
 
 import React from 'react'
-import BredCrumb from '@/components/frontend/Filter/BredCrumb'
+import BredCrumb from './BredCrumb'
 import Sorting from '@/components/frontend/Filter/Sorting'
 import Filters from '@/components/frontend/Filter/Filters'
 import FilterProducts from '@/components/frontend/Filter/FilterProducts'

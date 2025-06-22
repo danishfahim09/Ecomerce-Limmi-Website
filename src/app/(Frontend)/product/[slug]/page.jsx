@@ -16,7 +16,7 @@ async function ProductDetaile({ params: { slug } }) {
   const catId = product.categoryId
   const category = await getData(`categories/${catId}`)
   const categoryProduct = category.products
-  const products =Array.isArray(categoryProduct) ? categoryProduct.filter((product) => product.id !== id):[]
+  const products = Array.isArray(categoryProduct) ? categoryProduct.filter((product) => product.id !== id) : []
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const urlToShare = `${baseUrl}/product/${slug}`
   return (
