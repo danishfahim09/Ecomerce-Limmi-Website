@@ -8,8 +8,8 @@ import { getServerSession } from "next-auth"
 import { authOptions } from '@/lib/authOptions'
 
 export default async function Home() {
-  const categoriesData = await getData('categories')
-  const training = await getData('training')
+  // const categoriesData = await getData('categories')
+  // const training = await getData('training')
 
   const categories = Array.isArray(categoriesData) ? categoriesData.filter((category) => {
     return category.products.length >= 3
@@ -25,13 +25,13 @@ export default async function Home() {
       <MarketList />
 
 
-      {categories?.map((category, i) => {
+      {/* {categories?.map((category, i) => {
         return (
           <div key={i} className="my-9">
             <CategoryList category={category} isMarketPage={false} />
           </div>
         );
-      })}
+      })} */}
 
       {/* Comunnity Trainnig Caresoule */}
       <div className="my-9">
