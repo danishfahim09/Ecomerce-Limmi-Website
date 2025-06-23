@@ -19,15 +19,15 @@ interface RootLayoutProps {
 
 
 
-export default async function RootLayout({ children }:RootLayoutProps) {
+export default async function RootLayout({ children }: RootLayoutProps) {
   const session = await getServerSession();
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className}`}> 
-          <Providers>
-            {children}
-          </Providers>
+      <body className={`${inter.className}`}>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

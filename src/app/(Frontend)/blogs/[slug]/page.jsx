@@ -8,13 +8,13 @@ import TrainingHtml from '@/components/TrainingHtml'
 import CategoryList from '@/components/frontend/CategoryList';
 
 async function page({ params: { slug } }) {
-    const training = await getData(`/training/training/${slug}`)
+    const training = await getData(`training/${slug}`)
     const trainingId = training.id
     const normalDate = ConvertIsoDateToNormal(training.createdAt)
     const allTraining = await getData('training')
     const category = await getData(`categories/${training.categoryId}`)
 
-    const resentTrainings =Array.isArray(allTraining) ? allTraining.filter((training) => training.id !== trainingId):[]
+    const resentTrainings = Array.isArray(allTraining) ? allTraining.filter((training) => training.id !== trainingId) : []
     console.log(resentTrainings, "this is my all resentTrainings ")
     return (
         <>

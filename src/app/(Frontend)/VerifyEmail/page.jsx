@@ -5,7 +5,7 @@ import { getData } from '@/lib/getData'
 
 async function page({ searchParams }) {
     const { userId } = searchParams
-    const user = await getData(`users/${userId}`)
+    const user = await getData(`users/67bb17ba960de7ce1ef503a9`)
     const { email } = user
     console.log(userId)
     return (
