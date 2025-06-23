@@ -6,6 +6,7 @@ import CategoryList from '@/components/frontend/CategoryList'
 import BredCrumb from '@/components/frontend/Filter/BredCrumb'
 
 async function page({ params: { slug } }) {
+  //df
   const market = await getData(`markets/details/${slug}`)
   const marketCategoryIds = market.categoryIds;
   //console.log(marketCategoryIds)
