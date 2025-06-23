@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-   
+
   images: {
-    domains: ['utfs.io'],
+    domains: ['utfs.io', 'cdn.uploadthing.com'],
     remotePatterns: [
       {
         protocol: "https",
@@ -17,7 +17,7 @@ const nextConfig = {
     config.cache = false; // Webpack cache disable
     return config;
   },
-  
+
 };
 
 
