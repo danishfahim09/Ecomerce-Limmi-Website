@@ -11,7 +11,7 @@ export default async function Home() {
   const categoriesData = await getData('categories')
   const training = await getData('training')
 
-  const categories = Array.isArray(categories)? categoriesData.filter((category) => {
+  const categories = Array.isArray(categoriesData) ? categoriesData.filter((category) => {
     return category.products.length >= 3
   }) : []
   const session = await getServerSession(authOptions)

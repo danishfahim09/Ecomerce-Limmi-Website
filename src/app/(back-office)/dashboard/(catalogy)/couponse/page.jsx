@@ -12,7 +12,7 @@ async function page() {
   const id = session?.user?.id
   const role = session?.user?.role
   const allcoupones = await getData('couponse')
-  const farmerCoupones = Array.isArray(categories)? allcoupones.filter((coupone) =>
+  const farmerCoupones = Array.isArray(allcoupones)? allcoupones.filter((coupone) =>
     coupone.venderId === id
   ) : []
   return (
