@@ -14,11 +14,11 @@ export default function SalesInvoice({ order }) {
 
     const invoiceRef = useRef(null);
 
-    
+
     const handlePrint = useReactToPrint({
-        content: () => invoiceRef.current ,
+        content: () => invoiceRef.current,
     });
-    
+
     return (
         <div className="flex flex-col">
             {/* DOWNLOAD BTN */}

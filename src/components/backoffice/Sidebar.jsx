@@ -23,14 +23,14 @@ function Sidebar({ showSideBar }) {
   }
 
   const role = session?.user?.role;
-   
+
 
   let SideBarLinks = [
     {
       id: 1,
       tittle: 'Coustemers',
       icon: Users,
-      link: '/dashboard/coustomers'
+      link: '/dashboard/customers'
     },
     {
       id: 2,
@@ -73,18 +73,18 @@ function Sidebar({ showSideBar }) {
       icon: WalletCards,
       link: '/dashboard/wallet'
     },
-    {
-      id: 8,
-      tittle: 'Setting',
-      icon: Settings,
-      link: '/dashboard/setting'
-    },
-    {
-      id: 9,
-      tittle: 'Online Store',
-      icon: Store,
-      link: '/dashboard/onlineStore'
-    },
+    // {
+    //   id: 8,
+    //   tittle: 'Setting',
+    //   icon: Settings,
+    //   link: '/dashboard/setting'
+    // },
+    // {
+    //   id: 9,
+    //   tittle: 'Online Store',
+    //   icon: Store,
+    //   link: '/dashboard/onlineStore'
+    // },
   ]
 
   let CatalogLinks = [
@@ -165,7 +165,7 @@ function Sidebar({ showSideBar }) {
         icon: Contact2,
         link: '/dashboard/couponse'
       },
-       
+
     ]
   }
   if (role === "USER") {

@@ -12,9 +12,11 @@ async function page() {
   const id = session?.user?.id
   const role = session?.user?.role
   const allcoupones = await getData('couponse')
-  const farmerCoupones = Array.isArray(allcoupones)? allcoupones.filter((coupone) =>
+  const farmerCoupones = Array.isArray(allcoupones) ? allcoupones.filter((coupone) =>
     coupone.venderId === id
   ) : []
+
+  const categories = await getData('categories')
   return (
     <div>
       {/*Heading*/}
@@ -26,14 +28,15 @@ async function page() {
       {/*Table*/}
 
       <div className="py-10">
-        {
+        <DataTable data={categories} columns={columns} />
+        {/* {
           role === "ADMIN" ? (
             <DataTable data={allcoupones} columns={columns} />
           ) :
             (
               <DataTable data={farmerCoupones} columns={columns} />
             )
-        }
+        } */}
 
       </div>
     </div>

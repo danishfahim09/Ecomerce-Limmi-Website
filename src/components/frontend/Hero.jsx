@@ -56,7 +56,9 @@ export default async function Hero() {
             width={218}
             height={184}
             alt=''
-            className='w-[178px] h-[195px]' />
+            className='w-[178px] h-[195px]'
+            unoptimized
+          />
 
         </div>
 
