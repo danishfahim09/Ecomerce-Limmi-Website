@@ -36,7 +36,7 @@ const Navbare = () => {
 
                 <div>
                     {status === "unauthenticated" ? (
-                        <Link href="/login" className='flex items-center space-x-1 text-green-950 dark:text-white'>
+                        <Link href="/login" className='flex items-center space-x-1 text-green-950 dark:text-gray-100'>
                             <User />
                             <span>Login</span>
                         </Link>
@@ -51,7 +51,7 @@ const Navbare = () => {
 
                 <CartCount />
 
-                <button className='flex items-center space-x-1 text-green-950 dark:text-slate-100'>
+                <button className='flex items-center space-x-1 text-green-950 dark:text-gray-100'>
                     <ThemeToggle />
                 </button>
             </div>

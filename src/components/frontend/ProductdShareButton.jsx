@@ -13,7 +13,7 @@ export default function ProductdShareButton({ urlToShare }) {
         <>
             {/* <Button onClick={() => setOpenModal(true)}>Help</Button> */}
 
-            <button onClick={() => setOpenModal(true)} className='flex items-center space-x-1 text-green-950 dark:text-white'>
+            <button onClick={() => setOpenModal(true)} className='flex items-center space-x-1 text-green-950 dark:text-gray-100'>
                 <Share2 />
 
             </button>

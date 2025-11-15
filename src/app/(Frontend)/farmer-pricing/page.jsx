@@ -28,11 +28,11 @@ export default function Page() {
      
     return (
         <div className="p-6">
-            <button className='text-black dark:text-black text-center text-sm mt-2 rounded-md bg-slate-300 py-1 px-3'>
+            <button className='text-gray-900 dark:text-gray-100 text-center text-sm mt-2 rounded-md bg-slate-300 dark:bg-slate-700 py-1 px-3'>
                 Choose A Plan Which Suits You
             </button>
             <br />
-            <button className='max-w-2xl text-black dark:text-white text-center text-sm mt-2 rounded-md py-1 px-3'>
+            <button className='max-w-2xl text-gray-900 dark:text-gray-100 text-center text-sm mt-2 rounded-md py-1 px-3'>
                 Discover simplicity in pricing with us. Our straightforward and competitive rates ensure you get the best value. No hidden fees, just transparent options to meet your needs. Choose clarity, choose Limmi Ecommerce.
             </button>
 

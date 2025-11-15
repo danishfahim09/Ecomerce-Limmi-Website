@@ -8,7 +8,7 @@ function CartItem({ cartItems }) {
         <div className="col-span-8 sm:col-span-full">
             {cartItems.length > 0 && (
                 <>
-                    <h2 className='py-2 mb-6 sm:col-span-full text-2xl text-black dark:text-white'>Your Carat</h2>
+                    <h2 className='py-2 mb-6 sm:col-span-full text-2xl text-gray-900 dark:text-gray-100'>Your Carat</h2>
                     <div className="pb-3 flex items-center justify-between border-b border-slate-400 text-slate-500 text-sm font-semibold mb-4">
                         <h2 className='uppercase'>Product</h2>
                         <h2 className='uppercase'>Quantity</h2>
@@ -28,7 +28,7 @@ function CartItem({ cartItems }) {
 
             <div class="flex items-center gap-2 py-8">
                 <input type="text" id="simple-search" class="w-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Coupone..." required />
-                <button type="submit" className='shrink-0 py-2 px-4 rounded-lg text-slate-100 dark:text-slate-100 bg-black dark:bg-lime-600'>
+                <button type="submit" className='shrink-0 py-2 px-4 rounded-lg text-white dark:text-white bg-gray-900 dark:bg-lime-600 hover:bg-gray-800 dark:hover:bg-lime-700'>
                     Apply Coupone
                 </button>
             </div>

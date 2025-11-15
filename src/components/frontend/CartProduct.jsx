@@ -28,17 +28,17 @@ function CartProduct({ cartItems }) {
                     height={220}
                     alt={cartItems.title}
                     className='w-20 rounded-xl h-20' />
-                <div className="flex flex-col text-black dark:text-white">
+                <div className="flex flex-col text-gray-900 dark:text-gray-100">
                     <h2> {cartItems.title}</h2>
                 </div>
             </div>
             <div className=' px-4 rounded-xl border  border-gray-400 flex gap-3 items-center'>
                 <button onClick={(() => { handledQtyDecrement(cartItems.id) })} className='py-2 pr-3 border-r'>
-                    <Minus className='text-black dark:text-white'/>
+                    <Minus className='text-gray-900 dark:text-gray-100'/>
                 </button>
-                <p className='py-2 px-3 flex-grow text-black dark:text-white'>{cartItems.qty}</p>
+                <p className='py-2 px-3 flex-grow text-gray-900 dark:text-gray-100'>{cartItems.qty}</p>
                 <button onClick={(() => { handledQtyIncrement(cartItems.id) })} className='py-2 pl-3 border-l'>
-                    <Plus className='text-black dark:text-white'/>
+                    <Plus className='text-gray-900 dark:text-gray-100'/>
                 </button>
             </div>
             <div className="flex items-center gap-2">

@@ -66,9 +66,17 @@
   background: rgb(210, 210, 210);
 }
 
+.dark ::-webkit-scrollbar-track {
+  background: rgb(55, 65, 81);
+}
+
 ::-webkit-scrollbar-thumb {
   background-color: gray;
   border-radius: 10px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgb(107, 114, 128);
 }
 
 body {
@@ -89,6 +97,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.dark .swiper-slide {
+  background: hsl(var(--background));
 }
 
 .swiper-slide img {

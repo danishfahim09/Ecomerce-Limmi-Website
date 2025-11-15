@@ -28,9 +28,9 @@ const ThemeToggle = () => {
 	return (
 		<div>
 			{darkTheme ?
-				(<Sun className='text-green-600' onClick={() => setDarkTheme(!darkTheme)} />)
+				(<Sun className='text-green-600 dark:text-yellow-400' onClick={() => setDarkTheme(!darkTheme)} />)
 				:
-				<Moon onClick={() => setDarkTheme(!darkTheme)} />
+				<Moon className='text-gray-700 dark:text-gray-300' onClick={() => setDarkTheme(!darkTheme)} />
 			}
 		</div>
 	);

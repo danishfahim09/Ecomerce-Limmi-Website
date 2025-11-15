@@ -30,24 +30,24 @@ export default async function Hero() {
               <CircleHelp className='shrink-0 w-6 h-6 text-orange-400 dark:text-yellow-200' />
             </div>
             <div className='flex flex-col'>
-              <h2 className='uppercase text-sm border-l-divider dark:text-gray-200 text-black'>Help Center</h2>
-              <p className='text-[0.6rem] dark:text-gray-200 text-black bold shrink-0'>Guid To Coustemer Care</p></div>
+              <h2 className='uppercase text-sm border-l-divider dark:text-gray-200 text-gray-900'>Help Center</h2>
+              <p className='text-[0.6rem] dark:text-gray-200 text-gray-700 dark:text-gray-300 bold shrink-0'>Guid To Coustemer Care</p></div>
           </Link>
           <Link href="#" className="flex items-center space-x-1 gap-2">
             <div className="w-12 h-11 rounded-full border-spacing-1 border-1 border-[rgb(187,150,83)] flex items-center justify-center">
               <FolderSyncIcon className='shrink-0 w-6 h-6 text-orange-400 dark:text-yellow-200' />
             </div>
             <div className='flex flex-col'>
-              <h2 className='uppercase text-sm bold dark:text-gray-200 text-black'>Easy Return</h2>
-              <p className='text-[0.6rem] dark:text-gray-200 text-black bold shrink-0'>Quick Return </p></div>
+              <h2 className='uppercase text-sm bold dark:text-gray-200 text-gray-900'>Easy Return</h2>
+              <p className='text-[0.6rem] dark:text-gray-200 text-gray-700 dark:text-gray-300 bold shrink-0'>Quick Return </p></div>
           </Link>
           <Link href="#" className="flex items-center space-x-1 gap-2">
             <div className="w-12 h-11 rounded-full border-spacing-1 border-1 border-[rgb(243,168,55)] flex items-center justify-center">
               <CircleDollarSign className='shrink-0 w-6 h-6 text-orange-400 dark:text-yellow-200' />
             </div>
             <div className='flex flex-col '>
-              <h2 className='uppercase text-sm bold dark:text-gray-200 text-black'>Sell On Limmi </h2>
-              <p className='text-[0.6rem] dark:text-gray-200 text-black bold shrink-0'>Million Of Visitores</p></div>
+              <h2 className='uppercase text-sm bold dark:text-gray-200 text-gray-900'>Sell On Limmi </h2>
+              <p className='text-[0.6rem] dark:text-gray-200 text-gray-700 dark:text-gray-300 bold shrink-0'>Million Of Visitores</p></div>
           </Link>
         </div>
         <div className="mt-[10px] rounded-lg">

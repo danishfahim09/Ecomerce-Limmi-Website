@@ -201,9 +201,9 @@ function Sidebar({ showSideBar }) {
 
   return (
     <div className={showSideBar ?
-      'overflow-y-scroll block sm:hidden z-10  p-4 fixed w-64 dark:text-slate-800 dark:bg-slate-700 bg-white text-gray-700 space-y-6 h-screen sm:w-64  top-0 left-0 border-2 dark:border-gray-700 border-gray-100"'
+      'overflow-y-scroll block sm:hidden z-10  p-4 fixed w-64 dark:text-gray-200 dark:bg-slate-700 bg-white text-gray-700 space-y-6 h-screen sm:w-64  top-0 left-0 border-2 dark:border-gray-700 border-gray-100"'
       :
-      "hidden sm:block  fixed dark:text-slate-800 dark:bg-slate-700 bg-white text-gray-700 space-y-2 h-screen sm:w-64  top-0 left-0 border-2 dark:border-gray-700 border-gray-100 overflow-y-scroll"} >
+      "hidden sm:block  fixed dark:text-gray-200 dark:bg-slate-700 bg-white text-gray-700 space-y-2 h-screen sm:w-64  top-0 left-0 border-2 dark:border-gray-700 border-gray-100 overflow-y-scroll"} >
       <Image
         className={showSideBar ? 'ml-4 text-center mt-20 p-2 ' : 'ml-4 text-center mt-5 p-2 '}
         src='/applogo.png'
@@ -240,7 +240,7 @@ function Sidebar({ showSideBar }) {
                 </div>
               </CollapsibleTrigger>
               <CollapsibleContent>
-                <div className='rounded-lg dark:bg-black dark:text-gray-600  mx-3 mt-4'>
+                <div className='rounded-lg dark:bg-gray-800 dark:text-gray-300  mx-3 mt-4'>
                   {
                     CatalogLinks?.map((item, i) => {
                       const Icon = item.icon

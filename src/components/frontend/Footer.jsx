@@ -18,7 +18,7 @@ function Footer() {
                                     className="w-auto h-9"
                                 />
 
-                                <p className="text-base leading-relaxed text-gray-600 mt-7">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+                                <p className="text-base leading-relaxed text-gray-600 dark:text-gray-400 mt-7">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
 
                                 <ul className="flex items-center space-x-3 mt-9">
                                     <li>
@@ -70,19 +70,19 @@ function Footer() {
 
                                 <ul className="mt-6 space-y-4">
                                     <li>
-                                        <Link href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> About </Link>
+                                        <Link href="#" title="" className="flex text-base text-gray-900 dark:text-gray-300 transition-all duration-200 hover:text-blue-600 dark:hover:text-blue-400 focus:text-blue-600 dark:focus:text-blue-400"> About </Link>
                                     </li>
 
                                     <li>
-                                        <Link href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Features </Link>
+                                        <Link href="#" title="" className="flex text-base text-gray-900 dark:text-gray-300 transition-all duration-200 hover:text-blue-600 dark:hover:text-blue-400 focus:text-blue-600 dark:focus:text-blue-400"> Features </Link>
                                     </li>
 
                                     <li>
-                                        <Link href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Works </Link>
+                                        <Link href="#" title="" className="flex text-base text-gray-900 dark:text-gray-300 transition-all duration-200 hover:text-blue-600 dark:hover:text-blue-400 focus:text-blue-600 dark:focus:text-blue-400"> Works </Link>
                                     </li>
 
                                     <li>
-                                        <Link href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Career </Link>
+                                        <Link href="#" title="" className="flex text-base text-gray-900 dark:text-gray-300 transition-all duration-200 hover:text-blue-600 dark:hover:text-blue-400 focus:text-blue-600 dark:focus:text-blue-400"> Career </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -92,19 +92,19 @@ function Footer() {
 
                                 <ul className="mt-6 space-y-4">
                                     <li>
-                                        <Link href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Customer Support </Link>
+                                        <Link href="#" title="" className="flex text-base text-gray-900 dark:text-gray-300 transition-all duration-200 hover:text-blue-600 dark:hover:text-blue-400 focus:text-blue-600 dark:focus:text-blue-400"> Customer Support </Link>
                                     </li>
 
                                     <li>
-                                        <Link href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Delivery Details </Link>
+                                        <Link href="#" title="" className="flex text-base text-gray-900 dark:text-gray-300 transition-all duration-200 hover:text-blue-600 dark:hover:text-blue-400 focus:text-blue-600 dark:focus:text-blue-400"> Delivery Details </Link>
                                     </li>
 
                                     <li>
-                                        <Link href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Terms & Conditions </Link>
+                                        <Link href="#" title="" className="flex text-base text-gray-900 dark:text-gray-300 transition-all duration-200 hover:text-blue-600 dark:hover:text-blue-400 focus:text-blue-600 dark:focus:text-blue-400"> Terms & Conditions </Link>
                                     </li>
 
                                     <li>
-                                        <Link href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Privacy Policy </Link>
+                                        <Link href="#" title="" className="flex text-base text-gray-900 dark:text-gray-300 transition-all duration-200 hover:text-blue-600 dark:hover:text-blue-400 focus:text-blue-600 dark:focus:text-blue-400"> Privacy Policy </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -115,7 +115,7 @@ function Footer() {
                                 <form action="#" method="POST" className="mt-6">
                                     <div>
                                         <label htmlFor="email" className="sr-only">Email</label>
-                                        <input type="email" name="email" id="email" placeholder="Enter your email" className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
+                                        <input type="email" name="email" id="email" placeholder="Enter your email" className="block w-full p-4 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md focus:outline-none focus:border-blue-600 dark:focus:border-blue-500 caret-blue-600" />
                                     </div>
 
                                     <button type="submit" className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700">Subscribe</button>
@@ -123,9 +123,9 @@ function Footer() {
                             </div>
                         </div>
 
-                        <hr className="mt-16 mb-10 border-gray-200" />
+                        <hr className="mt-16 mb-10 border-gray-200 dark:border-gray-700" />
 
-                        <p className="text-sm text-center text-gray-600">© Copyright 2021, All Rights Reserved by Postcraft</p>
+                        <p className="text-sm text-center text-gray-600 dark:text-gray-400">© Copyright 2021, All Rights Reserved by Postcraft</p>
                     </div>
                 </section>
             </footer>

@@ -17,7 +17,7 @@ function RecentTraining({ resentTrainings }) {
                         const normalDate = ConvertIsoDateToNormal(training.createdAt)
                         return (
                             <div key={i}
-                                className="relative overflow-hidden transition-all duration-200 bg-white border border-gray-200 rounded-lg hover:shadow-lg hover:bg-gray-50 hover:-translate-y-1">
+                                className="relative overflow-hidden transition-all duration-200 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 hover:-translate-y-1">
                                 <div className="p-4">
                                     <div className="flex flex-col items-start lg:items-center">
                                         <Image
@@ -31,7 +31,7 @@ function RecentTraining({ resentTrainings }) {
                                             {/* <p className="text-sm font-medium text-gray-900">
                                                 {normalDate}
                                             </p> */}
-                                            <p className="text-sm leading-7 font-bold text-gray-900 mt-2.5">
+                                            <p className="text-sm leading-7 font-bold text-gray-900 dark:text-gray-200 mt-2.5">
                                                 <a href={`/blogs/${training.slug}`} className="line-clamp-2">
                                                     {training.title}
                                                     <span className="absolute inset-0" aria-hidden="true"></span>

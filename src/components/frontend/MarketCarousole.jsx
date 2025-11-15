@@ -55,7 +55,7 @@ function MarketCarousole({ markets }) {
                                     height={220}
                                     className='w-[400px] h-[150px] rounded-lg'
                                 />
-                                <h2 className='mt-2 text-slate-300 text-center dark:text-slate-200'>
+                                <h2 className='mt-2 text-slate-700 dark:text-slate-200 text-center'>
                                     {market.title}
                                 </h2>
                             </Link>
