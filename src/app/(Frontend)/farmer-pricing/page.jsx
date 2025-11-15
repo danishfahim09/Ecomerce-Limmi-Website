@@ -27,52 +27,53 @@ export default function Page() {
     ];
      
     return (
-        <div className="p-6">
-            <button className='text-gray-900 dark:text-gray-100 text-center text-sm mt-2 rounded-md bg-slate-300 dark:bg-slate-700 py-1 px-3'>
-                Choose A Plan Which Suits You
-            </button>
-            <br />
-            <button className='max-w-2xl text-gray-900 dark:text-gray-100 text-center text-sm mt-2 rounded-md py-1 px-3'>
-                Discover simplicity in pricing with us. Our straightforward and competitive rates ensure you get the best value. No hidden fees, just transparent options to meet your needs. Choose clarity, choose Limmi Ecommerce.
-            </button>
+        <div className="container mx-auto px-6 py-12">
+            <div className="text-center mb-8">
+                <h1 className="text-3xl font-semibold text-foreground mb-4">
+                    Choose A Plan Which Suits You
+                </h1>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                    Discover simplicity in pricing with us. Our straightforward and competitive rates ensure you get the best value. No hidden fees, just transparent options to meet your needs. Choose clarity, choose Limmi Ecommerce.
+                </p>
+            </div>
 
-            <div className="grid grid-cols-3 gap-6 my-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
                 {plans?.map((plan, i) => (
-                    <div key={i} className="w-full max-w-sm border border-gray-300 rounded-lg shadow-sm dark:border-gray-200 flex flex-col">
-                        <div className="border-b border-gray-200 py-4 px-5">
-                            <div className="flex items-center justify-between">
-                                <span className="text-md font-semibold">{plan.title}</span>
+                    <div key={i} className={`w-full max-w-sm border rounded-lg shadow-md dark:shadow-lg flex flex-col transition-all duration-200 hover:shadow-lg dark:hover:shadow-xl ${plan.isRecommendend ? 'border-lime-500 bg-lime-50/50 dark:bg-lime-900/10' : 'border-border bg-card'}`}>
+                        <div className="border-b border-border py-6 px-6">
+                            <div className="flex items-center justify-between mb-3">
+                                <span className="text-lg font-semibold text-foreground">{plan.title}</span>
                                 {plan.isRecommendend && (
-                                    <button className="relative inline-flex items-center justify-center overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
-                                        <span className="relative px-2 py-1 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
-                                            Recommended
-                                        </span>
-                                    </button>
+                                    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-lime-600 text-white border border-lime-700">
+                                        Recommended
+                                    </span>
                                 )}
                             </div>
-                            <p className="text-gray-400 my-3 text-sm">{plan.description}</p>
-                            <h2 className="text-3xl text-lime-500 my-2">
+                            <p className="text-muted-foreground my-3 text-sm">{plan.description}</p>
+                            <h2 className="text-3xl font-bold text-lime-600 dark:text-lime-400 my-2">
                                 {plan.price}
-                                <span className="text-medium text-slate-400">/mo</span>
+                                <span className="text-lg font-normal text-muted-foreground">/mo</span>
                             </h2>
                         </div>
 
-                        <ul role="list" className="space-y-4 my-6 mx-4">
+                        <ul role="list" className="space-y-3 my-6 mx-6 flex-1">
                             {plan.features?.map((item, i) => (
-                                <li key={i} className="flex items-center">
-                                    <svg className="shrink-0 w-4 h-4 text-lime-700 dark:text-lime-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <li key={i} className="flex items-center gap-2">
+                                    <svg className="shrink-0 w-5 h-5 text-lime-600 dark:text-lime-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
                                     </svg>
-                                    <span className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">
+                                    <span className="text-sm font-medium text-foreground">
                                         {item}
                                     </span>
                                 </li>
                             ))}
                         </ul>
 
-                        {/* Dynamic Link based on Plan */}
-                        <div className="flex items-center justify-center mt-auto mx-7 my-6">
-                            <Link href={`/register-farmer?plan=${plan.title.toLowerCase()}`} className="text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-900 font-medium rounded-3xl text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">
+                        <div className="flex items-center justify-center mt-auto mx-6 mb-6">
+                            <Link 
+                                href={`/register-farmer?plan=${plan.title.toLowerCase()}`} 
+                                className="w-full text-center text-white bg-lime-600 hover:bg-lime-700 dark:bg-lime-600 dark:hover:bg-lime-700 font-medium rounded-lg text-sm px-5 py-2.5 shadow-md hover:shadow-lg transition-all duration-200"
+                            >
                                 Get Started
                             </Link>
                         </div>

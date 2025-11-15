@@ -13,10 +13,7 @@ function Layout({ children }) {
                 {/*Navbare*/}
                 <Navbare showSideBar={showSideBar} setshowSideBar={setshowSideBar} />
                 {/*Main*/}
-                <main className={showSideBar ?
-                    ' mt-16 p-10 bg-white dark:bg-slate-900 text-slate-50 '
-                    :
-                    'sm:ml-60 mt-16 py-10 sm:p-10 bg-white dark:bg-slate-900 text-slate-50 '}>{children}</main>
+                <main className={`mt-20 bg-background text-foreground min-h-screen ${showSideBar ? 'p-6 sm:p-10' : 'sm:ml-64 p-6 sm:p-10'}`}>{children}</main>
             </div>
         </div>
     )

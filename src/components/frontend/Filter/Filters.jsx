@@ -1,23 +1,17 @@
-
 "use client"
 import * as React from "react"
-// import { ChevronsUpDown } from "lucide-react"
-// import { useState } from "react"
-// import { Button } from "@/components/ui/button"
-// import {
-//   Collapsible,
-//   CollapsibleContent,
-//   CollapsibleTrigger,
-// } from "@/components/ui/collapsible"
 import PriceFilter from '@/components/frontend/Filter/PriceFilter'
 import BrandFilter from '@/components/frontend/Filter/BrandFilter'
 
 function Filters({slug}) {
-  // const [isOpen, setIsOpen] = useState(false)
   return (
-    <div className="">
-      <PriceFilter slug={slug}/>
-      <BrandFilter />
+    <div className="space-y-6">
+      <div className="bg-card border border-border rounded-lg shadow-md dark:shadow-lg p-6">
+        <PriceFilter slug={slug}/>
+      </div>
+      <div className="bg-card border border-border rounded-lg shadow-md dark:shadow-lg p-6">
+        <BrandFilter />
+      </div>
     </div>
   )
 }

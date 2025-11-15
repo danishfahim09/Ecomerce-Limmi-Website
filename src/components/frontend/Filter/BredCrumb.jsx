@@ -6,19 +6,26 @@ import { useSearchParams } from 'next/navigation'
 
 function BredCrumb({ title, resultCount}) {
     const searcParams = useSearchParams()
-    const currentPage = searcParams.get("page") || 1
+    const currentPage = parseInt(searcParams.get("page") || 1)
     const pageSize = 3
     const startRange = (currentPage - 1) * pageSize + 1
     const endRange = Math.min(currentPage * pageSize, resultCount)
-    //     take: (parseInt(pageSize)),
+    
     return (
-        <div className="flex items-center justify-between text-xm">
-            <div className="flex items-center">
-                <Link href="/">Home</Link>
-                <ChevronRight />
-                <p>{title}</p>
-            </div>
-            <p>{startRange}-{endRange} of {resultCount} results</p>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <nav className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Link 
+                    href="/" 
+                    className="hover:text-foreground transition-colors duration-200 font-medium"
+                >
+                    Home
+                </Link>
+                <ChevronRight className="w-4 h-4" />
+                <span className="text-foreground font-medium">{title}</span>
+            </nav>
+            <p className="text-sm text-muted-foreground">
+                <span className="font-medium text-foreground">{startRange}-{endRange}</span> of <span className="font-medium text-foreground">{resultCount}</span> results
+            </p>
         </div>
     )
 }

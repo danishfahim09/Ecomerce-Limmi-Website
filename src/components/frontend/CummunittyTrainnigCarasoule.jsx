@@ -26,48 +26,50 @@ function CummunittyTrainnigCarasoule({ training }) {
     }
   };
   return (
-    <div>
+    <div className="relative pb-6">
       <Carousel
-        swipeable={false}
-        draggable={false}
+        swipeable={true}
+        draggable={true}
         showDots={true}
         responsive={responsive}
-        ssr={true} // means to render carousel on server-side.
+        ssr={true}
         infinite={true}
-        //autoPlay={true}
-        //autoPlaySpeed={1000}
+        autoPlay={true}
+        autoPlaySpeed={4000}
         keyBoardControl={true}
-        customTransition="all .5"
-        transitionDuration={500}
+        customTransition="transform 600ms ease-in-out"
+        transitionDuration={600}
         containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        //deviceType={this.props.deviceType}
+        removeArrowOnDeviceType={["mobile"]}
         dotListClass="custom-dot-list-style"
-        itemClass="px-4"
+        itemClass="px-2 sm:px-4"
+        arrows={true}
+        renderButtonGroupOutside={true}
+        className="carousel-wrapper"
+        shouldResetAutoplay={true}
       >
         {
           training?.map((training, i) => {
             return (
-              <div key={i} className=' border-1 rounded-lg mr-3 dark:hover:bg-slate-600 dark:hover:opacity-70'>
-                <Link href="#" className=''>
+              <div key={i} className='border border-gray-200 dark:border-gray-700 rounded-lg mr-3 bg-white dark:bg-gray-800 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200'>
+                <Link href={`/blogs/${training.slug}`} className='block'>
                   <Image
                     src={training.imageUrl}
-                    alt={training.description}
+                    alt={training.title}
                     width={330}
                     height={220}
-                    className='w-full rounded-t-lg h-48'
+                    className='w-full rounded-t-lg h-48 object-cover'
                   />
-                  <div className='mt-2 mb-6 text-slate-300  dark:text-slate-400    dark:hover:bg-slate-600 '>
-                    <h1 className='p-2 text-slate-300 text-center'>{training.title}</h1>
-                    <p className='px-4 py-2'>
+                  <div className='p-4'>
+                    <h1 className='text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 line-clamp-2'>{training.title}</h1>
+                    <p className='text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3'>
                       {training.description}
                     </p>
-                    <div className='flex gap-3 text-center py-1 justify-center'>
-                      <Link href='#' className='  text-slate-50 rounded-md px-4 py-2 hover:bg-lime-800 dark:hover:bg-lime-600 dark:bg-lime-700 bg-lime-900 duration-300 transition-all'>Read more</Link>
-                      <Link href='#' className='text-blue-400 flex items-center justify-center '>talk to counsaltant...</Link>
+                    <div className='flex gap-3 items-center justify-between'>
+                      <Link href={`/blogs/${training.slug}`} className='text-white rounded-md px-4 py-2 bg-lime-700 hover:bg-lime-800 dark:bg-lime-600 dark:hover:bg-lime-700 transition-colors duration-200 text-sm font-medium'>Read more</Link>
+                      <Link href='#' className='text-blue-600 dark:text-blue-400 hover:underline text-sm'>Talk to consultant</Link>
                     </div>
                   </div>
-
                 </Link>
               </div>
             )

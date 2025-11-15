@@ -48,21 +48,26 @@ export const columns = [
   {
     accessorKey: "productPrice",
     header: "Price",
+    cell: ({ row }) => {
+      const price = row.getValue("productPrice")
+      return <span className="text-foreground font-medium">UGX {price}</span>
+    }
   },
   {
     accessorKey: "productQty",
     header: "Qty",
-    cell: ({ row }) => (<Datecolumn row={row} accessorKey={'productQty'} />)
-  },
-  {
-    accessorKey: "productPrice",
-    header: "price",
-    cell: ({ row }) => (<Datecolumn row={row} accessorKey={'productPrice'} />)
+    cell: ({ row }) => {
+      const qty = row.getValue("productQty")
+      return <span className="text-foreground font-medium">{qty}</span>
+    }
   },
   {
     accessorKey: "total",
     header: "Total",
-    cell: ({ row }) => (<Datecolumn row={row} accessorKey={'total'} />)
+    cell: ({ row }) => {
+      const total = row.getValue("total")
+      return <span className="text-foreground font-bold">UGX {total}</span>
+    }
   },
   // {
   //   id: "actions",

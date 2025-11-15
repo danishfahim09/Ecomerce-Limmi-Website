@@ -35,11 +35,10 @@ function CustomerForm({ user }) {
   return (
     <form
       onSubmit={handleSubmit(onSubmite)}
-      className="w-full max-w-4xl mx-auto p-4 bg-white border border-gray-200 rounded-lg  shadow sm:p-6 md:p-8
-      dark:bg-gray-800 dark:border-gray-800"
+      className="w-full max-w-4xl mx-auto p-4 bg-card border border-border rounded-lg shadow-md dark:shadow-lg sm:p-6 md:p-8"
     >
-      <h2 className='text-xl  font-semibold mb-4 dark:text-lime-400'> Personal Detaile </h2>
-      <div className="grid sm:grid-row-2 sm:gap-6 border-b border-gray-700 pb-10 ">
+      <h2 className='text-xl font-semibold mb-4 text-foreground'> Personal Details </h2>
+      <div className="grid sm:grid-row-2 sm:gap-6 border-b border-border pb-10">
         <TextInput
           lable='Full Name'
           name='name'
@@ -100,7 +99,7 @@ function CustomerForm({ user }) {
       </div>
 
 
-      <h2 className='text-xl font-semibold mb-4 dark:text-lime-400 pt-10'> Shiping Detaile </h2>
+      <h2 className='text-xl font-semibold mb-4 text-foreground pt-10'> Shipping Details </h2>
       <div className="grid sm:grid-row-2 sm:gap-6">
         <TextInput
           lable='Street Address'

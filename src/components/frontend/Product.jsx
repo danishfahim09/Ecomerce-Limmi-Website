@@ -18,30 +18,30 @@ function Product({ product }) {
         toast.success("Item Added Successfully")
     }
     return (
-        <div href="#" className='border-1 border-gray-200 dark:border-gray-700 rounded-lg mr-3 bg-white dark:bg-slate-800 overflow-hidden'>
+        <div className='border border-gray-200 dark:border-gray-700 rounded-lg mr-3 bg-white dark:bg-gray-800 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200'>
             <Link href={`/product/${product.slug}`}>
                 <Image
                     src={product.imageUrl}
-                    alt=""
+                    alt={product.title}
                     width={556}
                     height={556}
-                    className='w-full rounded-t-lg h-48'
+                    className='w-full rounded-t-lg h-48 object-cover'
                 />
             </Link>
-            <div className="px-2 ">
+            <div className="px-3 py-3">
                 <Link href={`/product/${product.slug}`}>
-                    <h2 className='  my-2 text-gray-700 text-center dark:text-gray-300 mb-2 font-semibold'>
+                    <h2 className='my-2 text-gray-900 dark:text-gray-100 text-center mb-2 font-semibold line-clamp-2 min-h-[3rem]'>
                         {product.title}
                     </h2>
                 </Link>
-                <div className="flex items-center justify-between my-2">
-                    <p className='text-gray-700 dark:text-gray-300'>UGX {product.salePrice}</p>
+                <div className="flex items-center justify-between mt-3">
+                    <p className='text-gray-900 dark:text-gray-100 font-bold'>UGX {product.salePrice}</p>
                     <button
-                        className='flex items-center space-x-2 text-white bg-lime-700 px-3 py-2 rounded-md'
+                        className='flex items-center space-x-2 text-white bg-lime-700 hover:bg-lime-800 dark:bg-lime-600 dark:hover:bg-lime-700 px-3 py-2 rounded-md transition-colors duration-200'
                         onClick={() => { handdleAddToiCard() }}
                     >
-                        <BaggageClaim />
-                        <p>Add</p>
+                        <BaggageClaim className='w-4 h-4' />
+                        <span className='text-sm'>Add</span>
                     </button>
                 </div>
             </div>

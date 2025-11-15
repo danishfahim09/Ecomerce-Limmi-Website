@@ -1,18 +1,14 @@
 "use client"
 import Image from "next/image"
-import { ArrowUpDown} from "lucide-react"
-import { EllipsisVertical } from "lucide-react"
+import { ArrowUpDown } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
+import Datecolumn from '@/components/DataTable-Coulumns/DateColumns'
+import ImageColumn from '@/components/DataTable-Coulumns/ImageColumn'
+import SortableColumn from '@/components/DataTable-Coulumns/SortableColumn'
+import ActionColumn from '@/components/DataTable-Coulumns/ActionColumn'
+import ActiveStatus from '@/components/DataTable-Coulumns/ActiveStatus'
 
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 
 export const columns = [
   {
@@ -39,36 +35,12 @@ export const columns = [
   },
   {
     accessorKey: "title",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Email
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
+    header: ({ column }) => (<SortableColumn column={column} title="Title" />)
   },
-
   {
     accessorKey: "imageUrl",
-    header: "Category",
-    cell: ({ row }) => {
-      const imageUrl = row.getValue("imageUrl")
-      return (
-        <div className="shrink-0">
-          <Image
-            src={imageUrl}
-            width={500}
-            height={500}
-            alt=""
-            className="w-10 h-10 rounded-full object-fill"
-          />
-        </div>
-      )
-    }
+    header: "Image",
+    cell: ({ row }) => (<ImageColumn row={row} accessorKey="imageUrl" />)
   },
   {
     accessorKey: "description",
@@ -76,7 +48,7 @@ export const columns = [
     cell: ({ row }) => {
       const description = row.getValue("description")
       return (
-        <div className="shrink-0">
+        <div className="max-w-xs truncate text-sm text-foreground">
           {description}
         </div>
       )
@@ -84,54 +56,25 @@ export const columns = [
   },
   {
     accessorKey: "isActive",
-    header: "isActive",
+    header: "Active",
+    cell: ({ row }) => (<ActiveStatus row={row} accessorKey="isActive" />)
   },
   {
     accessorKey: "createdAt",
-    header: "Date Crerated",
-    cell: ({ row }) => {
-      const createdAt = row.getValue("createdAt")
-
-      const originalDate = new Date(createdAt);
-      const day = originalDate.getDate()
-      const month = originalDate.toLocaleString('default', {
-        month: 'short'
-      })
-      const year = originalDate.getFullYear()
-      const formated = `${day} ${month} ${year}`
-      return (
-        <div className="shrink-0">
-          {formated}
-        </div>
-      )
-    }
+    header: "Date Created",
+    cell: ({ row }) => (<Datecolumn row={row} accessorKey={'createdAt'} />)
   },
   {
     id: "actions",
     cell: ({ row }) => {
-      const isActive = row.isActive
-
+      const category = row.original
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            {/* <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button> */}
-            <button><EllipsisVertical /></button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className=" border rounded-lg border-gray-300 dark:border-gray-700   dark:bg-black px-1" >
-            <DropdownMenuLabel className="px-1 py-1">Actions</DropdownMenuLabel>
-            <DropdownMenuItem className="px-1 py-1"
-              onClick={() => navigator.clipboard.writeText(isActive)}
-            >
-              Copy The Status
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem className="px-1 py-1">Edit Category</DropdownMenuItem>
-            <DropdownMenuItem className="px-1 py-1">Delete Category</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <ActionColumn
+          row={row}
+          title="Category"
+          endpoint={`categories/${category.id}`}
+          editEndPoint={`categories/update/${category.id}`}
+        />
       )
     },
   },

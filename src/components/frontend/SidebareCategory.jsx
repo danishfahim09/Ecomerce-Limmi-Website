@@ -10,20 +10,21 @@ export default async function SidebareCategory() {
     const categories =Array.isArray(catagoriesData) ? catagoriesData.filter((category) => category.products.length > 0):[]
 
     return (
-        <div className="sm:col-span-3 sm:block hidden overflow-auto   bg-white rounded-lg  border-1 border-gray-100 dark:bg-gray-700 dark:border-gray-700 shadow-lg dark:shadow-sm shadow-gray-300 dark:shadow-gray-500">
-            <h2 className='bg-gray-100  py-3 px-6 text-slate-800 dark:text-slate-100 rounded-lg font-semibold border border-gray-200 dark:border-gray-600  dark:bg-gray-800'>
-                {/* Shop By Category ({catagoriesData.length}) */}
+        <div className="sm:col-span-3 sm:block hidden overflow-auto bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg dark:shadow-md">
+            <h2 className='bg-gray-50 dark:bg-gray-900 py-3 px-6 text-gray-900 dark:text-gray-100 rounded-t-lg font-bold text-lg border-b border-gray-200 dark:border-gray-700'>
+                Shop By Category
             </h2>
 
-            {categories?.map((category, id) => {
-                return (
-                    <Link key={id} href={`/category/${category.slug}`} className='py-2  px-6 flex gap-5 items-center hover:bg-slate-50 dark:hover:bg-slate-600  rounded-lg duration-500 transition-all
-                       '>
-                        <Image src={category.imageUrl} width={556} height={556} alt='food logo' className='w-12 object-cover h-12 rounded-full border border-lime-300' />
-                        <span className='text-sm'>{category.title} </span>
-                    </Link>
-                )
-            })}
+            <div className='py-2'>
+                {categories?.map((category, id) => {
+                    return (
+                        <Link key={id} href={`/category/${category.slug}`} className='py-2 px-6 flex gap-4 items-center hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200'>
+                            <Image src={category.imageUrl} width={556} height={556} alt={category.title} className='w-12 h-12 object-cover rounded-full border-2 border-lime-300 dark:border-lime-600' />
+                            <span className='text-sm font-medium text-gray-900 dark:text-gray-100'>{category.title}</span>
+                        </Link>
+                    )
+                })}
+            </div>
         </div>
     )
 }

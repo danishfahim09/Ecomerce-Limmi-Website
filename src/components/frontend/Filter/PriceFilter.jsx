@@ -1,37 +1,39 @@
+"use client"
 import { Circle } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 function PriceFilter({ slug }) {
   const searchParams = useSearchParams()
   const sortParam = searchParams.get("sort")
+  const router = useRouter()
+  const { handleSubmit, reset, register } = useForm()
 
   const priceRanges = [
     {
-      title: "Relevence",
+      title: "Relevance",
       href: `/category/${slug}`,
       sort: null
     },
     {
-      title: "Price Heigh Tow Low",
+      title: "Price - High To Low",
       href: `/category/${slug}?sort=desc`,
       sort: "desc"
     },
     {
-      title: "Price Low Tow Heigh",
+      title: "Price - Low To High",
       href: `/category/${slug}?sort=asc`,
       sort: "asc"
     },
   ]
-  const router = useRouter()
-  const { handleSubmit, reset, register } = useForm()
+
   function onSubmit(data) {
     const { min, max } = data
-    // min parseInt(data.min)
-    // max parseInt(data.max)
-    console.log(min, max)
     if (min && max) {
       router.push(`/category/${slug}?sort=asc&min=${min}&max=${max}`)
       reset()
@@ -39,69 +41,77 @@ function PriceFilter({ slug }) {
       router.push(`/category/${slug}?sort=asc&min=${min}`)
       reset()
     } else if (max) {
-      router.push(`/category/${slug}?sort=asc&min=${max}`)
+      router.push(`/category/${slug}?sort=asc&max=${max}`)
       reset()
     }
   }
-  return (
-    <div>
-      <div className="">
-        <div className="flex justify-between items-center">
-          <h2 className='text-xl font-medium'>Price</h2>
-          <Link className='text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-lime-600 dark:hover:bg-lime-700 focus:outline-none dark:focus:ring-lime-800' href={`/category/${slug}`}>Reset Filters</Link>
-        </div>
-        {/* filter */}
-        <div className="flex flex-col gap-3">
-          {
-            priceRanges?.map((link, i) => {
 
-              return <Link
+  return (
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <h2 className='text-xl font-semibold text-foreground'>Price</h2>
+        <Link href={`/category/${slug}`}>
+          <Button 
+            variant="outline" 
+            size="sm"
+            className="text-lime-600 hover:text-lime-700 dark:text-lime-400 dark:hover:text-lime-300 border-lime-300 dark:border-lime-700 hover:bg-lime-50 dark:hover:bg-lime-900/20"
+          >
+            Reset Filters
+          </Button>
+        </Link>
+      </div>
+      
+      <div className="flex flex-col gap-2">
+        {
+          priceRanges?.map((link, i) => {
+            const isActive = link.sort === sortParam
+            return (
+              <Link
                 key={i}
                 href={link.href}
-                className={`${link.sort === sortParam
-                  ? "px-2 bg-slate-500 py-1 border border-lime-400 text-lime-400" : "border border-slate-500 px-2 py-1"}`}
+                className={`flex items-center gap-2 px-3 py-2 rounded-md border transition-all duration-200 ${
+                  isActive
+                    ? "bg-lime-100 dark:bg-lime-900/30 text-lime-700 dark:text-lime-400 border-lime-500 dark:border-lime-600 shadow-sm"
+                    : "bg-background text-foreground border-border hover:bg-muted hover:border-lime-300 dark:hover:border-lime-700"
+                }`}
               >
-                <Circle className='w-4 h-4 shrink-0' />
-                {link.title}
+                <Circle className={`w-4 h-4 shrink-0 ${isActive ? "fill-current" : ""}`} />
+                <span className="text-sm font-medium">{link.title}</span>
               </Link>
-            })
-          }
-        </div>
+            )
+          })
+        }
+      </div>
+
+      <div className="pt-4 border-t border-border">
+        <Label className="text-sm font-semibold text-foreground mb-3 block">Price Range</Label>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className='grid grid-cols-3 gap-4 my-4'
+          className='grid grid-cols-3 gap-3'
         >
           <div className="col-span-1">
-            <input
+            <Input
               {...register("min")}
               type="number"
-              id='cvv-input'
-              aria-describedby='helper-text-explination'
-              className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-lime-50 focus:border-lime-500 block  w-full p-2.5 dark:bg-gray-500 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500'
               placeholder='Min'
+              className="shadow-sm"
             />
           </div>
-
-
           <div className="col-span-1">
-            <input
-              {...register("main")}
+            <Input
+              {...register("max")}
               type="number"
-              id='cvv-input'
-              aria-describedby='helper-text-explination'
-              className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-lime-50 focus:border-lime-500 block  w-full p-2.5 dark:bg-gray-500 dark:border-gray-600 dark:placeholder-gray-500 dark:placeholder:text-white dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500'
               placeholder='Max'
+              className="shadow-sm"
             />
           </div>
-
-
           <div className="col-span-1">
-            <button
+            <Button
               type='submit'
-              className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-lime-50 focus:border-lime-500 block  w-full p-2.5 dark:bg-lime-500 dark:border-gray-600 dark:placeholder-gray-400 dark:placeholder:text-white dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500'
+              className="w-full bg-lime-600 hover:bg-lime-700 dark:bg-lime-600 dark:hover:bg-lime-700 text-white shadow-md hover:shadow-lg transition-shadow duration-200"
             >
               Go
-            </button>
+            </Button>
           </div>
         </form>
       </div>

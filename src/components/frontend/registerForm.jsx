@@ -103,7 +103,7 @@ export default function RegisterForm({ role = "USER" }) {
                 type="email"
                 className="sm:col-span-2 mt-3"
             />
-            {emailErr && <small className="text-red-800 mt-4">{emailErr}</small>}
+            {emailErr && <small className="text-destructive mt-2 block">{emailErr}</small>}
             <TextInput
                 lable="Password"
                 name="password"
@@ -117,43 +117,42 @@ export default function RegisterForm({ role = "USER" }) {
                 ButtonTittle='Register'
                 loddingButtonTiittle="Creating Please Wait"
             />
-            <div className="flex items-center ">
-                <div className="w-full bg-slate-500 h-[1px]"></div>
-                <span className="mx-2">or</span>
-                <div className="w-full bg-slate-500 h-[1px]"></div>
+            <div className="flex items-center my-4">
+                <div className="w-full bg-border h-[1px]"></div>
+                <span className="mx-3 text-sm text-muted-foreground">or</span>
+                <div className="w-full bg-border h-[1px]"></div>
             </div>
-            <div className="flex justify-between gap-2 py-5">
-                <p className="  text-[0.75rem] font-light text-gray-500 dark:text-gray-400">
+            <div className="flex flex-col gap-3 py-3">
+                <p className="text-sm font-light text-muted-foreground text-center">
                     Already have an account?{" "}
                     <Link
                         href="/login"
-                        className="font-medium text-purple-600 hover:underline dark:text-purple-500"
+                        className="font-medium text-lime-600 hover:text-lime-700 dark:text-lime-400 dark:hover:text-lime-300 hover:underline"
                     >
                         Login
                     </Link>
                 </p>
                 {role === "USER" ? (
-                    <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400">
+                    <p className="text-sm font-light text-muted-foreground text-center">
                         Are you a Farmer?{" "}
                         <Link
                             href="/farmer-pricing"
-                            className="font-medium text-purple-600 hover:underline dark:text-purple-500"
+                            className="font-medium text-lime-600 hover:text-lime-700 dark:text-lime-400 dark:hover:text-lime-300 hover:underline"
                         >
                             Register Here
                         </Link>
                     </p>
                 ) : (
-                    <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400">
-                        Are you a  User?{" "}
+                    <p className="text-sm font-light text-muted-foreground text-center">
+                        Are you a User?{" "}
                         <Link
                             href="/register"
-                            className="font-medium text-purple-600 hover:underline dark:text-purple-500"
+                            className="font-medium text-lime-600 hover:text-lime-700 dark:text-lime-400 dark:hover:text-lime-300 hover:underline"
                         >
                             Register Here
                         </Link>
                     </p>
                 )}
-
             </div>
         </form>
     );

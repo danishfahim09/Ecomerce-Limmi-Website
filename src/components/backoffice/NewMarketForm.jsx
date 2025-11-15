@@ -50,8 +50,8 @@ function NewMarketForm({catagories}) {
     <div>
       <FormHeading tittle="New Market" />
       <form
-        className="w-full max-w-4xl mt-16 mx-auto h-auto dark:bg-slate-800 bg-gray-100 dark:border-gray-700 p-4
-         sm:p-6 md:p-8 rounded-lg dark:text-gray-400 text-gray-700 my-5 shadow-lg dark:shadow-sm dark:shadow-gray-500 shadow-gray-300"
+        className="w-full max-w-4xl mt-8 mx-auto h-auto bg-card border border-border p-4
+         sm:p-6 md:p-8 rounded-lg shadow-md dark:shadow-lg my-5"
         onSubmit={handleSubmit(onSubmite)}
       >
         <div className="grid sm:grid-row-2 sm:gap-6">

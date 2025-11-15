@@ -28,8 +28,8 @@ export function DataTableViewOptions({ table, }) {
                     View
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-[150px] border rounded-lg border-gray-300 dark:border-gray-700   dark:bg-black px-1              " >
-                <DropdownMenuLabel className="p-2 ">Toggle columns</DropdownMenuLabel>
+            <DropdownMenuContent align="end" className="w-[150px] border border-border bg-popover text-popover-foreground shadow-lg dark:shadow-xl rounded-lg px-1">
+                <DropdownMenuLabel className="p-2 text-foreground">Toggle columns</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {table
                     .getAllColumns()
@@ -41,7 +41,7 @@ export function DataTableViewOptions({ table, }) {
                         return (
                             <DropdownMenuCheckboxItem
                                 key={column.id}
-                                className="capitalize flex gap-2   py-1"
+                                className="capitalize flex gap-2 py-1.5 text-sm focus:bg-lime-100 dark:focus:bg-lime-900/30 focus:text-lime-900 dark:focus:text-lime-100"
                                 checked={column.getIsVisible()}
                                 onCheckedChange={(value) => column.toggleVisibility(!!value)}
                             >

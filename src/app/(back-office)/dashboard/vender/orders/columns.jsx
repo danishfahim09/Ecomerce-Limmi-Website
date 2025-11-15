@@ -61,6 +61,7 @@ export const columns = [
     {
         accessorKey: "isActive",
         header: "Active",
+        cell: ({ row }) => (<ActiveStatus row={row} accessorKey="isActive" />)
     },
 
     {

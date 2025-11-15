@@ -1,4 +1,6 @@
 import React from 'react'
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 function TextInput({
   defaultvalue="",
@@ -16,27 +18,24 @@ function TextInput({
   return (
 
     <div className={className}>
-      <label
+      <Label
         htmlFor={name}
-        className='block text-sm font-semibold leading-6 text-gray-900 mb-2 dark:text-gray-300'
+        className='text-sm font-semibold text-foreground mb-2'
       >
         {lable}
-      </label>
-      <input
+      </Label>
+      <Input
         {...register(`${name}`, { required: isrequerd })}
         type={type}
         name={name}
         id={id}
         defaultValue={defaultvalue}
         autoComplete={name}
-        className='bg-gray-50 border-1 border-gray-300 text-gray-900 text-sm rounded-lg 
-         focus:ring-gray-400 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700
-          dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-400
-           dark:focus:border-gray-500'
         placeholder={`Type the ${lable.toLowerCase()}`}
+        className="shadow-sm"
       />
       {errors[`${name}`] &&
-        (<span className='text-sm text-red-800 mt-3'>{lable} is required</span>)
+        (<span className='text-sm text-destructive mt-1 block'>{lable} is required</span>)
       }
     </div>
   )

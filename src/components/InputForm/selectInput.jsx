@@ -1,52 +1,76 @@
-import React from 'react'
+import React from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
+import { Controller } from "react-hook-form";
 
 function SelectInput({
-    lable,
-    name = 'title',
-    register,
-    errors,
-    options = [],
-    multiple=false,
-    className = 'sm:col-span-2',
+  lable,
+  name = "title",
+  control,
+  register,
+  errors,
+  options = [],
+  multiple = false,
+  className = "sm:col-span-2",
 }) {
-    return (
-        <div className={className}>
+  return (
+    <div className={className}>
+      <Label
+        htmlFor={name}
+        className="text-sm font-semibold text-foreground mb-2"
+      >
+        {lable}
+      </Label>
+      {control ? (
+        <Controller
+          name={name}
+          control={control}
+          render={({ field }) => (
+            <Select onValueChange={field.onChange} value={field.value}>
+              <SelectTrigger className="shadow-sm">
+                <SelectValue placeholder={`Select ${lable.toLowerCase()}`} />
+              </SelectTrigger>
+              <SelectContent>
+                {options?.map((option, i) => (
+                  <SelectItem key={i} value={option.id}>
+                    {option.title}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )}
+        />
+      ) : (
+        <select
+          multiple={multiple}
+          name={name}
+          id={name}
+          {...register(`${name}`)}
+          className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 shadow-sm"
+        >
+          {options?.map((option, i) => {
+            return (
+              <option value={option.id} key={i}>
+                {option.title}
+              </option>
+            );
+          })}
+        </select>
+      )}
 
-            {/* Lable  */}
-            <label
-                htmlFor={name}
-                className='block text-sm font-semibold leading-6 text-gray-900 mb-2 dark:text-gray-300'
-            >
-                {lable}
-            </label>
-
-            {/* Selecl Optiion */}
-            <select
-                multiple = {multiple}
-                name={name}
-                id={name}
-                {...register(`${name}`)}
-                className='bg-gray-50 border-1 border-gray-300 text-gray-900 text-sm rounded-lg 
-                focus:ring-gray-400 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700
-                dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-400
-                dark:focus:border-gray-500'
-            >
-                {options?.map((option, i) => {
-                    return (
-                        <option value={option.id} key={i}>
-                            {option.title}
-                        </option>
-                    )
-                })
-                }
-            </select>
-
-            {/* Selecl Optiion  Error Message*/}
-            {errors[`${name}`] &&
-                (<span className='text-sm text-red-800'>{lable} is required</span>)
-            }
-        </div>
-    )
+      {errors[`${name}`] && (
+        <span className="text-sm text-destructive mt-1 block">
+          {lable} is required
+        </span>
+      )}
+    </div>
+  );
 }
 
-export default SelectInput
+export default SelectInput;

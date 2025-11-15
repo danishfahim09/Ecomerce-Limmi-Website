@@ -23,43 +23,45 @@ export default async function Hero() {
       </div>
 
       {/*  Helper */}
-      <div className="col-span-2   rounded-lg      sm:block hidden">
-        <div className="sm:col-span-7  p-2 flex flex-col gap-3 bg-white rounded-lg  border-1 border-gray-100   dark:bg-gray-700 dark:border-gray-700 shadow-lg dark:shadow-sm shadow-gray-300 dark:shadow-gray-500">
-          <Link href="#" className="flex items-center space-x-1 gap-2">
-            <div className="w-12 h-11 rounded-full border-spacing-1 border-1 border-[rgb(243,168,55)] flex items-center justify-center">
-              <CircleHelp className='shrink-0 w-6 h-6 text-orange-400 dark:text-yellow-200' />
+      <div className="col-span-2 rounded-lg sm:block hidden">
+        <div className="p-3 flex flex-col gap-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg dark:shadow-md">
+          <Link href="#" className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <div className="w-12 h-12 rounded-full border-2 border-orange-300 dark:border-orange-500 flex items-center justify-center bg-orange-50 dark:bg-orange-900/20">
+              <CircleHelp className='w-6 h-6 text-orange-500 dark:text-orange-400' />
             </div>
             <div className='flex flex-col'>
-              <h2 className='uppercase text-sm border-l-divider dark:text-gray-200 text-gray-900'>Help Center</h2>
-              <p className='text-[0.6rem] dark:text-gray-200 text-gray-700 dark:text-gray-300 bold shrink-0'>Guid To Coustemer Care</p></div>
+              <h2 className='text-sm font-semibold text-gray-900 dark:text-gray-100'>Help Center</h2>
+              <p className='text-xs text-gray-600 dark:text-gray-400'>Guide To Customer Care</p>
+            </div>
           </Link>
-          <Link href="#" className="flex items-center space-x-1 gap-2">
-            <div className="w-12 h-11 rounded-full border-spacing-1 border-1 border-[rgb(187,150,83)] flex items-center justify-center">
-              <FolderSyncIcon className='shrink-0 w-6 h-6 text-orange-400 dark:text-yellow-200' />
+          <Link href="#" className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <div className="w-12 h-12 rounded-full border-2 border-amber-300 dark:border-amber-500 flex items-center justify-center bg-amber-50 dark:bg-amber-900/20">
+              <FolderSyncIcon className='w-6 h-6 text-amber-500 dark:text-amber-400' />
             </div>
             <div className='flex flex-col'>
-              <h2 className='uppercase text-sm bold dark:text-gray-200 text-gray-900'>Easy Return</h2>
-              <p className='text-[0.6rem] dark:text-gray-200 text-gray-700 dark:text-gray-300 bold shrink-0'>Quick Return </p></div>
-          </Link>
-          <Link href="#" className="flex items-center space-x-1 gap-2">
-            <div className="w-12 h-11 rounded-full border-spacing-1 border-1 border-[rgb(243,168,55)] flex items-center justify-center">
-              <CircleDollarSign className='shrink-0 w-6 h-6 text-orange-400 dark:text-yellow-200' />
+              <h2 className='text-sm font-semibold text-gray-900 dark:text-gray-100'>Easy Return</h2>
+              <p className='text-xs text-gray-600 dark:text-gray-400'>Quick Return</p>
             </div>
-            <div className='flex flex-col '>
-              <h2 className='uppercase text-sm bold dark:text-gray-200 text-gray-900'>Sell On Limmi </h2>
-              <p className='text-[0.6rem] dark:text-gray-200 text-gray-700 dark:text-gray-300 bold shrink-0'>Million Of Visitores</p></div>
+          </Link>
+          <Link href="#" className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <div className="w-12 h-12 rounded-full border-2 border-orange-300 dark:border-orange-500 flex items-center justify-center bg-orange-50 dark:bg-orange-900/20">
+              <CircleDollarSign className='w-6 h-6 text-orange-500 dark:text-orange-400' />
+            </div>
+            <div className='flex flex-col'>
+              <h2 className='text-sm font-semibold text-gray-900 dark:text-gray-100'>Sell On Limmi</h2>
+              <p className='text-xs text-gray-600 dark:text-gray-400'>Millions Of Visitors</p>
+            </div>
           </Link>
         </div>
-        <div className="mt-[10px] rounded-lg">
+        <div className="mt-3 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
           <Image
             src='/LS_SmallBanner_218X184.gif'
             width={218}
             height={184}
-            alt=''
-            className='w-[178px] h-[195px]'
+            alt='Promotional Banner'
+            className='w-full h-auto rounded-lg'
             unoptimized
           />
-
         </div>
 
       </div>

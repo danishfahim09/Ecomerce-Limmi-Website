@@ -3,18 +3,24 @@ import { X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
+import { Button } from "@/components/ui/button"
+
 function FormHeader({ tittle }) {
   const router = useRouter()
   return (
-    <div className='flex justify-between dark:bg-slate-600 bg-gray-200 rounded-md px-6 dark:shadow-none shadow-lg shadow-graya-300'>
-      <h2 className='dark:text-gray-200 text-gray-700 text-lg font-semibold p-6'>
+    <div className='flex justify-between items-center bg-card border border-border rounded-lg px-6 py-4 shadow-md dark:shadow-lg mb-6'>
+      <h2 className='text-lg font-semibold text-foreground'>
         {tittle}
       </h2>
-      <button>
-        <X className='dark:hover:text-gray-400 dark:text-gray-200 text-gray-600
-         hover:text-gray-700'
-         onClick={()=>router.back()}/>
-      </button>
+      <Button 
+        variant="ghost" 
+        size="icon"
+        onClick={() => router.back()}
+        className="h-8 w-8"
+      >
+        <X className='h-4 w-4'/>
+        <span className="sr-only">Close</span>
+      </Button>
     </div>
   )
 }

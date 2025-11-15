@@ -84,21 +84,20 @@ function WeklySalesChart() {
     const [ChartTodoDisplay, setChartTodoDisplay] = useState(tabs[0].type)
 
     return (
-        <div className="dark:bg-slate-700 dark:text-white text-gray-500 dark:border-none bg-white  rounded-lg p-8 shadow-lg dark:shadow-none shadow-gray-300">
-            <h2 className="text-xl font-bold p-4">WeklySalesChart</h2>
-            {/**/}
+        <div className="bg-card border border-border rounded-lg p-8 shadow-md dark:shadow-lg">
+            <h2 className="text-xl font-semibold text-foreground mb-4">Weekly Sales Chart</h2>
             <div className="p-4">
-                <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
-                    <ul className="flex flex-wrap -mb-px p-4 mt-12">
+                <div className="text-sm font-medium text-center border-b border-border">
+                    <ul className="flex flex-wrap -mb-px p-4">
                         {tabs.map((item, i) => {
                             return (
                                 <li className="me-2" key={i}>
                                     <button
                                         onClick={() => setChartTodoDisplay(item.type)}
                                         className={ChartTodoDisplay == item.type ?
-                                            'inline-block p-4 text-orange-600 border-b-2 border-orange-600 rounded-t-lg active dark:text-orange-500 dark:border-blue-500'
+                                            'inline-block p-4 text-lime-600 dark:text-lime-400 border-b-2 border-lime-600 dark:border-lime-500 rounded-t-lg font-semibold transition-colors'
                                             :
-                                            'inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300'
+                                            'inline-block p-4 border-b-2 border-transparent rounded-t-lg text-muted-foreground hover:text-foreground hover:border-muted-foreground transition-colors'
                                         }
                                     >
                                         {item.tittle}

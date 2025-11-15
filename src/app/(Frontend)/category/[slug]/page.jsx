@@ -31,7 +31,6 @@ async function page({ params: { slug }, searchParams }) {
 
     return (
         <div>
-            <h2>this is my slug {slug}</h2>
             <FilterComponent category={category} products={products} />
         </div>
     )

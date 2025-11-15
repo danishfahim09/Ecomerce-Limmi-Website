@@ -8,21 +8,21 @@ import { MoveRight } from 'lucide-react'
 async function CummunittyTrainnig({ title, trainings }) {
 
     return (
-        <section className="py-12 bg-white dark:bg-slate-700 sm:py-16 lg:py-20 shadow-lg">
+        <section className="py-12 bg-white dark:bg-gray-800 sm:py-16 lg:py-20">
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-                <div className=" mx-auto md:mx-0">
-                    <div className="flex items-center justify-between">
-                        <h2 className="text-3xl font-bold sm:text-4xl dark:text-slate-100 text-gray-900">
+                <div className="mx-auto md:mx-0">
+                    <div className="flex items-center justify-between mb-6">
+                        <h2 className="text-3xl font-bold sm:text-4xl text-gray-900 dark:text-gray-100">
                             {title}
                         </h2>
-                        <Link href="/blogs" className=' flex gap-1 text-slate-50 rounded-md px-4 py-2 bg-slate-800 hover:bg-slate-900 duration-300 transition-all' >
+                        <Link href="/blogs" className='flex gap-2 items-center text-white rounded-md px-4 py-2 bg-gray-900 hover:bg-gray-800 dark:bg-lime-600 dark:hover:bg-lime-700 transition-colors duration-200' >
                             See All
-                            <MoveRight className='flex-shrink-0 mx-2' />
+                            <MoveRight className='w-4 h-4' />
                         </Link>
                     </div>
 
-                    <p className="mt-5 text-base font-normal leading-7 text-gray-500 dark:text-gray-200">
-                        Create custom landing pages with Rareblocks that converts more visitors than any website.
+                    <p className="text-base font-normal leading-7 text-gray-600 dark:text-gray-400">
+                        Explore our comprehensive training resources to enhance your skills and knowledge.
                     </p>
                 </div>
 

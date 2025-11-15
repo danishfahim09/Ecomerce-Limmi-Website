@@ -19,10 +19,8 @@ export default async function Home() {
   const session = await getServerSession(authOptions);
 
   return (
-    <div className=" min-h-screen sm:px-3  ">
-      Caresole Section
+    <div className="min-h-screen sm:px-3">
       <Hero />
-      Market SList Caresoule
       <MarketList />
       {categories?.map((category, i) => {
         return (
@@ -31,17 +29,23 @@ export default async function Home() {
           </div>
         );
       })}
-      Comunnity Trainnig Caresoule
       <div className="my-9">
         <CummunittyTrainnig
-          title="Feautured Trainings"
+          title="Featured Trainings"
           trainings={training.slice(0, 3)}
         />
       </div>
-      <h2 className="text-4xl">Wellcome To Limmi Ecoumerce Website</h2>
-      <Link href="/register-farmer" className="my-4 underline">
-        Become a farmer/Vendor/Suppker{" "}
-      </Link>
+      <div className="text-center py-12">
+        <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+          Welcome To Limmi E-commerce Website
+        </h2>
+        <Link
+          href="/register-farmer"
+          className="inline-block text-lime-700 dark:text-lime-400 hover:underline font-medium"
+        >
+          Become a farmer/Vendor/Supplier
+        </Link>
+      </div>
     </div>
   );
 }

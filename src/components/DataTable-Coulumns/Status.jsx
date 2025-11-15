@@ -2,33 +2,38 @@
 'use client'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+import { Loader2 } from "lucide-react"
 
 function Status({ row, accessorKey }) {
     const savedStatus = row.getValue(`${accessorKey}`)
     const userId = row.original.id
-    console.log(userId,"this is  my user  id")
     const [status, setstatus] = useState(savedStatus)
     const [loading, setloading] = useState(false)
-    console.log(status, row.original, userId)
-    async function handleChange(e) {
-        const newStatus = e.target.value === "true"
+    
+    async function handleChange(value) {
+        const newStatus = value === "true"
         setstatus(newStatus)
         const data = {
             status: newStatus,
-            emailVerified:true
+            emailVerified: true
         }
-        console.log(data)
         try {
             setloading(true)
             const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-            const response = await fetch(`${baseUrl}/api/farmers/${userId}`
-                , {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(data)
-                })
+            const response = await fetch(`${baseUrl}/api/farmers/${userId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
             if (response.ok) {
                 setloading(false)
                 toast.success(`Farmer Status Updated Successfully`)
@@ -41,41 +46,37 @@ function Status({ row, accessorKey }) {
             console.log(error)
         }
     }
-    const optionStyle = {
-        color: status ? 'green' : 'red'
-    }
-    const selectBorderStyle = {
-        borderColor: status ? 'green' : 'red'
-    }
+    
     return (
-        <>
-            {
-                loading ?
-                    (
-                        <p>Updating...</p>
-                    )
-                    :
-                    (
-                        <select
-                            id="status"
-                            className='bg-gray-50 border-1 border-gray-300 text-gray-900 text-sm rounded-lg
-            focus:ring-gray-400 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-700
-            dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-400
-            dark:focus:border-gray-500'
-                            style={selectBorderStyle}
-                            value={status.toString()}
-                            onChange={handleChange}
-                        >
-                            <option value="true" selected={status === true}>
-                                APPROVED
-                            </option>
-                            <option value="false" selected={status === false}>
-                                PENDING
-                            </option>
-                        </select >
-                    )
-            }
-        </>
+        <div className="w-32">
+            {loading ? (
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <span>Updating...</span>
+                </div>
+            ) : (
+                <Select
+                    value={status.toString()}
+                    onValueChange={handleChange}
+                >
+                    <SelectTrigger className={`h-9 text-sm ${
+                        status 
+                            ? "border-lime-500 dark:border-lime-600 bg-lime-50 dark:bg-lime-900/20 text-lime-700 dark:text-lime-400" 
+                            : "border-orange-500 dark:border-orange-600 bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400"
+                    }`}>
+                        <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="true" className="text-lime-700 dark:text-lime-400 focus:bg-lime-100 dark:focus:bg-lime-900/30">
+                            APPROVED
+                        </SelectItem>
+                        <SelectItem value="false" className="text-orange-700 dark:text-orange-400 focus:bg-orange-100 dark:focus:bg-orange-900/30">
+                            PENDING
+                        </SelectItem>
+                    </SelectContent>
+                </Select>
+            )}
+        </div>
     )
 }
 

@@ -24,58 +24,56 @@ function UserAvater({ user = {} }) {
   }
   return (
     <Dropdown>
-      <DropdownTrigger className='text-gray-200'>
-        <button className=" w-10 h-10 rounded-full flex items-center justify-center bg-gray-400 border border-slate-500 dark:bg-green-600">
+      <DropdownTrigger>
+        <button className="w-10 h-10 rounded-full flex items-center justify-center bg-lime-600 hover:bg-lime-700 border-2 border-lime-500 dark:border-lime-400 text-white font-semibold shadow-md hover:shadow-lg transition-all">
           {image ? (
             <Image
-              width={200}
-              height={200}
-              src="/profile.jpg"
-              alt='image'
-              className=" w-10 h-10 rounded-full "
+              width={40}
+              height={40}
+              src={image || "/profile.jpg"}
+              alt='profile'
+              className="w-10 h-10 rounded-full object-cover"
             />
           ) : (
-            <div >
-              {initials}
-            </div>
+            <span className="text-sm">{initials}</span>
           )}
         </button>
       </DropdownTrigger>
 
-      <DropdownMenu aria-label="Static Actions">
-        <DropdownItem key="new">
-
-          <h2 className='border-b-1 border-gray-200 dark:border-gray-700 text-center pb-3 rounded-sm text-gray-900 dark:text-gray-100'>{name}</h2>
-
+      <DropdownMenu aria-label="User Menu" className="w-56">
+        <DropdownItem key="name" className="p-0">
+          <div className='border-b border-border text-center py-3 px-4'>
+            <h2 className='text-foreground font-semibold'>{name}</h2>
+            {role && (
+              <span className='text-xs text-muted-foreground'>{role}</span>
+            )}
+          </div>
         </DropdownItem>
-        <DropdownItem key="new">
-          <Link href="/dashboard" className="flex gap-4  p-2 text-gray-900 dark:text-gray-100">
-            <LayoutDashboard className='w-5 h-6 ' />
-            <span className='text-base '>Dashboard</span>
+        <DropdownItem key="dashboard">
+          <Link href="/dashboard" className="flex gap-3 items-center p-2 text-foreground hover:text-lime-600 dark:hover:text-lime-400 transition-colors">
+            <LayoutDashboard className='w-4 h-4' />
+            <span>Dashboard</span>
           </Link>
         </DropdownItem>
-        <DropdownItem key="new">
-          <Link href="/dashboard/profile" className='flex  gap-4  p-2 text-gray-900 dark:text-gray-100'>
-            <Cog className='w-5 h-6 ' />
-            <span className='text-base '>Edit Profil</span>
-          </Link >
+        <DropdownItem key="profile">
+          <Link href="/dashboard/profile" className='flex gap-3 items-center p-2 text-foreground hover:text-lime-600 dark:hover:text-lime-400 transition-colors'>
+            <Cog className='w-4 h-4' />
+            <span>Edit Profile</span>
+          </Link>
         </DropdownItem>
         {role === "USER" && (
-          <DropdownItem key="new">
-            <Link href="/dashboard/orders" className='flex  gap-4  p-2 text-gray-900 dark:text-gray-100'>
-              <Cog className='w-5 h-6 ' />
-              <span className='text-base '>My Orders</span>
-            </Link >
+          <DropdownItem key="orders">
+            <Link href="/dashboard/orders" className='flex gap-3 items-center p-2 text-foreground hover:text-lime-600 dark:hover:text-lime-400 transition-colors'>
+              <Cog className='w-4 h-4' />
+              <span>My Orders</span>
+            </Link>
           </DropdownItem>
         )}
-        <DropdownItem key="new">
-          <button className='flex  gap-4  p-2 text-gray-900 dark:text-gray-100' onClick={handdleLougOut}>
-            <LogOut className='w-5 h-6 ' />
-            <span className='text-base'>Log Out</span>
+        <DropdownItem key="logout">
+          <button className='flex gap-3 items-center p-2 text-foreground hover:text-destructive transition-colors w-full text-left' onClick={handdleLougOut}>
+            <LogOut className='w-4 h-4' />
+            <span>Log Out</span>
           </button>
-        </DropdownItem>
-        <DropdownItem key="delete" className="text-danger" color="danger">
-          Delete file
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

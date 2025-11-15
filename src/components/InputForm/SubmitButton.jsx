@@ -1,5 +1,6 @@
-import { LoaderIcon, Plus } from 'lucide-react'
+import { Loader2, Plus } from 'lucide-react'
 import React from 'react'
+import { Button } from "@/components/ui/button"
 
 function SubmitButton({
     isLoding = false,
@@ -9,22 +10,22 @@ function SubmitButton({
     return (
         <div>
             {isLoding ?
-                <button type="submit" className="flex  flex-row gap-3 text-white bg-black hover:bg-slate-950 focus:outline-none
-                 focus:ring-4 focus:ring-lime-300 font-medium rounded-full text-sm my-4 px-5 py-2.5 text-center
-                  me-2 mb-2 dark:bg-lime-700 dark:hover:bg-lime-800 dark:focus:ring-lime-800"
+                <Button 
+                    type="submit" 
+                    disabled
+                    className="gap-2 shadow-md hover:shadow-lg transition-shadow duration-200"
                 >
-                    <LoaderIcon className='w-5 h-5'/>
+                    <Loader2 className='w-4 h-4 animate-spin'/>
                     {loddingButtonTiittle}
-                </button>
+                </Button>
                 :
-                <button type="submit" className="flex flex-row gap-1 justify-center  text-white
-                 bg-black hover:bg-black focus:outline-none focus:ring-4
-                  focus:ring-blue-300 font-medium rounded-lg text-sm my-4 px-5 py-2.5 text-center
-                  me-2 mb-2 dark:bg-lime-700 dark:hover:bg-lime-800 dark:focus:ring-lime-800"
+                <Button 
+                    type="submit"
+                    className="gap-2 shadow-md hover:shadow-lg transition-shadow duration-200"
                 >
-                    <Plus className='w-5 h-5'/>
+                    <Plus className='w-4 h-4'/>
                     {ButtonTittle}
-                </button>
+                </Button>
             }
         </div>
     )

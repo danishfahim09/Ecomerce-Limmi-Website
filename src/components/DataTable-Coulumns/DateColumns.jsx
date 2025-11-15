@@ -11,7 +11,7 @@ function DateColumns({row,accessorKey}) {
     const year = originalDate.getFullYear()
     const formated = `${day} ${month} ${year}`
     return (
-        <div className="shrink-0">
+        <div className="shrink-0 text-sm text-muted-foreground font-medium">
             {formated}
         </div>
     )

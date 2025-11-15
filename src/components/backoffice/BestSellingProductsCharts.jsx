@@ -29,13 +29,11 @@ const data = {
 };
 function BestSellingProducts() {
   return (
-    <div className='dark:bg-slate-700 dark:text-white text-gray-500 bg-white dark:border-none rounded-lg p-8 shadow-lg dark:shadow-none shadow-gray-300'>
-        <h2 className='text-xl font-bold mb-5 p-3'>BestSellingChart</h2>
+    <div className='bg-card border border-border rounded-lg p-8 shadow-md dark:shadow-lg'>
+        <h2 className='text-xl font-semibold text-foreground mb-5'>Best Selling Products</h2>
         <div className='px-6'>
         <Pie data={data}/>
         </div>
-        {/**/}
-        
     </div>
   )
 }

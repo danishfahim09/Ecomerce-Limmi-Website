@@ -10,7 +10,7 @@ function ImageColumn({row , accessorKey}) {
                 width={500}
                 height={500}
                 alt={`${accessorKey}`}
-                className="w-10 h-10 rounded-full object-fill"
+                className="w-12 h-12 rounded-lg object-cover border border-border shadow-sm"
             />
         </div>
     )

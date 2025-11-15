@@ -60,7 +60,7 @@ export default function DataTable({ columns, data, filterKeys=["title"]}) {
     return (
         <div className="space-y-4">
             <DataTableToolbar table={table} filterKeys={filterKeys}/>
-            <div className="rounded-md border">
+            <div className="rounded-lg border border-border bg-card shadow-md dark:shadow-lg overflow-hidden">
                 <Table>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (

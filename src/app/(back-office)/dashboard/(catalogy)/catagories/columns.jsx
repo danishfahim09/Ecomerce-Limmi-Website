@@ -4,6 +4,7 @@ import Datecolumn from '@/components/DataTable-Coulumns/DateColumns'
 import ImageColumn from '@/components/DataTable-Coulumns/ImageColumn'
 import SortableColumn from '@/components/DataTable-Coulumns/SortableColumn'
 import ActionColumn from '@/components/DataTable-Coulumns/ActionColumn'
+import ActiveStatus from '@/components/DataTable-Coulumns/ActiveStatus'
 
 
 export const columns = [
@@ -45,6 +46,7 @@ export const columns = [
   {
     accessorKey: "isActive",
     header: "Active",
+    cell: ({ row }) => (<ActiveStatus row={row} accessorKey="isActive" />)
   },
   {
     accessorKey: "createdAt",

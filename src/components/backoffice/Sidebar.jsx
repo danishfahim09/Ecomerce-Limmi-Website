@@ -201,9 +201,9 @@ function Sidebar({ showSideBar }) {
 
   return (
     <div className={showSideBar ?
-      'overflow-y-scroll block sm:hidden z-10  p-4 fixed w-64 dark:text-gray-200 dark:bg-slate-700 bg-white text-gray-700 space-y-6 h-screen sm:w-64  top-0 left-0 border-2 dark:border-gray-700 border-gray-100"'
+      'overflow-y-scroll block sm:hidden z-10 p-4 fixed w-64 bg-card border-r border-border text-foreground space-y-6 h-screen sm:w-64 top-0 left-0'
       :
-      "hidden sm:block  fixed dark:text-gray-200 dark:bg-slate-700 bg-white text-gray-700 space-y-2 h-screen sm:w-64  top-0 left-0 border-2 dark:border-gray-700 border-gray-100 overflow-y-scroll"} >
+      "hidden sm:block fixed bg-card border-r border-border text-foreground space-y-2 h-screen sm:w-64 top-0 left-0 overflow-y-scroll"} >
       <Image
         className={showSideBar ? 'ml-4 text-center mt-20 p-2 ' : 'ml-4 text-center mt-5 p-2 '}
         src='/applogo.png'
@@ -216,11 +216,11 @@ function Sidebar({ showSideBar }) {
 
           {/*Side Bare Items*/}
           <li className={usepath == '/dashboard' ?
-            'border-l-4 dark:border-lime-400 border-emerald-700 text-emerald-600 dark:text-lime-500'
+            'border-l-4 border-lime-500 bg-lime-50 dark:bg-lime-900/20 text-lime-700 dark:text-lime-400'
             :
-            'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'}>
+            'text-foreground hover:bg-muted/50 transition-colors'}>
             <Link href='/dashboard' className="flex items-center p-1 pl-5 rounded-lg group">
-              <Flower />
+              <Flower className="w-5 h-5" />
               <span className="ms-5">Dashboard</span>
             </Link>
           </li>
@@ -231,28 +231,28 @@ function Sidebar({ showSideBar }) {
             <Collapsible>
               <CollapsibleTrigger>
                 {/*CataLog*/}
-                <div className="flex items-center p-1 pl-5 rounded-lg  dark:text-gray-300"
+                <div className="flex items-center p-1 pl-5 rounded-lg text-foreground hover:bg-muted/50 transition-colors cursor-pointer"
                   onClick={() => { setopenMenue(!openMenue) }}
                 >
-                  <LayoutDashboard />
-                  <span className="ms-5">Catalogy</span>
-                  {openMenue ? (<ChevronDown className='ml-4' />) : (<ChevronRight className='ml-4' />)}
+                  <LayoutDashboard className="w-5 h-5" />
+                  <span className="ms-5">Catalog</span>
+                  {openMenue ? (<ChevronDown className='ml-4 w-4 h-4' />) : (<ChevronRight className='ml-4 w-4 h-4' />)}
                 </div>
               </CollapsibleTrigger>
               <CollapsibleContent>
-                <div className='rounded-lg dark:bg-gray-800 dark:text-gray-300  mx-3 mt-4'>
+                <div className='rounded-lg bg-muted/30 mx-3 mt-4 p-2'>
                   {
                     CatalogLinks?.map((item, i) => {
                       const Icon = item.icon
                       return (
                         <Link key={i}
                           href={item.link} className={usepath == item.link ?
-                            'border-l-4 dark:border-orange-400 border-emerald-700 text-emerald-600 dark:text-orange-400 flex gap-2 p-1 '
+                            'border-l-4 border-lime-500 bg-lime-50 dark:bg-lime-900/20 text-lime-700 dark:text-lime-400 flex gap-2 p-2 rounded transition-colors'
                             :
-                            'text-gray-900 dark:text-gray-300 dark:hover:text-gray-400  flex gap-2 p-1 '}
+                            'text-foreground hover:bg-muted/50 flex gap-2 p-2 rounded transition-colors'}
                         >
-                          <Icon className='' />
-                          <span>{item.tittle}</span>
+                          <Icon className='w-4 h-4' />
+                          <span className="text-sm">{item.tittle}</span>
                         </Link>
                       )
                     })
@@ -276,28 +276,24 @@ function Sidebar({ showSideBar }) {
               return (
                 <li key={i}
                   className={item.link == usepath ?
-                    'border-l-4 dark:border-lime-400 border-emerald-700 text-emerald-600 dark:text-lime-500'
+                    'border-l-4 border-lime-500 bg-lime-50 dark:bg-lime-900/20 text-lime-700 dark:text-lime-400'
                     :
-                    'text-gray-900 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'}
+                    'text-foreground hover:bg-muted/50 transition-colors'}
                 >
                   <Link
                     href={item.link}
-                    className="flex items-center p-1 pl-5 rounded-lg text-lg"
+                    className="flex items-center p-1 pl-5 rounded-lg"
                   >
-                    <Icon />
+                    <Icon className="w-5 h-5" />
                     <span className="ms-5">{item.tittle}</span>
                   </Link>
                 </li>)
             })
           }
         </ul>
-        <button onClick={handdleLougOut} className={openMenue ?
-          "fixed   bottom-1  w-48 h-12 flex items-center gap-5  bg-green-700 hover:bg-green-800 text-white font-semibold rounded-xl my-6 "
-          :
-          " bottom-3   w-48 h-12 flex items-center gap-5  bg-green-700 hover:bg-green-800 text-white font-semibold rounded-xl my-6 "}
-        >
-          <LogOut className='ml-9 w-6 h-6' />
-          Log Out ff
+        <button onClick={handdleLougOut} className={`${openMenue ? "fixed bottom-1" : "bottom-3"} w-48 h-12 flex items-center justify-center gap-2 bg-lime-600 hover:bg-lime-700 dark:bg-lime-600 dark:hover:bg-lime-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 my-6`}>
+          <LogOut className='w-5 h-5' />
+          Log Out
         </button>
       </div>
     </div>
