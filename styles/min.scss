@@ -113,10 +113,6 @@
     transition: background-color 0.15s ease-in-out, transform 0.1s ease-in-out;
   }
   
-  table tbody tr:hover {
-    transform: translateX(2px);
-  }
-  
   /* Better table borders */
   table thead tr {
     border-bottom-width: 2px;
@@ -132,15 +128,15 @@
     transition: background-color 0.15s ease-in-out;
   }
   
-  /* Selected row styling */
+  /* Selected row styling - neutral, professional */
   table tbody tr[data-state="selected"] {
-    background-color: hsl(var(--lime-100) / 0.5);
-    border-left: 3px solid hsl(var(--lime-600));
+    background-color: hsl(var(--muted) / 0.5);
+    border-left: 2px solid hsl(var(--border));
   }
   
   .dark table tbody tr[data-state="selected"] {
-    background-color: hsl(var(--lime-900) / 0.3);
-    border-left-color: hsl(var(--lime-500));
+    background-color: hsl(var(--muted) / 0.3);
+    border-left-color: hsl(var(--border));
   }
 }
 

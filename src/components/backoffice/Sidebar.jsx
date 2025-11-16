@@ -229,7 +229,7 @@ function Sidebar({ showSideBar }) {
 
           {CatalogLinks.length > 0 && (
             <Collapsible>
-              <CollapsibleTrigger>
+              <CollapsibleTrigger className='w-full'>
                 {/*CataLog*/}
                 <div className="flex items-center p-1 pl-5 rounded-lg text-foreground hover:bg-muted/50 transition-colors cursor-pointer"
                   onClick={() => { setopenMenue(!openMenue) }}
